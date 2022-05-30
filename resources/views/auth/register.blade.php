@@ -12,9 +12,7 @@
 
 <!-- Select2 JS -->
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-<script>
 
-</script>
 @section('content')
 <div class="container">
     <div class="container mt-5">
@@ -32,7 +30,7 @@
                 {{-- REGISTER FORM --}}
                 <form method="POST" class="py-2" action="{{ route('register') }}">
                     @csrf
-
+                    <div id='result'></div>
                     {{-- FIRST NAME, LAST NAME, MIDDLE NAME --}}
                     <div class="mb-2 fs-4 text-center">Personal Information</div>
 
@@ -42,8 +40,13 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="fname" class="form-label"><b style="color: red">*</b> {{ __('First Name') }}</label>
-                                <input id="fname" name="fname" type="text" value="{{ old('fname') }}" class="form-control autofocus">
+                                <input id="fname" name="fname" type="text" class="form-control  @error('fname') is-invalid @enderror autofocus " value="{{ old('fname') }}">
                             </div>
+                                @error('fname')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                         </div>
 
                         {{-- MIDDLE NAME --}}
@@ -51,7 +54,7 @@
                             <div class="mb-3">
                                 <div class="mb-3">
                                     <label for="mname" class="form-label">{{ __('Middle Name') }}</label>
-                                    <input id="mname" name="mname" type="text" value="{{ old('mname') }}" class="form-control autofocus">
+                                    <input id="mname" name="mname" type="text" class="form-control autofocus" value="{{ old('mname') }}">
                                 </div>
 
                             </div>
@@ -62,9 +65,13 @@
                             <div class="mb-3">
                                 <div class="mb-3">
                                     <label for="lname" class="form-label"><b style="color: red">*</b> {{ __('Last Name') }}</label>
-                                    <input id="lname" name="lname" type="text" value="{{ old('lname') }}" class="form-control autofocus">
+                                    <input id="lname" name="lname" type="text" class="form-control  @error('lname') is-invalid @enderror autofocus" value="{{ old('lname') }}">
                                 </div>
-
+                                    @error('lname')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                     @enderror
                             </div>
                         </div>
 
@@ -78,8 +85,13 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="bday" class="form-label"><b style="color: red">*</b> {{ __('Birthday') }}</label>
-                                <input type="date" class="form-control" value="{{ old('bday') }}" id="bday" name="bday">
+                                <input type="date" class="form-control  @error('bday') is-invalid @enderror" id="bday" name="bday" value="{{ old('bday') }}">
                             </div>
+                            @error('bday')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                         </div>
 
                         {{-- AGE --}}
@@ -89,6 +101,7 @@
                                 <input class="form-control" type="text" value="" aria-label="age disabled id"
                                     readonly id="age" name="age" value="{{ old('age') }}">
                             </div>
+
                         </div>
 
 
@@ -102,7 +115,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="suffix" class="form-label">{{ __('Suffix') }}</label>
-                                <input id="suffix" name="suffix" type="text" value="{{ old('suffix') }}" class="form-control autofocus">
+                                <input id="suffix" name="suffix" type="text" class="form-control  @error('suffix') is-invalid @enderror autofocus" value="{{ old('suffix') }}">
                             </div>
                         </div>
 
@@ -136,12 +149,12 @@
                                         @foreach ($title as $item)
                                         <option value="{{ $item->name }}">{{ $item->name }}</option>
                                         @endforeach
-                        </select>
-                        @error('title')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                                </select>
+                                        @error('title')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
 
                             </div>
                         </div>
@@ -177,7 +190,7 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="province" class="form-label"><b style="color: red">*</b> {{ __('Province') }}</label>
-                                        <select class="form-select form-select-md" aria-label=".form-select-lg example"
+                                        <select class="form-select form-select-md  @error('province') is-invalid @enderror" aria-label=".form-select-lg example"
                                         id="selProvince" name="province" value="{{ old('$item->name') }}">
                                         <option hidden>Choose Province</option>
                                             @foreach ($province as $item)
@@ -196,7 +209,7 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="municipality" class="form-label"><b style="color: red">*</b> {{ __('Municipality/City') }}</label>
-                                        <select class="form-select form-select-md" aria-label=".form-select-lg example"
+                                        <select class="form-select form-select-md  @error('municipality') is-invalid @enderror" aria-label=".form-select-lg example"
                                         id="selMunicipality" name="municipality" value="{{ old('$item->name') }}">
                                         <option hidden>Choose Municipality/City</option>
                                             @foreach ($municipality as $item)
@@ -215,7 +228,7 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="barangay" class="form-label"><b style="color: red">*</b> {{ __('Barangay') }}</label>
-                                        <select class="form-select form-select-md" aria-label=".form-select-lg example"
+                                        <select class="form-select form-select-md  @error('brgy') is-invalid @enderror" aria-label=".form-select-lg example"
                                         id="selBrgy" name="brgy" value="{{ old('brgy') }}">
                                             <option selected>Select Barangay</option>
                                             <option value="1">One</option>
@@ -223,6 +236,11 @@
                                             <option value="3">Three</option>
                                         </select>
                                     </div>
+                                        @error('brgy')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                 </div>
                             </div>
 
@@ -231,16 +249,26 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="houseNo_streetName" class="form-label"><b style="color: red">*</b> {{ __('House No. and Street') }}</label>
-                                        <input id="houseNo_streetName" name="houseNo_streetName" type="text" value="{{ old('houseNo_streetName') }}" class="form-control autofocus">
+                                        <input id="houseNo_streetName" name="houseNo_streetName" type="text" class="form-control  @error('houseNo_streetName') is-invalid @enderror autofocus" value="{{ old('houseNo_streetName') }}">
                                     </div>
+                                        @error('houseNo_streetName')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                 </div>
 
                                 {{-- Postal Code --}}
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="postal_code" class="form-label">{{ __('Postal Code') }}</label>
-                                        <input id="postal_code" value="{{ old('postal_code') }}" name="postal_code" type="text" class="form-control autofocus">
+                                        <input id="postal_code" name="postal_code" type="text" class="form-control  @error('postal_code') is-invalid @enderror autofocus" value="{{ old('postal_code') }}">
                                     </div>
+                                        @error('postal_code')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                 </div>
 
                             </div>
@@ -269,28 +297,18 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="password" class="form-label"><b style="color: red">*</b> {{ __('Password') }}</label>
-                                <input type="password" class="form-control" id="password" name="password" onkeyup="return validate()">
+                                <input type="password" class="form-control  @error('password') is-invalid @enderror" id="password" name="password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                                <div class="errors">
-                                    <ul>
-                                        <li id="upper"> Atleast one uppercase</li>
-                                        <li id="lower"> Atleast one lowercase</li>
-                                        <li id="special_char"> Atleast one special character or symbol</li>
-                                        <li id="number"> Atleast one number</li>
-                                        <li id="length"> Atleast 8 characters</li>
-                                    </ul>
-                                </div>
                             </div>
 
                         </div>
 
                          {{-- PASSWORD CONFIRM --}}
-
                          <div class="col">
                             <div class="mb-3">
                                 <label for="password_confirmation" class="form-label"><b style="color: red">*</b> {{ __('Password Confirm') }}</label>
@@ -312,14 +330,14 @@
                                 <div class="mb-3">
                                     {{-- NEW PATIENT --}}
                                     <input type="checkbox" class="form-check-input" type="checkbox"
-                                        name="status" id="new_patient" value="New Patient" value="{{ old('status') }}">
-                                    <label class="form-check-label" for="new_patient">
+                                        name="status" id="new_patient" value="New Patient">
+                                    <label class="form-check-label" for="new_patient" value="{{ old('status') }}">
                                         {{ __('New Patient') }}</label>
 
                                     {{-- EXISTING PATIENT --}}
                                     <input type="checkbox" class="form-check-input" type="checkbox"
-                                        name="status" id="existing_patient" id="existing_patient" value="New Patient" value="{{ old('status') }}">
-                                    <label class="form-check-label" for="existing_patient">
+                                        name="status" id="existing_patient" id="existing_patient" value="New Patient">
+                                    <label class="form-check-label" for="existing_patient" value="{{ old('status') }}">
                                         {{ __('Existing Patient') }}</label>
 
                                 </div>
@@ -330,9 +348,14 @@
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="patient_id" id="patient_id1" class="form-label" style="display: none">{{ __('Patient ID') }}</label>
-                                    <input id="patient_id" name="patient_id" type="text" class="form-control autofocus" style="display: none" value="{{ old('patient_id') }}">
+                                    <input id="patient_id" name="patient_id" type="text" class="form-control  @error('patient_id') is-invalid @enderror autofocus" style="display: none" value="{{ old('patient_id') }}">
                                     </ul>
                                 </div>
+                                @error('patient_id')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                             </div>
 
                         </div>
@@ -342,7 +365,7 @@
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="id_type" class="form-label"><b style="color: red">*</b> {{ __('Id Type') }}</label>
-                                    <select class="form-select form-select-md" aria-label=".form-select-lg example"
+                                    <select class="form-select form-select-md  @error('id_type') is-invalid @enderror" aria-label=".form-select-lg example"
                                     id="id_type" name="id_type" value="{{ old('$item->name') }}">
                                     <option value="">Select ID Type</option>
                                         @foreach ($id_type as $item)
@@ -361,18 +384,28 @@
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="id_no" class="form-label"><b style="color: red">*</b> {{ __('Id Number') }}</label>
-                                    <input id="id_no" name="id_no" value="{{ old('id_no') }}" type="text" class="form-control autofocus">
+                                    <input id="id_no" name="id_no" type="text" class="form-control  @error('id_no') is-invalid @enderror autofocus" value="{{ old('id_no') }}">
                                     </ul>
                                 </div>
+                                        @error('id_no')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                             </div>
                         </div>
 
                         <div class="col">
                             <div class="mb-3">
                                 <label for="upload_id" class="form-label"><b style="color: red">*</b> {{ __('Upload ID') }}</label>
-                                <input id="upload_id" name="upload_id" value="{{ old('upload_id') }}" type="file" class="form-control autofocus">
+                                <input id="upload_id" name="upload_id" type="file" class="form-control  @error('upload_id') is-invalid @enderror autofocus" value="{{ old('upload_id') }}">
 
                             </div>
+                                     @error('upload_id')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                         </div>
 
                     </div>

@@ -47,6 +47,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+    use PasswordValidationRules;
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -63,7 +64,7 @@ class RegisterController extends Controller
             'id_type' => ['required', 'string', 'max:255'],
             'id_no' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => $this->passwordRules(),
         ]);
     }
 
