@@ -297,7 +297,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="password" class="form-label"><b style="color: red">*</b> {{ __('Password') }}</label>
-                                <input type="password" class="form-control  @error('password') is-invalid @enderror" id="password" name="password">
+                                <input type="password" class="form-control  @error('password') is-invalid @enderror" id="password" name="password" onkeyup="return validate()">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -305,7 +305,15 @@
                                     </span>
                                 @enderror
                             </div>
-
+                            <div class="errors">
+                                <ul>
+                                    <li id="upper"> Atleast one uppercase</li>
+                                    <li id="lower"> Atleast one lowercase</li>
+                                    <li id="special_char"> Atleast one special character or symbol</li>
+                                    <li id="number"> Atleast one number</li>
+                                    <li id="length"> Atleast 8 characters</li>
+                                </ul>
+                            </div>
                         </div>
 
                          {{-- PASSWORD CONFIRM --}}
