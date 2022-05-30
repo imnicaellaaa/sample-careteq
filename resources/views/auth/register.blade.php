@@ -12,7 +12,9 @@
 
 <!-- Select2 JS -->
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<script>
 
+</script>
 @section('content')
 <div class="container">
     <div class="container mt-5">
@@ -267,18 +269,28 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="password" class="form-label"><b style="color: red">*</b> {{ __('Password') }}</label>
-                                <input type="password" class="form-control" id="password" name="password">
+                                <input type="password" class="form-control" id="password" name="password" onkeyup="return validate()">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                <div class="errors">
+                                    <ul>
+                                        <li id="upper"> Atleast one uppercase</li>
+                                        <li id="lower"> Atleast one lowercase</li>
+                                        <li id="special_char"> Atleast one special character or symbol</li>
+                                        <li id="number"> Atleast one number</li>
+                                        <li id="length"> Atleast 8 characters</li>
+                                    </ul>
+                                </div>
                             </div>
 
                         </div>
 
                          {{-- PASSWORD CONFIRM --}}
+
                          <div class="col">
                             <div class="mb-3">
                                 <label for="password_confirmation" class="form-label"><b style="color: red">*</b> {{ __('Password Confirm') }}</label>
