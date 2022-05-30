@@ -19,7 +19,7 @@
 
             {{-- GRID --}}
             <div class="col-lg-7 col-sm-7 col-md-6 m-auto ">
-                <div class="text-center display-2  ">LOGIN</div>
+                <div class="text-center display-2  ">REGISTER</div>
 
                 {{-- CARD --}}
                 <div class="card border-1 shadow rounded-lg">
@@ -48,7 +48,7 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <div class="mb-3">
-                                            <label for="mname" class="form-label"><b style="color: red">*</b> {{ __('Middle Name') }}</label>
+                                            <label for="mname" class="form-label">{{ __('Middle Name') }}</label>
                                             <input id="mname" name="mname" type="text" class="form-control autofocus">
                                         </div>
 
@@ -59,7 +59,7 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <div class="mb-3">
-                                            <label for="lname" class="form-label"><b style="color: red">*</b>{{ __('Last Name') }}</label>
+                                            <label for="lname" class="form-label"><b style="color: red">*</b> {{ __('Last Name') }}</label>
                                             <input id="lname" name="lname" type="text" class="form-control autofocus">
                                         </div>
 
@@ -241,8 +241,8 @@
                                 {{-- Postal Code --}}
                                 <div class="col">
                                     <div class="mb-3">
-                                        <label for="code" class="form-label">{{ __('Postal Code') }}</label>
-                                        <input id="code" name="code" type="text" class="form-control autofocus">
+                                        <label for="postal_code" class="form-label">{{ __('Postal Code') }}</label>
+                                        <input id="postal_code" name="postal_code" type="text" class="form-control autofocus">
                                     </div>
                                 </div>
 
@@ -287,7 +287,7 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="password-confirm" class="form-label"><b style="color: red">*</b> {{ __('Password Confirm') }}</label>
-                                        <input type="password-confirm" class="form-control" id="password-confirm" name="password-confirm">
+                                        <input type="password" class="form-control" id="password-confirm" name="password-confirm">
 
                                         @error('password-confirm')
                                             <span class="invalid-feedback" role="alert">
