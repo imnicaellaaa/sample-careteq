@@ -157,7 +157,7 @@
                                     <div class="mb-3">
                                         <label for="country" class="form-label"><b style="color: red">*</b> {{ __('Country') }}</label>
                                         <select class="form-select form-select-md @error('country') is-invalid @enderror" aria-label=".form-select-lg example"
-                                        id="country" name="country">
+                                        id="selCountry" name="country">
                                         <option hidden>Choose Country</option>
                                             @foreach ($country as $item)
                                             <option value="{{ $item->name }}">{{ $item->name }}</option>
@@ -176,7 +176,7 @@
                                     <div class="mb-3">
                                         <label for="province" class="form-label"><b style="color: red">*</b> {{ __('Province') }}</label>
                                         <select class="form-select form-select-md" aria-label=".form-select-lg example"
-                                        id="province" name="province">
+                                        id="selProvince" name="province">
                                         <option hidden>Choose Province</option>
                                             @foreach ($province as $item)
                                             <option value="{{ $item->name }}">{{ $item->name }}</option>
@@ -195,7 +195,7 @@
                                     <div class="mb-3">
                                         <label for="municipality" class="form-label"><b style="color: red">*</b> {{ __('Municipality/City') }}</label>
                                         <select class="form-select form-select-md" aria-label=".form-select-lg example"
-                                        id="municipality" name="municipality">
+                                        id="selMunicipality" name="municipality">
                                         <option hidden>Choose Municipality/City</option>
                                             @foreach ($municipality as $item)
                                             <option value="{{ $item->name }}">{{ $item->name }}</option>
@@ -217,7 +217,7 @@
                                     <div class="mb-3">
                                         <label for="barangay" class="form-label"><b style="color: red">*</b> {{ __('Barangay') }}</label>
                                         <select class="form-select form-select-md" aria-label=".form-select-lg example"
-                                        id="brgy" name="brgy">
+                                        id="selBrgy" name="brgy">
                                             <option selected>Select Barangay</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
@@ -341,11 +341,16 @@
                                         <label for="id_type" class="form-label"><b style="color: red">*</b> {{ __('Id Type') }}</label>
                                         <select class="form-select form-select-md" aria-label=".form-select-lg example"
                                         id="id_type" name="id_type">
-                                            <option selected>Select ID Type</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                        <option value="">Select ID Type</option>
+                                            @foreach ($id_type as $item)
+                                            <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                            @endforeach
                                         </select>
+                                            @error('id_type')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                     </div>
                                 </div>
 

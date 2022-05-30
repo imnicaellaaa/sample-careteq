@@ -15,7 +15,7 @@ class IdTypeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('i_d_types')->insert([
+        DB::table('id_types')->insert([
             [
                 'id'            => '1',
                 'name'          => "Voter's ID",
