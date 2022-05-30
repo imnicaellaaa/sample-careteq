@@ -29,7 +29,7 @@
                             {{-- PASSWORD --}}
                             <div class="mb-3">
                                 <label for="password" class="form-label">{{ __('Password') }}</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1">
+                                <input type="password" class="form-control" id="password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">

@@ -14,6 +14,7 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
 @section('content')
+<div class="container">
     <div class="container mt-5">
         <div class="row">
 
@@ -26,127 +27,126 @@
                     <div class="card-body  ">
                         {{-- insert logo image here --}}
 
+                {{-- REGISTER FORM --}}
+                <form method="POST" class="py-2" action="{{ route('register') }}">
+                    @csrf
 
-                        {{-- REGISTER FORM --}}
-                        <form method="POST" class="py-2" action="{{ route('register') }}">
-                            @csrf
+                    {{-- FIRST NAME, LAST NAME, MIDDLE NAME --}}
+                    <div class="mb-2 fs-4 text-center">Personal Information</div>
 
-                            {{-- FIRST NAME, LAST NAME, MIDDLE NAME --}}
-                            <div class="mb-2 fs-4 text-center">Personal Information</div>
+                    <div class="row">
 
-                            <div class="row">
+                        {{-- FIRST NAME --}}
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="fname" class="form-label"><b style="color: red">*</b> {{ __('First Name') }}</label>
+                                <input id="fname" name="fname" type="text" class="form-control autofocus">
+                            </div>
+                        </div>
 
-                                {{-- FIRST NAME --}}
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <label for="fname" class="form-label"><b style="color: red">*</b> {{ __('First Name') }}</label>
-                                        <input id="fname" name="fname" type="text" class="form-control autofocus">
-                                    </div>
-                                </div>
-
-                                {{-- MIDDLE NAME --}}
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <div class="mb-3">
-                                            <label for="mname" class="form-label">{{ __('Middle Name') }}</label>
-                                            <input id="mname" name="mname" type="text" class="form-control autofocus">
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                {{-- LAST NAME --}}
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <div class="mb-3">
-                                            <label for="lname" class="form-label"><b style="color: red">*</b> {{ __('Last Name') }}</label>
-                                            <input id="lname" name="lname" type="text" class="form-control autofocus">
-                                        </div>
-
-                                    </div>
+                        {{-- MIDDLE NAME --}}
+                        <div class="col">
+                            <div class="mb-3">
+                                <div class="mb-3">
+                                    <label for="mname" class="form-label">{{ __('Middle Name') }}</label>
+                                    <input id="mname" name="mname" type="text" class="form-control autofocus">
                                 </div>
 
                             </div>
+                        </div>
 
-                            {{-- BDAY, AGE --}}
-
-                            <div class="row">
-
-                                {{-- BDAY --}}
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <label for="bday" class="form-label"><b style="color: red">*</b> {{ __('Birthday') }}</label>
-                                        <input type="date" class="form-control" id="bday" name="bday">
-                                    </div>
+                        {{-- LAST NAME --}}
+                        <div class="col">
+                            <div class="mb-3">
+                                <div class="mb-3">
+                                    <label for="lname" class="form-label"><b style="color: red">*</b> {{ __('Last Name') }}</label>
+                                    <input id="lname" name="lname" type="text" class="form-control autofocus">
                                 </div>
-
-                                {{-- AGE --}}
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <label for="age" class="form-label">{{ __('Age') }}</label>
-                                        <input class="form-control" type="text" value="" aria-label="age disabled id"
-                                            readonly id="age" name="age">
-                                    </div>
-                                </div>
-
 
                             </div>
+                        </div>
 
-                            {{-- TITLE, SUFFIX --}}
+                    </div>
 
-                            <div class="row">
+                    {{-- BDAY, AGE --}}
 
-                                {{-- SUFFIX --}}
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <label for="suffix" class="form-label">{{ __('Suffix') }}</label>
-                                        <input id="suffix" name="suffix" type="text" class="form-control autofocus">
-                                    </div>
-                                </div>
+                    <div class="row">
 
-                                {{-- GENDER --}}
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <label for="gender" class="form-label"><b style="color: red">*</b> {{ __('Gender') }}</label>
-                                        <select class="form-select form-select-md  @error('gender') is-invalid @enderror"
-                                        name="gender" aria-label=".form-select-lg example">
-                                        <option hidden>Choose Gender</option>
-                                            @foreach ($gender as $item)
-                                            <option value="{{ $item->name }}">{{ $item->name }}</option>
-                                            @endforeach
-                                            </select>
-                                        @error('gender')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                        {{-- BDAY --}}
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="bday" class="form-label"><b style="color: red">*</b> {{ __('Birthday') }}</label>
+                                <input type="date" class="form-control" id="bday" name="bday">
+                            </div>
+                        </div>
 
-                                    </div>
-                                </div>
+                        {{-- AGE --}}
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="age" class="form-label">{{ __('Age') }}</label>
+                                <input class="form-control" type="text" value="" aria-label="age disabled id"
+                                    readonly id="age" name="age">
+                            </div>
+                        </div>
 
-                                {{-- TITLE --}}
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <label for="title" class="form-label"><b style="color: red">*</b> {{ __('Title') }}</label>
-                                        <select class="form-select form-select-md @error('title') is-invalid @enderror"
-                                        aria-label=".form-select-lg example" id="title" name="title">
-                                            <option hidden>Choose Title</option>
-                                                @foreach ($title as $item)
-                                                <option value="{{ $item->name }}">{{ $item->name }}</option>
-                                                @endforeach
-                                </select>
-                                @error('title')
+
+                    </div>
+
+                    {{-- TITLE, SUFFIX --}}
+
+                    <div class="row">
+
+                        {{-- SUFFIX --}}
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="suffix" class="form-label">{{ __('Suffix') }}</label>
+                                <input id="suffix" name="suffix" type="text" class="form-control autofocus">
+                            </div>
+                        </div>
+
+                        {{-- GENDER --}}
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="gender" class="form-label"><b style="color: red">*</b> {{ __('Gender') }}</label>
+                                <select class="form-select form-select-md  @error('gender') is-invalid @enderror"
+                               id="gender" name="gender" aria-label=".form-select-lg example">
+                                <option hidden>Choose Gender</option>
+                                    @foreach ($gender as $item)
+                                    <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                    @endforeach
+                                    </select>
+                                @error('gender')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
 
-                                    </div>
-                                </div>
+                            </div>
+                        </div>
+
+                        {{-- TITLE --}}
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="title" class="form-label"><b style="color: red">*</b> {{ __('Title') }}</label>
+                                <select class="form-select form-select-md @error('title') is-invalid @enderror"
+                                aria-label=".form-select-lg example" id="title" name="title">
+                                    <option hidden>Choose Title</option>
+                                        @foreach ($title as $item)
+                                        <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                        @endforeach
+                        </select>
+                        @error('title')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
 
                             </div>
+                        </div>
 
-                            <div class="py-1"></div>
+                    </div>
+
+                    <div class="py-1"></div>
 
                             <div class="mb-2 fs-4 text-center">Address</div>
 
@@ -209,9 +209,6 @@
                                     </div>
                                 </div>
 
-
-
-
                                 {{-- BARANGAY --}}
                                 <div class="col">
                                     <div class="mb-3">
@@ -227,7 +224,6 @@
                                 </div>
                             </div>
 
-
                             <div class="row">
                                 {{-- HOUSE NO AND STREET --}}
                                 <div class="col">
@@ -236,7 +232,6 @@
                                         <input id="houseNo_streetName" name="houseNo_streetName" type="text" class="form-control autofocus">
                                     </div>
                                 </div>
-
 
                                 {{-- Postal Code --}}
                                 <div class="col">
@@ -268,119 +263,116 @@
                                     @enderror
                                 </div>
 
-                                {{-- PASSWORD --}}
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <label for="password" class="form-label"><b style="color: red">*</b> {{ __('Password') }}</label>
-                                        <input type="password" class="form-control" id="password" name="password">
+                        {{-- PASSWORD --}}
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="password" class="form-label"><b style="color: red">*</b> {{ __('Password') }}</label>
+                                <input type="password" class="form-control" id="password" name="password">
 
-                                        @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
 
-                                </div>
+                        </div>
 
-                                {{-- PASSWORD CONFIRM --}}
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <label for="password-confirm" class="form-label"><b style="color: red">*</b> {{ __('Password Confirm') }}</label>
-                                        <input type="password" class="form-control" id="password-confirm" name="password-confirm">
+                         {{-- PASSWORD CONFIRM --}}
+                         <div class="col">
+                            <div class="mb-3">
+                                <label for="password_confirmation" class="form-label"><b style="color: red">*</b> {{ __('Password Confirm') }}</label>
+                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
 
-                                        @error('password-confirm')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
+                                @error('password_confirmation')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        {{-- NEW & EXISTING PATIENT --}}
+
+                        <div class="row mb-2">
+                            <div class="col">
+
+                                <div class="mb-3">
+                                    {{-- NEW PATIENT --}}
+                                    <input type="checkbox" class="form-check-input" type="checkbox"
+                                        name="status" id="new_patient" value="New Patient">
+                                    <label class="form-check-label" for="new_patient">
+                                        {{ __('New Patient') }}</label>
+
+                                    {{-- EXISTING PATIENT --}}
+                                    <input type="checkbox" class="form-check-input" type="checkbox"
+                                        name="status" id="existing_patient" id="existing_patient" value="New Patient">
+                                    <label class="form-check-label" for="existing_patient">
+                                        {{ __('Existing Patient') }}</label>
+
                                 </div>
 
                             </div>
 
-                            {{-- NEW & EXISTING PATIENT --}}
-
-                            <div class="row mb-2">
-                                <div class="col">
-
-                                    <div class="mb-3">
-                                        {{-- NEW PATIENT --}}
-                                        <input type="checkbox" class="form-check-input" type="checkbox" name="new_patient"
-                                            id="new_patient" id="new_patient">
-                                        <label class="form-check-label" for="new_patient">
-                                            {{ __('New Patient') }}</label>
-
-                                        {{-- EXISTING PATIENT --}}
-                                        <input type="checkbox" class="form-check-input" type="checkbox"
-                                            name="existing_patient" id="existing_patient" id="exisexisting_patienttingpatient">
-                                        <label class="form-check-label" for="existing_patient">
-                                            {{ __('Existing Patient') }}</label>
-
-                                    </div>
-
-                                </div>
-
-                                {{-- PATIENT ID --}}
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <label for="patient_id" id="patient_id1" class="form-label" style="display: none">{{ __('Patient ID') }}</label>
-                                        <input id="patient_id" name="patient_id" type="text" class="form-control autofocus" style="display: none">
-                                        </ul>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-
-                            <div class="row">
-                                {{-- BARANGAY --}}
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <label for="id_type" class="form-label"><b style="color: red">*</b> {{ __('Id Type') }}</label>
-                                        <select class="form-select form-select-md" aria-label=".form-select-lg example"
-                                        id="id_type" name="id_type">
-                                        <option value="">Select ID Type</option>
-                                            @foreach ($id_type as $item)
-                                            <option value="{{ $item->name }}">{{ $item->name }}</option>
-                                            @endforeach
-                                        </select>
-                                            @error('id_type')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                    </div>
-                                </div>
-
-                                {{-- BARANGAY --}}
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <label for="id_no" class="form-label"><b style="color: red">*</b> {{ __('Id Number') }}</label>
-                                        <input id="id_no" name="id_no" type="text" class="form-control autofocus">
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
+                            {{-- PATIENT ID --}}
                             <div class="col">
                                 <div class="mb-3">
-                                    <label for="idtype" class="form-label"><b style="color: red">*</b> {{ __('Upload ID') }}</label>
-                                    <input id="id_no" name="id_no" type="file" class="form-control autofocus">
-
+                                    <label for="patient_id" id="patient_id1" class="form-label" style="display: none">{{ __('Patient ID') }}</label>
+                                    <input id="patient_id" name="patient_id" type="text" class="form-control autofocus" style="display: none">
+                                    </ul>
                                 </div>
                             </div>
 
-                            {{-- SUBMIT --}}
-                            <div class="text-center d-flex items-center">
-                                <button type="submit" class="btn btn-primary col-lg-12">Submit</button>
+                        </div>
+
+                        <div class="row">
+                            {{-- ID TYPE --}}
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="id_type" class="form-label"><b style="color: red">*</b> {{ __('Id Type') }}</label>
+                                    <select class="form-select form-select-md" aria-label=".form-select-lg example"
+                                    id="id_type" name="id_type">
+                                    <option value="">Select ID Type</option>
+                                        @foreach ($id_type as $item)
+                                        <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
+                                        @error('id_type')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                </div>
                             </div>
 
-                        </form>
+                            {{-- ID NUMBER AND UPLOAD ID FILE --}}
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="id_no" class="form-label"><b style="color: red">*</b> {{ __('Id Number') }}</label>
+                                    <input id="id_no" name="id_no" type="text" class="form-control autofocus">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="upload_id" class="form-label"><b style="color: red">*</b> {{ __('Upload ID') }}</label>
+                                <input id="upload_id" name="upload_id" type="file" class="form-control autofocus">
+
+                            </div>
+                        </div>
+
                     </div>
+                        {{-- SUBMIT --}}
+                        <div class="text-center d-flex items-center">
+                            <button type="submit" class="btn btn-primary col-lg-12">Register</button>
+                        </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+</div>
 @endsection

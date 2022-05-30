@@ -51,6 +51,17 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'fname' => ['required', 'string', 'max:255'],
+            'mname' => ['string', 'max:255'],
+            'lname' => ['required', 'string', 'max:255'],
+            'bday' => ['date'],
+            'country' => ['required', 'string', 'max:255'],
+            'province' => ['required', 'string', 'max:255'],
+            'municipality' => ['required', 'string', 'max:255'],
+            'brgy' => ['required', 'string', 'max:255'],
+            'houseNo_streetName' => ['required', 'string', 'max:255'],
+            'patient_id' => ['max:255'],
+            'id_type' => ['required', 'string', 'max:255'],
+            'id_no' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -64,10 +75,34 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        $user =  User::create([
+            'fname' => $data['fname'],
+            'mname' => $data['mname'],
+            'lname' => $data['lname'],
+            'bday' => $data['bday'],
+            'age' => $data['age'],
+            'suffix' => $data['suffix'],
+            'gender' => $data['gender'],
+            'title' => $data['title'],
+            'country' =>$data['country'],
+            'province' => $data['province'],
+            'municipality' => $data['municipality'],
+            'brgy' => $data['brgy'],
+            'houseNo_streetName' => $data['houseNo_streetName'],
+            'postal_code' => $data['postal_code'],
+            'status' => $data['status'],
+            'patient_id' =>$data['patient_id'],
+            'id_type' => $data['id_type'],
+            'id_no' => $data['id_no'],
+            'upload_id' => $data['upload_id'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        if (request()->hasFile( key: 'upload_id')) {
+            $upload_id = request()->file( key: 'upload_id')->getClientOriginalName();
+            request()->file( key: 'upload_id')->storeAs( path: 'id_upload', name: $user->id . '/' . $upload_id, options: '');
+            $user->update(['upload_id' => $upload_id]);
+        }
+        return $user;
     }
 }
