@@ -42,7 +42,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="fname" class="form-label"><b style="color: red">*</b> {{ __('First Name') }}</label>
-                                <input id="fname" name="fname" type="text" class="form-control autofocus">
+                                <input id="fname" name="fname" type="text" value="{{ old('fname') }}" class="form-control autofocus">
                             </div>
                         </div>
 
@@ -51,7 +51,7 @@
                             <div class="mb-3">
                                 <div class="mb-3">
                                     <label for="mname" class="form-label">{{ __('Middle Name') }}</label>
-                                    <input id="mname" name="mname" type="text" class="form-control autofocus">
+                                    <input id="mname" name="mname" type="text" value="{{ old('mname') }}" class="form-control autofocus">
                                 </div>
 
                             </div>
@@ -62,7 +62,7 @@
                             <div class="mb-3">
                                 <div class="mb-3">
                                     <label for="lname" class="form-label"><b style="color: red">*</b> {{ __('Last Name') }}</label>
-                                    <input id="lname" name="lname" type="text" class="form-control autofocus">
+                                    <input id="lname" name="lname" type="text" value="{{ old('lname') }}" class="form-control autofocus">
                                 </div>
 
                             </div>
@@ -78,7 +78,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="bday" class="form-label"><b style="color: red">*</b> {{ __('Birthday') }}</label>
-                                <input type="date" class="form-control" id="bday" name="bday">
+                                <input type="date" class="form-control" value="{{ old('bday') }}" id="bday" name="bday">
                             </div>
                         </div>
 
@@ -87,7 +87,7 @@
                             <div class="mb-3">
                                 <label for="age" class="form-label">{{ __('Age') }}</label>
                                 <input class="form-control" type="text" value="" aria-label="age disabled id"
-                                    readonly id="age" name="age">
+                                    readonly id="age" name="age" value="{{ old('age') }}">
                             </div>
                         </div>
 
@@ -102,7 +102,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="suffix" class="form-label">{{ __('Suffix') }}</label>
-                                <input id="suffix" name="suffix" type="text" class="form-control autofocus">
+                                <input id="suffix" name="suffix" type="text" value="{{ old('suffix') }}" class="form-control autofocus">
                             </div>
                         </div>
 
@@ -111,7 +111,7 @@
                             <div class="mb-3">
                                 <label for="gender" class="form-label"><b style="color: red">*</b> {{ __('Gender') }}</label>
                                 <select class="form-select form-select-md  @error('gender') is-invalid @enderror"
-                               id="gender" name="gender" aria-label=".form-select-lg example">
+                               id="gender" name="gender" aria-label=".form-select-lg example" value="{{ old('$item->name') }}">
                                 <option hidden>Choose Gender</option>
                                     @foreach ($gender as $item)
                                     <option value="{{ $item->name }}">{{ $item->name }}</option>
@@ -131,7 +131,7 @@
                             <div class="mb-3">
                                 <label for="title" class="form-label"><b style="color: red">*</b> {{ __('Title') }}</label>
                                 <select class="form-select form-select-md @error('title') is-invalid @enderror"
-                                aria-label=".form-select-lg example" id="title" name="title">
+                                aria-label=".form-select-lg example" id="title" name="title" value="{{ old('$item->name') }}">
                                     <option hidden>Choose Title</option>
                                         @foreach ($title as $item)
                                         <option value="{{ $item->name }}">{{ $item->name }}</option>
@@ -159,7 +159,7 @@
                                     <div class="mb-3">
                                         <label for="country" class="form-label"><b style="color: red">*</b> {{ __('Country') }}</label>
                                         <select class="form-select form-select-md @error('country') is-invalid @enderror" aria-label=".form-select-lg example"
-                                        id="selCountry" name="country">
+                                        id="selCountry" name="country" value="{{ old('$item->name') }}">
                                         <option hidden>Choose Country</option>
                                             @foreach ($country as $item)
                                             <option value="{{ $item->name }}">{{ $item->name }}</option>
@@ -178,7 +178,7 @@
                                     <div class="mb-3">
                                         <label for="province" class="form-label"><b style="color: red">*</b> {{ __('Province') }}</label>
                                         <select class="form-select form-select-md" aria-label=".form-select-lg example"
-                                        id="selProvince" name="province">
+                                        id="selProvince" name="province" value="{{ old('$item->name') }}">
                                         <option hidden>Choose Province</option>
                                             @foreach ($province as $item)
                                             <option value="{{ $item->name }}">{{ $item->name }}</option>
@@ -197,7 +197,7 @@
                                     <div class="mb-3">
                                         <label for="municipality" class="form-label"><b style="color: red">*</b> {{ __('Municipality/City') }}</label>
                                         <select class="form-select form-select-md" aria-label=".form-select-lg example"
-                                        id="selMunicipality" name="municipality">
+                                        id="selMunicipality" name="municipality" value="{{ old('$item->name') }}">
                                         <option hidden>Choose Municipality/City</option>
                                             @foreach ($municipality as $item)
                                             <option value="{{ $item->name }}">{{ $item->name }}</option>
@@ -216,7 +216,7 @@
                                     <div class="mb-3">
                                         <label for="barangay" class="form-label"><b style="color: red">*</b> {{ __('Barangay') }}</label>
                                         <select class="form-select form-select-md" aria-label=".form-select-lg example"
-                                        id="selBrgy" name="brgy">
+                                        id="selBrgy" name="brgy" value="{{ old('brgy') }}">
                                             <option selected>Select Barangay</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
@@ -231,7 +231,7 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="houseNo_streetName" class="form-label"><b style="color: red">*</b> {{ __('House No. and Street') }}</label>
-                                        <input id="houseNo_streetName" name="houseNo_streetName" type="text" class="form-control autofocus">
+                                        <input id="houseNo_streetName" name="houseNo_streetName" type="text" value="{{ old('houseNo_streetName') }}" class="form-control autofocus">
                                     </div>
                                 </div>
 
@@ -239,7 +239,7 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="postal_code" class="form-label">{{ __('Postal Code') }}</label>
-                                        <input id="postal_code" name="postal_code" type="text" class="form-control autofocus">
+                                        <input id="postal_code" value="{{ old('postal_code') }}" name="postal_code" type="text" class="form-control autofocus">
                                     </div>
                                 </div>
 
@@ -312,13 +312,13 @@
                                 <div class="mb-3">
                                     {{-- NEW PATIENT --}}
                                     <input type="checkbox" class="form-check-input" type="checkbox"
-                                        name="status" id="new_patient" value="New Patient">
+                                        name="status" id="new_patient" value="New Patient" value="{{ old('status') }}">
                                     <label class="form-check-label" for="new_patient">
                                         {{ __('New Patient') }}</label>
 
                                     {{-- EXISTING PATIENT --}}
                                     <input type="checkbox" class="form-check-input" type="checkbox"
-                                        name="status" id="existing_patient" id="existing_patient" value="New Patient">
+                                        name="status" id="existing_patient" id="existing_patient" value="New Patient" value="{{ old('status') }}">
                                     <label class="form-check-label" for="existing_patient">
                                         {{ __('Existing Patient') }}</label>
 
@@ -330,7 +330,7 @@
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="patient_id" id="patient_id1" class="form-label" style="display: none">{{ __('Patient ID') }}</label>
-                                    <input id="patient_id" name="patient_id" type="text" class="form-control autofocus" style="display: none">
+                                    <input id="patient_id" name="patient_id" type="text" class="form-control autofocus" style="display: none" value="{{ old('patient_id') }}">
                                     </ul>
                                 </div>
                             </div>
@@ -343,7 +343,7 @@
                                 <div class="mb-3">
                                     <label for="id_type" class="form-label"><b style="color: red">*</b> {{ __('Id Type') }}</label>
                                     <select class="form-select form-select-md" aria-label=".form-select-lg example"
-                                    id="id_type" name="id_type">
+                                    id="id_type" name="id_type" value="{{ old('$item->name') }}">
                                     <option value="">Select ID Type</option>
                                         @foreach ($id_type as $item)
                                         <option value="{{ $item->name }}">{{ $item->name }}</option>
@@ -361,7 +361,7 @@
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="id_no" class="form-label"><b style="color: red">*</b> {{ __('Id Number') }}</label>
-                                    <input id="id_no" name="id_no" type="text" class="form-control autofocus">
+                                    <input id="id_no" name="id_no" value="{{ old('id_no') }}" type="text" class="form-control autofocus">
                                     </ul>
                                 </div>
                             </div>
@@ -370,7 +370,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="upload_id" class="form-label"><b style="color: red">*</b> {{ __('Upload ID') }}</label>
-                                <input id="upload_id" name="upload_id" type="file" class="form-control autofocus">
+                                <input id="upload_id" name="upload_id" value="{{ old('upload_id') }}" type="file" class="form-control autofocus">
 
                             </div>
                         </div>
