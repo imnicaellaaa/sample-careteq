@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mt-5 pt5">
+    <div class="container mt-5">
         <div class="row">
 
             {{-- GRID --}}
@@ -9,7 +9,7 @@
                 <div class="text-center display-2  ">LOGIN</div>
 
                 {{-- CARD --}}
-                <div class="card border-1 shadow" >
+                <div class="card border-1 shadow rounded-lg">
                     <div class="card-body  ">
                         {{-- insert logo image here --}}
 
@@ -71,7 +71,8 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="age" class="form-label">{{ __('Age') }}</label>
-                                        <input class="form-control" type="text" value="" aria-label="age disabled id" readonly id="age">
+                                        <input class="form-control" type="text" value="" aria-label="age disabled id"
+                                            readonly id="age">
                                     </div>
                                 </div>
 
@@ -94,14 +95,12 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="gender" class="form-label">{{ __('Gender') }}</label>
-                                        <button class="btn btn-outline-secondary dropdown-toggle form-control" type="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">Select Gender</button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Male</a></li>
-                                            <li><a class="dropdown-item" href="#">Female</a></li>
-                                            <li><a class="dropdown-item" href="#">Other</a></li>
-
-                                        </ul>
+                                        <select class="form-select form-select-md" aria-label=".form-select-lg example">
+                                            <option selected>Select Gender</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
                                     </div>
                                 </div>
 
@@ -109,14 +108,12 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="title" class="form-label">{{ __('TITLE') }}</label>
-                                        <button class="btn btn-outline-secondary dropdown-toggle form-control" type="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">Select Title</button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Mr.</a></li>
-                                            <li><a class="dropdown-item" href="#">Mrs.</a></li>
-                                            <li><a class="dropdown-item" href="#">Other</a></li>
-
-                                        </ul>
+                                        <select class="form-select form-select-md" aria-label=".form-select-lg example">
+                                            <option selected>Select Title</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
                                     </div>
                                 </div>
 
@@ -132,30 +129,26 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="country" class="form-label">{{ __('Country') }}</label>
-                                        <button class="btn btn-outline-secondary dropdown-toggle form-control" type="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">Select Country</button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Country A</a></li>
-                                            <li><a class="dropdown-item" href="#">Country B</a></li>
-                                            <li><a class="dropdown-item" href="#">Country C</a></li>
-
-                                        </ul>
+                                        <select class="form-select form-select-md" aria-label=".form-select-lg example">
+                                            <option selected>Select Country</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
                                     </div>
                                 </div>
 
 
-                                {{-- Region --}}
+                                {{-- Municipality --}}
                                 <div class="col">
                                     <div class="mb-3">
-                                        <label for="region" class="form-label">{{ __('Province') }}</label>
-                                        <button class="btn btn-outline-secondary dropdown-toggle form-control" type="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">Select Barangay</button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Region A</a></li>
-                                            <li><a class="dropdown-item" href="#">Region B</a></li>
-                                            <li><a class="dropdown-item" href="#">Region C</a></li>
-
-                                        </ul>
+                                        <label for="region" class="form-label">{{ __('Municipality') }}</label>
+                                        <select class="form-select form-select-md" aria-label=".form-select-lg example">
+                                            <option selected>Select Municipality</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
                                     </div>
                                 </div>
 
@@ -164,14 +157,12 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="province" class="form-label">{{ __('Province') }}</label>
-                                        <button class="btn btn-outline-secondary dropdown-toggle form-control" type="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">Select Province</button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Province A</a></li>
-                                            <li><a class="dropdown-item" href="#">Province B</a></li>
-                                            <li><a class="dropdown-item" href="#">Province C</a></li>
-
-                                        </ul>
+                                        <select class="form-select form-select-md" aria-label=".form-select-lg example">
+                                            <option selected>Select Province</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
                                     </div>
                                 </div>
 
@@ -179,13 +170,12 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="barangay" class="form-label">{{ __('Barangay') }}</label>
-                                        <button class="btn btn-outline-secondary dropdown-toggle form-control" type="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">Select Barangay</button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Barangay A</a></li>
-                                            <li><a class="dropdown-item" href="#">Barangay B</a></li>
-                                            <li><a class="dropdown-item" href="#">Barangay C</a></li>
-                                        </ul>
+                                        <select class="form-select form-select-md" aria-label=".form-select-lg example">
+                                            <option selected>Select Barangay</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -221,9 +211,8 @@
 
                                 <div class="mb-3">
                                     <label for="code" class="form-label">{{ __('E-Mail') }}</label>
-                                    <input id="email" type="email"
-                                        class="form-control @error('email') is-invalid @enderror" name="email"
-                                        value="{{ old('email') }}" required autocomplete="email">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                        name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -250,8 +239,7 @@
                                 {{-- PASSWORD CONFIRM --}}
                                 <div class="col">
                                     <div class="mb-3">
-                                        <label for="password"
-                                            class="form-label">{{ __('Password Confirm') }}</label>
+                                        <label for="password" class="form-label">{{ __('Password Confirm') }}</label>
                                         <input type="password" class="form-control" id="exampleInputPassword1">
 
                                         @error('password')
@@ -269,18 +257,32 @@
                             <div class="row mb-2">
                                 <div class="col">
 
-                                    {{-- EXISTING PATIENT --}}
-                                    <input type="checkbox" class="form-check-input" type="checkbox" name="newpatient"
-                                        id="newpatient" id="newpatient">
-                                    <label class="form-check-label" for="exampleCheck1"> {{ __('New Patient') }}</label>
+                                    <div class="mb-3">
+                                        {{-- NEW PATIENT --}}
+                                        <input type="checkbox" class="form-check-input" type="checkbox" name="newpatient"
+                                            id="newpatient" id="newpatient">
+                                        <label class="form-check-label" for="exampleCheck1">
+                                            {{ __('New Patient') }}</label>
 
-                                    {{-- EXISTING PATIENT --}}
-                                    <input type="checkbox" class="form-check-input" type="checkbox" name="existingpatient"
-                                        id="remember" id="existingpatient">
-                                    <label class="form-check-label" for="existingpatient">
-                                        {{ __('Existing Patient') }}</label>
+                                        {{-- EXISTING PATIENT --}}
+                                        <input type="checkbox" class="form-check-input" type="checkbox"
+                                            name="existingpatient" id="remember" id="existingpatient">
+                                        <label class="form-check-label" for="existingpatient">
+                                            {{ __('Existing Patient') }}</label>
+
+                                    </div>
 
                                 </div>
+
+                                {{-- PATIENT ID --}}
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="idtype" class="form-label">{{ __('Patient ID') }}</label>
+                                        <input id="code" type="text" class="form-control autofocus">
+                                        </ul>
+                                    </div>
+                                </div>
+
                             </div>
 
                             <div class="row">
@@ -288,14 +290,12 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="idtype" class="form-label">{{ __('Id Type') }}</label>
-                                        <button class="btn btn-outline-secondary dropdown-toggle form-control"
-                                            type="button" data-bs-toggle="dropdown" aria-expanded="false">Select
-                                            Barangay</button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">TYPE A</a></li>
-                                            <li><a class="dropdown-item" href="#">TYPE B</a></li>
-                                            <li><a class="dropdown-item" href="#">TYPE C</a></li>
-                                        </ul>
+                                        <select class="form-select form-select-md" aria-label=".form-select-lg example">
+                                            <option selected>Select ID Type</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
                                     </div>
                                 </div>
 
@@ -311,13 +311,15 @@
 
                             <div class="col">
                                 <div class="mb-3">
-                                    <label for="formFile" class="form-label">Upload ID</label>
-                                    <input class="form-control" type="file" id="formFile">
+                                    <label for="idtype" class="form-label">{{ __('Id Type') }}</label>
+                                    <select class="form-select form-select-md" aria-label=".form-select-lg example">
+                                        <option selected>Select ID Type</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
                                 </div>
-
                             </div>
-
-
 
                             {{-- SUBMIT --}}
                             <div class="text-center d-flex items-center">
