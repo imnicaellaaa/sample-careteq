@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('municipality');
             $table->string('brgy');
             $table->string('houseNo_streetName');
-            $table->integer('postal_code');
+            $table->integer('postal_code')->nullable();
             $table->string('status');
             $table->string('patient_id')->nullable();
             $table->string('id_type');

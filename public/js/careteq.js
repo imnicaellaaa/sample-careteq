@@ -138,6 +138,7 @@ function validate(){
     var num = document.getElementById('number');
     var len = document.getElementById('length');
 
+
     //check if pass value contain a number
     if (pass.value.match(/[0-9]/)) {  //match the function which matches a regular expressions
         //password contain 0 to 9 number then

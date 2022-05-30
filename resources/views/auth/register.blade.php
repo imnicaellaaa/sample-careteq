@@ -115,7 +115,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="suffix" class="form-label">{{ __('Suffix') }}</label>
-                                <input id="suffix" name="suffix" type="text" class="form-control  @error('suffix') is-invalid @enderror autofocus" value="{{ old('suffix') }}">
+                                <input id="suffix" name="suffix" type="text" style="height: 28px" class="form-control  @error('suffix') is-invalid @enderror autofocus" value="{{ old('suffix') }}">
                             </div>
                         </div>
 
@@ -124,7 +124,7 @@
                             <div class="mb-3">
                                 <label for="gender" class="form-label"><b style="color: red">*</b> {{ __('Gender') }}</label>
                                 <select class="form-select form-select-md  @error('gender') is-invalid @enderror"
-                               id="gender" name="gender" aria-label=".form-select-lg example" value="{{ old('$item->name') }}">
+                               id="selGender" name="gender" aria-label=".form-select-lg example" value="{{ old('$item->name') }}">
                                 <option hidden>Choose Gender</option>
                                     @foreach ($gender as $item)
                                     <option value="{{ $item->name }}">{{ $item->name }}</option>
@@ -144,7 +144,7 @@
                             <div class="mb-3">
                                 <label for="title" class="form-label"><b style="color: red">*</b> {{ __('Title') }}</label>
                                 <select class="form-select form-select-md @error('title') is-invalid @enderror"
-                                aria-label=".form-select-lg example" id="title" name="title" value="{{ old('$item->name') }}">
+                                aria-label=".form-select-lg example" id="selTitle" name="title" value="{{ old('$item->name') }}">
                                     <option hidden>Choose Title</option>
                                         @foreach ($title as $item)
                                         <option value="{{ $item->name }}">{{ $item->name }}</option>
@@ -229,7 +229,7 @@
                                     <div class="mb-3">
                                         <label for="barangay" class="form-label"><b style="color: red">*</b> {{ __('Barangay') }}</label>
                                         <select class="form-select form-select-md  @error('brgy') is-invalid @enderror" aria-label=".form-select-lg example"
-                                        id="selBrgy" name="brgy" value="{{ old('brgy') }}">
+                                        id="selBrgy" name="brgy"  value="{{ old('brgy') }}">
                                             <option selected>Select Barangay</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
@@ -419,7 +419,7 @@
                     </div>
                         {{-- SUBMIT --}}
                         <div class="text-center d-flex items-center">
-                            <button type="submit" class="btn btn-primary col-lg-12">Register</button>
+                            <button type="submit" id="register" class="btn btn-primary col-lg-12">Register</button>
                         </div>
                         </div>
                     </form>
