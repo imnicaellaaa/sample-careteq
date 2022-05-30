@@ -1,4 +1,17 @@
 @extends('layouts.app')
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/jquery-1.11.1.js') }}"></script>
+<script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ asset('js/careteq.js') }}"></script>
+
+<!-- Select2 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+
+<script src="{{ asset('js/jquery-3.6.0/js')}}"></script>
+<script src="{{ asset('js/jquery-3.6.0.min/js')}}"></script>
+
+<!-- Select2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
 @section('content')
     <div class="container mt-5">
@@ -293,15 +306,15 @@
 
                                     <div class="mb-3">
                                         {{-- NEW PATIENT --}}
-                                        <input type="checkbox" class="form-check-input" type="checkbox" name="newpatient"
-                                            id="newpatient" id="newpatient">
-                                        <label class="form-check-label" for="exampleCheck1">
+                                        <input type="checkbox" class="form-check-input" type="checkbox" name="new_patient"
+                                            id="new_patient" id="new_patient">
+                                        <label class="form-check-label" for="new_patient">
                                             {{ __('New Patient') }}</label>
 
                                         {{-- EXISTING PATIENT --}}
                                         <input type="checkbox" class="form-check-input" type="checkbox"
-                                            name="existingpatient" id="remember" id="existingpatient">
-                                        <label class="form-check-label" for="existingpatient">
+                                            name="existing_patient" id="existing_patient" id="exisexisting_patienttingpatient">
+                                        <label class="form-check-label" for="existing_patient">
                                             {{ __('Existing Patient') }}</label>
 
                                     </div>
@@ -311,13 +324,15 @@
                                 {{-- PATIENT ID --}}
                                 <div class="col">
                                     <div class="mb-3">
-                                        <label for="idtype" class="form-label">{{ __('Patient ID') }}</label>
-                                        <input id="code" type="text" class="form-control autofocus">
+                                        <label for="patient_id" id="patient_id1" class="form-label" style="display: none">{{ __('Patient ID') }}</label>
+                                        <input id="patient_id" name="patient_id" type="text" class="form-control autofocus" style="display: none">
                                         </ul>
                                     </div>
                                 </div>
 
                             </div>
+
+
 
                             <div class="row">
                                 {{-- BARANGAY --}}
