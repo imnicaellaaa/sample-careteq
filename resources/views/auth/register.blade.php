@@ -352,12 +352,35 @@
 
                             </div>
 
-                            {{-- PATIENT ID --}}
-                            <div class="col">
-                                <div class="mb-3">
-                                    <label for="patient_id" id="patient_id1" class="form-label" style="display: none">{{ __('Patient ID') }}</label>
-                                    <input id="patient_id" name="patient_id" type="text" class="form-control  @error('patient_id') is-invalid @enderror autofocus" style="display: none" value="{{ old('patient_id') }}">
-                                    </ul>
+                            {{-- NEW & EXISTING PATIENT --}}
+
+                            <div class="row mb-2">
+                                <div class="col ">
+
+                                    <div class="mb-3">
+                                        {{-- NEW PATIENT --}}
+                                        <input type="checkbox" class="form-check-input" type="checkbox" name="newpatient"
+                                            id="newpatient" id="newpatient">
+                                        <label class="form-check-label" for="exampleCheck1">
+                                            {{ __('New Patient') }}</label>
+
+                                        {{-- EXISTING PATIENT --}}
+                                        <input type="checkbox" class="form-check-input" type="checkbox"
+                                            name="existingpatient" id="remember" id="existingpatient">
+                                        <label class="form-check-label" for="existingpatient">
+                                            {{ __('Existing Patient') }}</label>
+
+                                    </div>
+
+                                </div>
+
+                                {{-- PATIENT ID --}}
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="idtype" class="form-label">{{ __('Patient ID') }}</label>
+                                        <input id="code" type="text" class="form-control autofocus">
+                                        </ul>
+                                    </div>
                                 </div>
                                 @error('patient_id')
                                         <span class="invalid-feedback" role="alert">

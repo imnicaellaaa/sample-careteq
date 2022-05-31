@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mt-5 pt5">
+    <div class="container mt-5 pt5 p-4">
         <div class="row">
-            <div class="col-12 col-sm-7 col-md-6 m-auto" style="width:20rem">
+            <div class="col-md-12 col-sm-7 col-md-6 m-auto" style="width:20rem">
                 <div class="text-center display-2  ">LOGIN</div>
                 <div class="card border-1 shadow rounded-lg" style="height:23rem">
                     <div class="card-body ">
