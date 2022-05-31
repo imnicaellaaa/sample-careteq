@@ -21,22 +21,28 @@
                                 <div class="col-md-6"><label class="labels">First Name</label>
                                     <p class="card border-1 rounded-sm p-1">John</p>
                                 </div>
+
+                                <div class="col-md-6"><label class="labels">Middle Name</label>
+                                    <p class="card border-1 rounded-sm p-1">p</p>
+                                </div>
+
                                 <div class="col-md-6"><label class="labels">Last Name</label>
                                     <p class="card border-1 rounded-sm p-1">Doe</p>
                                 </div>
                             </div>
 
                             <div class="row mt-2">
-                                <div class="col-md-6"><label class="labels">Age</label>
-                                    <p class="card border-1 rounded-sm p-1">22</p>
+
+                                <div class="col-md-6"><label class="labels">Birthday</label>
+                                    <p class="card border-1 rounded-sm p-1">1/1/2001</p>
                                 </div>
 
                                 <div class="col-md-6"><label class="labels">Suffix</label>
                                     <p class="card border-1 rounded-sm p-1">Mr</p>
                                 </div>
 
-                                <div class="col-md-6"><label class="labels">Birthday</label>
-                                    <p class="card border-1 rounded-sm p-1">1/1/2001</p>
+                                <div class="col-md-6"><label class="labels">Age</label>
+                                    <p class="card border-1 rounded-sm p-1">22</p>
                                 </div>
 
                                 <div class="col-md-6"><label class="labels">Gender</label>
@@ -55,9 +61,6 @@
 
 
                             <div class="row mt-2">
-                                <div class="col-md-6"><label class="labels">Country</label>
-                                    <p class="card border-1 rounded-sm p-1">Philippines</p>
-                                </div>
 
                                 <div class="col-md-6"><label class="labels">Street</label>
                                     <p class="card border-1 rounded-sm p-1">Something Street</p>
@@ -79,6 +82,10 @@
                                     <p class="card border-1 rounded-sm p-1">Something Region</p>
                                 </div>
 
+                                <div class="col-md-6"><label class="labels">Country</label>
+                                    <p class="card border-1 rounded-sm p-1">Philippines</p>
+                                </div>
+
                                 <div class="col-md-6"><label class="labels">Postal Code</label>
                                     <p class="card border-1 rounded-sm p-1">1234</p>
                                 </div>
@@ -98,12 +105,12 @@
                             <div class="row mt-2">
                                 <div class="col-md-6"><label class="labels">Height</label>
                                     <p class="card border-1 rounded-sm p-1">5'10 / 180 cm</p>
-                                   
+
                                 </div>
 
                                 <div class="col-md-6"><label class="labels">Weight</label>
                                     <p class="card border-1 rounded-sm p-1">160 lbs / 73 kg</p>
-                                   
+
                                 </div>
 
                                 <div class="col-md-6"><label class="labels">BMI</label>
