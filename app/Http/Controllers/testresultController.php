@@ -8,6 +8,6 @@ class testresultController extends Controller
 {
     public function index(){
         // return("hello word");
-        return view("info.profileinfo");
+        return view("info.testresult");
     }
 }

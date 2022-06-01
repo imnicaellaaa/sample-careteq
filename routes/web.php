@@ -26,3 +26,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/profileinfo', [App\Http\Controllers\profileinfoController::class, 'index'])->name('info.profileinfo');
 
 Route::get('/testresult', [App\Http\Controllers\testresultController::class, 'index'])->name('info.testeresult');
+
+Route::get('/prescription', [App\Http\Controllers\prescriptionController::class, 'index'])->name('info.prescription');
