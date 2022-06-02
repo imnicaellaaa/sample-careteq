@@ -16,32 +16,15 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <div class="p-3 py-5">
-                            <h4 class="text-right">Medical Information</h4>
-                            {{-- <div class="d-flex justify-content-between align-items-center experience">
-                         
-                            </div> --}}
+                            <h4 class="text-center">Your Prescription</h4>
 
                             <div class="row mt-2">
-
-                                {{-- HEIGHT --}}
-                                <div class="col-md-6"><label class="labels">Height</label>
-                                    <p class="card border-1 rounded-sm p-1">5'10 / 180 cm</p>
-
+                                    <div class="card border-1 p-2 shadow-md">
+                                            {{-- PDF WOULD GO HERE --}}
+                                    </div>
                                 </div>
-
-                                {{-- WEIGHT --}}
-                                <div class="col-md-6"><label class="labels">Weight</label>
-                                    <p class="card border-1 rounded-sm p-1">160 lbs / 73 kg</p>
-
-                                </div>
-
-                                {{-- BMI --}}
-                                <div class="col-md-6"><label class="labels">BMI</label>
-                                    <p class="card border-1 rounded-sm p-1">18.5</p>
-                                </div>
-
                             </div>
                         </div>
                     </div>
