@@ -63,7 +63,7 @@ class RegisterController extends Controller
             'patient_id' => ['max:255'],
             'id_type' => ['required', 'string', 'max:255'],
             'id_no' => ['required'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users','indisposable'],
             'password' => $this->passwordRules(),
         ]);
     }

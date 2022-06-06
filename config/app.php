@@ -181,6 +181,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Propaganistas\LaravelDisposableEmail\DisposableEmailServiceProvider::class,
 
         /*
          * Package Service Providers...

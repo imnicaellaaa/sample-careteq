@@ -383,13 +383,13 @@
                                             <div class="mt-3">
                                                 {{-- NEW PATIENT --}}
                                                 <input type="checkbox" class="form-check-input" type="checkbox"
-                                                    name="newpatient" id="newpatient" id="newpatient">
+                                                    name="new_patient" id="new_patient">
                                                 <label class="form-check-label" for="exampleCheck1">
                                                     {{ __('New Patient') }}</label>
                                                 <div class="col">
                                                     {{-- EXISTING PATIENT --}}
                                                     <input type="checkbox" class="form-check-input" type="checkbox"
-                                                        name="existingpatient" id="remember" id="existingpatient">
+                                                        name="existing_patient" id="existing_patient">
                                                     <label class="form-check-label" for="existingpatient">
                                                         {{ __('Existing Patient') }}</label>
                                                 </div>
@@ -402,9 +402,9 @@
                                         {{-- PATIENT ID --}}
                                         <div class="col">
                                             <div class="mb-3">
-                                                <label for="idtype"
-                                                    class="form-label">{{ __('Patient ID') }}</label>
-                                                <input id="code" type="text" class="form-control autofocus">
+                                                <label for="patient_id1"
+                                                    class="form-label" id="patient_id1" style="display: none">{{ __('Patient ID') }}</label>
+                                                <input id="patient_id" name="patient_id" type="text" class="form-control autofocus" style="display: none">
                                                 </ul>
                                             </div>
                                         </div>
@@ -447,7 +447,8 @@
                                                 {{ __('Id Number') }}</label>
                                             <input id="id_no" name="id_no" type="text"
                                                 class="form-control  @error('id_no') is-invalid @enderror autofocus"
-                                                value="{{ old('id_no') }}">
+                                                value="{{ old('id_no') }}"  @foreach ($id_type as $item)
+                                                placeholder="{{ $item->idno_format }}" @endforeach>
                                             </ul>
                                         </div>
                                         @error('id_no')
