@@ -48,7 +48,7 @@
                             </div>
 
                             {{-- SUBMIT --}}
-                            <button type="submit" class="btn btn-primary col-lg-12">Submit</button>
+                            <button type="submit" class="btn btn-secondary col-lg-12">Submit</button>
 
                             @if (Route::has('password.request'))
                                 <a class="btn btn-link" href="{{ route('password.request') }}">

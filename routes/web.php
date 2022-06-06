@@ -48,3 +48,10 @@ Route::get('/appointment', [App\Http\Controllers\appointmentController::class, '
 
 // Schedule Page
 Route::get('/schedule', [App\Http\Controllers\scheduleController::class, 'index'])->name('telecare.schedule');
+
+// Appointment Reference page
+Route::get('/appointmentreference', [App\Http\Controllers\appointmentreferenceController::class, 'index'])->name('telecare.appointmentreference');
+
+// Select Doctor Page
+Route::get('/selectdoctor', [App\Http\Controllers\selectdoctorController::class, 'index'])->name('telecare.selectdoctor');
+

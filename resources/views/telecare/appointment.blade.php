@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="flex">
-                    <button class="btn btn-primary">Schedule appointment</button>
+                    <button class="btn btn-secondary ">Schedule appointment</button>
                 </div>
             </div>
         </div>
