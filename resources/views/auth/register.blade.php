@@ -383,14 +383,14 @@
                                             <div class="mt-3">
                                                 {{-- NEW PATIENT --}}
                                                 <input type="checkbox" class="form-check-input" type="checkbox"
-                                                    name="new_patient" id="new_patient">
-                                                <label class="form-check-label" for="exampleCheck1">
+                                                    name="status" id="new_patient" value="New Patient">
+                                                <label class="form-check-label" for="status">
                                                     {{ __('New Patient') }}</label>
                                                 <div class="col">
                                                     {{-- EXISTING PATIENT --}}
                                                     <input type="checkbox" class="form-check-input" type="checkbox"
-                                                        name="existing_patient" id="existing_patient">
-                                                    <label class="form-check-label" for="existingpatient">
+                                                        name="status" id="existing_patient" value="Existing_patient">
+                                                    <label class="form-check-label" for="status">
                                                         {{ __('Existing Patient') }}</label>
                                                 </div>
 
