@@ -478,7 +478,7 @@
                         </div>
                         {{-- SUBMIT --}}
                         <div class="text-center d-flex items-center p-3">
-                            <button type="submit" id="register" class="btn btn-secondary col-lg-12">Register</button>
+                            <button type="submit" id="btnSignUp" class="btn btn-secondary col-lg-12">Register</button>
                         </div>
                     </div>
                     </form>
