@@ -48,11 +48,22 @@ Route::get('/immunization', [App\Http\Controllers\immunizationController::class,
 Route::get('/appointment', [App\Http\Controllers\appointmentController::class, 'index'])->name('telecare.appointment');
 
 // Schedule Page
-Route::get('/schedule', [App\Http\Controllers\scheduleController::class, 'index'])->name('telecare.schedule');
+Route::get('/schedule', [App\Http\Controllers\scheduleController::class, 'index'])->name('schedule.schedule');
 
 // Appointment Reference page
 Route::get('/appointmentreference', [App\Http\Controllers\appointmentreferenceController::class, 'index'])->name('telecare.appointmentreference');
 
+// Appointment Page
+Route::get('/appointmentstart', [App\Http\Controllers\appointmentstartController::class, 'index'])->name('telecare.appointmentstart');
+
+// Appointment User Page
+Route::get('/appointmentuser', [App\Http\Controllers\appointmentuserController::class, 'index'])->name('telecare.appointmentuser');
+
 // Select Doctor Page
 Route::get('/selectdoctor', [App\Http\Controllers\selectdoctorController::class, 'index'])->name('telecare.selectdoctor');
+
+
+
+
+
 

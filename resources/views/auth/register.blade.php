@@ -276,7 +276,7 @@
                                     <div class="col">
                                         <div class="mb-3">
                                             <label for="houseNo_streetName" class="form-label"><b
-                                                    style="color: red">*</b> {{ __('House No. and Street') }}</label>
+                                                    style="color: red">*</b> {{ __('House No. & Street') }}</label>
                                             <input id="houseNo_streetName" name="houseNo_streetName" type="text"
                                                 class="form-control  @error('houseNo_streetName') is-invalid @enderror autofocus"
                                                 value="{{ old('houseNo_streetName') }}">
@@ -328,11 +328,11 @@
                                         </div>
                                         <div class="errors">
                                             <ul>
-                                                <li id="upper"> Atleast one uppercase</li>
-                                                <li id="lower"> Atleast one lowercase</li>
-                                                <li id="special_char"> Atleast one special character or symbol</li>
-                                                <li id="number"> Atleast one number</li>
-                                                <li id="length"> Atleast 8 characters</li>
+                                                <li id="upper"> At least one uppercase</li>
+                                                <li id="lower"> At least one lowercase</li>
+                                                <li id="special_char"> At least one special character or symbol</li>
+                                                <li id="number"> At least one number</li>
+                                                <li id="length"> At least 8 characters</li>
                                             </ul>
                                         </div>
                                     </div>

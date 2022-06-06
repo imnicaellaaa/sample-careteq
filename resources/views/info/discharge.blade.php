@@ -1,1 +1,1 @@
-hello there
+this is the discharge page
