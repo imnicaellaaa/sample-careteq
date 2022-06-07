@@ -144,65 +144,65 @@ function validate(){
     if (pass.value.match(/[A-Z]/)) {  //match the function which matches a regular expressions
         //password contain A to Z
         upper.style.color = 'green'
-        $("#btnSignUp").attr("disabled", false);
+        // $("#btnSignUp").attr("disabled", false);
 
     }
     else {
         //otherwise
         upper.style.color = 'red'
-        $("#btnSignUp").attr("disabled", true);
+        // $("#btnSignUp").attr("disabled", true);
     }
 
      //check if pass value contain a lowercase letter
      if (pass.value.match(/[a-z]/)) {  //match the function which matches a regular expressions
         //password contain a to z
         lower.style.color = 'green'
-        $("#btnSignUp").attr("disabled", false);
+        // $("#btnSignUp").attr("disabled", false);
 
     }
     else {
         //otherwise
         lower.style.color = 'red'
-        $("#btnSignUp").attr("disabled", true);
+        // $("#btnSignUp").attr("disabled", true);
     }
 
      //check if pass value contain a special character or symbol
      if (pass.value.match(/[!\@\$\%\^\&\*\(\)\_\-\?\=\+\<\>\.\,]/)) {  //match the function which matches a regular expressions
         //type all special character which you want to validate
         special_charater.style.color = 'green'
-        $("#btnSignUp").attr("disabled", false);
+        // $("#btnSignUp").attr("disabled", false);
 
     }
     else {
         //otherwise
         special_charater.style.color = 'red'
-        $("#btnSignUp").attr("disabled", true);
+        // $("#btnSignUp").attr("disabled", true);
     }
 
     //check if pass value contain a number
     if (pass.value.match(/[0-9]/)) {  //match the function which matches a regular expressions
         //password contain 0 to 9 number then
         num.style.color = 'green'
-        $("#btnSignUp").attr("disabled", false);
+        // $("#btnSignUp").attr("disabled", false);
 
     }
     else {
         //otherwise
         num.style.color = 'red'
-        $("#btnSignUp").attr("disabled", true);
+        // $("#btnSignUp").attr("disabled", true);
     }
 
     //check if the lenght is greater than equal to 8
     if (pass.value.length < 8 ){
         //if the password is less than 8
         len.style.color = 'red'
-        $("#btnSignUp").attr("disabled", true);
+        // $("#btnSignUp").attr("disabled", true);
 
     }
     else {
         //if the password is greater than or equal to 8
         len.style.color = 'green'
-        $("#btnSignUp").attr("disabled", false);
+        // $("#btnSignUp").attr("disabled", false);
 
     }
 }
