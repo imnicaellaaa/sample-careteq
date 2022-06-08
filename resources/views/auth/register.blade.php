@@ -257,10 +257,10 @@
                                             <select class="form-select form-select-md  @error('brgy') is-invalid @enderror"
                                                 aria-label=".form-select-lg example" id="selBrgy" name="brgy"
                                                 value="{{ old('brgy') }}">
-                                                <option selected>Select Barangay</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
+                                                <option hidden>Choose Barangay</option>
+                                                    @foreach ($brgy as $item)
+                                                    <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                                    @endforeach
                                             </select>
                                         </div>
                                         @error('brgy')

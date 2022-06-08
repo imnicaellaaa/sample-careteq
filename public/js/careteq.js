@@ -127,6 +127,25 @@ $(document).ready(function(){
 
     });
   });
+  //Search in a dropdown ID Type
+$(document).ready(function(){
+
+    // Initialize select2
+    $("#selBrgy").select2();
+
+    // Read selected option
+    $('#but_read').click(function(){
+      var title = $('#selBrgy option:selected').text();
+      var id = $('#selBrgy').val();
+      var idno = $('#id_no').val;
+
+      $('#result').html("id : " + id + ", name : " + name);
+    //   $('#result').attr("placeholder" + idno_format);
+
+
+
+    });
+  });
 });
 
 ///password complexity reg ex
