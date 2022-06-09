@@ -12,7 +12,7 @@
                 <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda nobis accusamus
                     dolorem consequuntur ratione. Minima?</p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                    <button type="button" class="btn btn-secondary btn-lg px-4 me-md-2">Get Started</button>
+                    <a class="btn btn-secondary btn-lg px-4 me-md-2" href="{{ route('login') }}">Get Started</a>
                 </div>
             </div>
         </div>
