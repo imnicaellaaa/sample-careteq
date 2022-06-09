@@ -116,7 +116,7 @@
 
                                 </div>
 
-                                {{-- TITLE, SUFFIX --}}
+                                {{-- GENDER, SUFFIX --}}
 
                                 <div class="row">
 
@@ -140,8 +140,8 @@
                                                 id="selGender" name="gender" aria-label=".form-select-lg example"
                                                 value="{{ old('$item->name') }}">
                                                 <option hidden>Choose Gender</option>
-                                                @foreach ($gender as $item)
-                                                    <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                                @foreach ($gender as $genders)
+                                                <option value="{{$genders->name}}" {{old('gender') == $genders->name ? 'selected':''}}>{{ $genders->name}}</option>
                                                 @endforeach
                                             </select>
                                             @error('gender')
@@ -162,8 +162,8 @@
                                                 aria-label=".form-select-lg example" id="selTitle" name="title"
                                                 value="{{ old('$item->name') }}">
                                                 <option hidden>Choose Title</option>
-                                                @foreach ($title as $item)
-                                                    <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                                @foreach ($title as $titles )
+                                                    <option value="{{$titles->name}}" {{old('title') == $titles->name ? 'selected':''}}>{{$titles->name}}</option>
                                                 @endforeach
                                             </select>
                                             @error('title')
@@ -193,8 +193,8 @@
                                                 aria-label=".form-select-lg example" id="selCountry" name="country"
                                                 value="{{ old('$item->name') }}">
                                                 <option hidden>Choose Country</option>
-                                                @foreach ($country as $item)
-                                                    <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                                @foreach ($country as $countries)
+                                                <option value="{{$countries->name}}" {{old('country') == $countries->name ? 'selected':''}}>{{ $countries->name }}</option>
                                                 @endforeach
                                             </select>
                                             @error('country')
@@ -215,8 +215,8 @@
                                                 aria-label=".form-select-lg example" id="selProvince" name="province"
                                                 value="{{ old('$item->name') }}">
                                                 <option hidden>Choose Province</option>
-                                                @foreach ($province as $item)
-                                                    <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                                @foreach ($province as $provinces)
+                                                    <option value="{{$provinces->name}}" {{old('province') == $provinces->name ? 'selected':''}}>{{ $provinces->name }}</option>
                                                 @endforeach
                                             </select>
                                             @error('province')
@@ -237,8 +237,8 @@
                                                 aria-label=".form-select-lg example" id="selMunicipality"
                                                 name="municipality" value="{{ old('$item->name') }}">
                                                 <option hidden>Choose Municipality/City</option>
-                                                @foreach ($municipality as $item)
-                                                    <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                                @foreach ($municipality as $municipalities)
+                                                    <option value="{{$municipalities->name}}" {{old('municipality') == $municipalities->name ? 'selected':''}}>{{ $municipalities->name }}</option>
                                                 @endforeach
                                             </select>
                                             @error('municipality')
@@ -258,9 +258,9 @@
                                                 aria-label=".form-select-lg example" id="selBrgy" name="brgy"
                                                 value="{{ old('brgy') }}">
                                                 <option hidden>Choose Barangay</option>
-                                                    @foreach ($brgy as $item)
-                                                    <option value="{{ $item->name }}">{{ $item->name }}</option>
-                                                    @endforeach
+                                                @foreach ($brgy as $barangay)
+                                                    <option value="{{$barangay->name}}" {{old('brgy') == $barangay->name ? 'selected':''}}>{{ $barangay->name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         @error('brgy')
@@ -383,13 +383,13 @@
                                             <div class="mt-3">
                                                 {{-- NEW PATIENT --}}
                                                 <input type="checkbox" class="form-check-input" type="checkbox"
-                                                    name="status" id="new_patient" value="New Patient">
+                                                    name="status" id="new_patient" value="New Patient" {{ old('status') == 'New Patient' ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="status">
                                                     {{ __('New Patient') }}</label>
                                                 <div class="col">
                                                     {{-- EXISTING PATIENT --}}
                                                     <input type="checkbox" class="form-check-input" type="checkbox"
-                                                        name="status" id="existing_patient" value="Existing_patient">
+                                                        name="status" id="existing_patient" value="Existing_patient" {{ old('status') == 'Existing Patient' ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="status">
                                                         {{ __('Existing Patient') }}</label>
                                                 </div>
@@ -425,11 +425,11 @@
                                                 {{ __('Id Type') }}</label>
                                             <select
                                                 class="form-select form-select-md  @error('id_type') is-invalid @enderror"
-                                                aria-label=".form-select-lg example" id="id_type" name="id_type"
-                                                value="{{ old('$item->name') }}">
+                                                aria-label=".form-select-lg example" id="selID_Type" name="id_type"
+                                                value="{{ old('$item->name') }}" >
                                                 <option value="">Select ID Type</option>
-                                                @foreach ($id_type as $item)
-                                                    <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                                @foreach ($id_type as $id_types)
+                                                    <option value="{{$id_types->name}}" {{old('id_type') == $id_types->name ? 'selected':''}}>{{ $id_types->name }}</option>
                                                 @endforeach
                                             </select>
                                             @error('id_type')
