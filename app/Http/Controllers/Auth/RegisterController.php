@@ -99,9 +99,9 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        if (request()->hasFile( key: 'upload_id')) {
+        if ($name = request()->hasFile( key: 'upload_id')) {
             $upload_id = request()->file( key: 'upload_id')->getClientOriginalName();
-            request()->file( key: 'upload_id')->storeAs( path: 'id_upload', name: $user->id . '/' . $upload_id, options: '');
+            request()->file( key: 'upload_id')->move('images/upload_id', $upload_id);
             $user->update(['upload_id' => $upload_id]);
         }
         return $user;
