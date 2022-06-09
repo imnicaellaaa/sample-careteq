@@ -107,8 +107,8 @@
                                     <div class="col">
                                         <div class="mb-3">
                                             <label for="age" class="form-label">{{ __('Age') }}</label>
-                                            <input class="form-control" type="text" value="" aria-label="age disabled id"
-                                                readonly id="age" name="age" value="{{ old('age') }}">
+                                            <input class="form-control" type="text"
+                                            readonly id="age" name="age" value="{{ old('age') }}" autocomplete="age" >
                                         </div>
 
                                     </div>
