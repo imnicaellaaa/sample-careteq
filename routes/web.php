@@ -35,6 +35,9 @@ Route::get('/testresult', [App\Http\Controllers\testresultController::class, 'in
 // Prescription Page
 Route::get('/prescription', [App\Http\Controllers\prescriptionController::class, 'index'])->name('info.prescription');
 
+// Prescription Edit Page
+Route::get('/prescriptionedit', [App\Http\Controllers\prescriptioneditController::class, 'index'])->name('info.prescriptionedit');
+
 // Discharge Page
 Route::get('/discharge', [App\Http\Controllers\dischargeController::class, 'index'])->name('info.discharge');
 
