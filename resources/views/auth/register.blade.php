@@ -12,7 +12,14 @@
 
 <!-- Select2 JS -->
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-
+<script>
+    $(document).ready(function () {
+        $('#bday').datetimepicker({
+          format: 'MM/DD/YYYY',
+          locale: 'en'
+      }
+  });
+    </script>
 @section('content')
     <div class="container">
         <div class="container mt-5">
@@ -429,7 +436,8 @@
                                                 value="{{ old('$item->name') }}" >
                                                 <option value="">Select ID Type</option>
                                                 @foreach ($id_type as $id_types)
-                                                    <option value="{{$id_types->name}}" {{old('id_type') == $id_types->name ? 'selected':''}}>{{ $id_types->name }}</option>
+                                                <option value="{{$id_types->name}}" {{old('id_type') == $id_types->name ? 'selected':''}}><p id="idno_format" style="visibility: hidden;" >{{ $id_types->idno_format }}</p> {{ $id_types->name }} </option>
+
                                                 @endforeach
                                             </select>
                                             @error('id_type')
@@ -447,8 +455,7 @@
                                                 {{ __('Id Number') }}</label>
                                             <input id="id_no" name="id_no" type="text"
                                                 class="form-control  @error('id_no') is-invalid @enderror autofocus"
-                                                value="{{ old('id_no') }}"  @foreach ($id_type as $item)
-                                                placeholder="{{ $item->idno_format }}" @endforeach>
+                                                value="{{ old('id_no') }}" >
                                             </ul>
                                         </div>
                                         @error('id_no')

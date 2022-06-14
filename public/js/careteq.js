@@ -418,3 +418,12 @@ function formValidation(oEvent) {
         id_no.onkeyup = formValidation;
         }
 
+        $(function(){
+            $("#selID_Type").change(function(){
+                var duplicate = $("#selID_Type option:selected").text();
+                var displayidno = $("#idno_format").val();
+                $("#selID_Type1").val(duplicate);
+                $("#id_no").attr('placeholder', duplicate);
+                $("#display").val(duplicate);
+            })
+        });
