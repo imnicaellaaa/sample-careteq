@@ -15,8 +15,9 @@
                             <img class="rounded-circle mt-5" width="150px"
                                 src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png">
 
-                                <span class="font-weight-bold">{{ Auth::user()->fname }} {{ Auth::user()->mname }} {{ Auth::user()->lname }}</span><span
-                                class="text-black-50">{{ Auth::user()->email }}</span>
+                                <span class="font-weight-bold p-2" style="font-size: 120%">{{ Auth::user()->fname }} {{ Auth::user()->mname }} {{ Auth::user()->lname }}</span>
+                                <span class="text-black-50">{{ Auth::user()->email }}</span>
+
 
                         </div>
                     </div>
@@ -45,6 +46,7 @@
                                 <div class="col-md-6"><label class="labels">Last Name</label>
                                     <input type="text" name="lname" id="lname" class="form-control" value="{{ Auth::user()->lname }}" style="background-color: white"  autofocus>
                                 </div>
+
                             </div>
 
                             {{-- OTHER STUFF --}}
@@ -92,7 +94,7 @@
 
                                 {{-- BARANGAY --}}
                                 <div class="col-md-6"><label class="labels">Barangay</label>
-                                    <input type="text" name="brgy" id="brgy" class="form-control"
+                                    <input type="text" name="brgy" id="selBrgy" class="form-control"
                                     value="{{ Auth::user()->brgy }}" style="background-color: white" autofocus>
                                 </div>
 
