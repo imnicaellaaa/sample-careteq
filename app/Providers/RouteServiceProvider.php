@@ -25,26 +25,6 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-
-
-     /**
-     * The path to the "login" route for your application.
-     *
-     * Typically, users are redirected here after authentication.
-     *
-     * @var string
-     */
-    public const LOGIN = '/login';
-
-
-    /**
-     * Define your route model bindings, pattern filters, and other route configuration.
-     *
-     * @return void
-     */
-
-
-
     public function boot()
     {
         $this->configureRateLimiting();
