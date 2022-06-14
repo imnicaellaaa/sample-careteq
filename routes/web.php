@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\profileinfoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,13 +23,11 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 // Home Page
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Home Page
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // Profile Page
-Route::get('/profileinfo', [App\Http\Controllers\profileinfoController::class, 'index'])->name('info.profileinfo');
+Route::get('/profileinfo', [profileinfoController::class, 'index'])->name('info.profileinfo');
+Route::get('/profileinfoedit', [profileinfoController::class, 'profileinfoEdit'])->name('info.profileinfoedit');
 
 // Test Page
 Route::get('/testresult', [App\Http\Controllers\testresultController::class, 'index'])->name('info.testeresult');
