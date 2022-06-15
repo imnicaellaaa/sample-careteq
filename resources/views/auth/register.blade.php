@@ -436,8 +436,7 @@
                                                 value="{{ old('$item->name') }}" >
                                                 <option value="">Select ID Type</option>
                                                 @foreach ($id_type as $id_types)
-                                                <option value="{{$id_types->name}}" {{old('id_type') == $id_types->name ? 'selected':''}}><p id="idno_format" style="visibility: hidden;" >{{ $id_types->idno_format }}</p> {{ $id_types->name }} </option>
-
+                                                <option value="{{$id_types->name}}" {{old('id_type') == $id_types->name ? 'selected':''}}>{{ $id_types->name }} : <p id="idno_format" name="idno_format" style="display: none">{{ $id_types->idno_format }}</p></option>
                                                 @endforeach
                                             </select>
                                             @error('id_type')
