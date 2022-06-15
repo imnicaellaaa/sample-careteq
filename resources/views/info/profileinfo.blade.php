@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="POST" action="{{ route('info.profileinfoedit') }}" class="py-2">
-    @csrf
+
     <div class="container mt-5">
         <div class="row">
             <div class="container rounded bg-white mt-5 mb-5">
@@ -186,5 +185,5 @@
             </div>
         </div>
     </div>
-</form>
+
 @endsection
