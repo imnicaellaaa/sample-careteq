@@ -43,7 +43,7 @@
                                 </div>
 
                                 {{-- LAST NAME --}}
-                                <div class="col-md-6"><label class="labels">Last Name</label>
+                                <div class="col-md-6 p-2"><label class="labels">Last Name</label>
                                     <input type="text" name="lname" id="lname" class="form-control" value="{{ Auth::user()->lname }}" style="background-color: white"  autofocus>
                                 </div>
 
@@ -63,12 +63,12 @@
                                 </div>
 
                                 {{-- AGE --}}
-                                <div class="col-md-6"><label class="labels">Age</label>
+                                <div class="col-md-6 p-2"><label class="labels">Age</label>
                                     <input type="text" name="age" id="age" class="form-control" value="{{ Auth::user()->age }}" style="background-color: white"  autofocus>
                                 </div>
 
                                 {{-- GENDER --}}
-                                <div class="col-md-6"><label class="labels">Gender</label>
+                                <div class="col-md-6 p-2"><label class="labels">Gender</label>
                                     <input type="text" name="gender" id="gender" class="form-control" value="{{ Auth::user()->gender }}"  style="background-color: white" autofocus>
                                 </div>
 
@@ -80,7 +80,7 @@
                             </div>
 
                             <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h4 class="text-right">Adress</h4>
+                                <h4 class="text-right ">Address</h4>
                             </div>
 
                             {{-- ADRESS --}}
@@ -99,13 +99,13 @@
                                 </div>
 
                                 {{-- CITY --}}
-                                <div class="col-md-6"><label class="labels">Municipality / City</label>
+                                <div class="col-md-6 p-2"><label class="labels">Municipality / City</label>
                                     <input type="text" name="municipality" id="municipality" class="form-control"
                                     value="{{ Auth::user()->municipality }}" style="background-color: white"  autofocus>
                                 </div>
 
                                 {{-- PROVINCE --}}
-                                <div class="col-md-6"><label class="labels">Province</label>
+                                <div class="col-md-6 p-2"><label class="labels">Province</label>
                                     <input type="text" name="province" id="province" class="form-control"
                                     value="{{ Auth::user()->province }}" style="background-color: white"  autofocus>
                                 </div>
@@ -113,13 +113,13 @@
 
 
                                 {{-- COUNTRY --}}
-                                <div class="col-md-6"><label class="labels">Country</label>
+                                <div class="col-md-6 p-2"><label class="labels">Country</label>
                                     <input type="text" name="country" id="country" class="form-control"
                                     value="{{ Auth::user()->country }}" style="background-color: white"  autofocus>
                                 </div>
 
                                 {{-- POSTAL CODE --}}
-                                <div class="col-md-6"><label class="labels">Postal Code</label>
+                                <div class="col-md-6 p-2"><label class="labels">Postal Code</label>
                                     <input type="text" name="postal_code" id="postal_code" class="form-control"
                                     value="{{ Auth::user()->postal_code }}" style="background-color: white" autofocus>
                                 </div>
@@ -138,17 +138,31 @@
 
                             <div class="row mt-2">
 
-                                {{-- HEIGHT --}}
-                                <div class="col-md-6"><label class="labels">Height</label>
-                                    <input type="text" name="cm" id="cm" class="form-control"
-                                    value="{{ Auth::user()->cm }}" style="background-color: white" autofocus>
+                                {{-- HEIGHT IN CENTIMETER --}}
+                                <div class="col-md-6"><label class="labels">Height in Centimeter</label>
+                                    <input type="text" name="centimeter" id="centimeter" class="form-control"
+                                    value="{{ Auth::user()->cm }}" style="background-color: white; width:85%" autofocus>
 
                                 </div>
 
-                                {{-- WEIGHT --}}
-                                <div class="col-md-6"><label class="labels">Weight</label>
+                                {{-- HEIGHT IN INCHES --}}
+                                <div class="col-md-6"><label class="labels">Height in Inches</label>
+                                    <input type="text" name="inch" id="inch" class="form-control"
+                                    value="{{ Auth::user()->cm }}" style="background-color: white; width:85%" autofocus>
+
+                                </div>
+
+                                {{-- WEIGHT IN KILOGRAMS --}}
+                                <div class="col-md-6 p-2"><label class="labels">Weight in Kilograms</label>
                                     <input type="text" name="kg" id="kg" class="form-control"
-                                    value="{{ Auth::user()->kg }}" style="background-color: white" autofocus>
+                                    value="{{ Auth::user()->cm }}" style="background-color: white; width:85%" autofocus>
+
+                                </div>
+
+                                {{-- WEIGHT IN POUNDS --}}
+                                <div class="col-md-6 p-2"><label class="labels">Weight in Pounds</label>
+                                    <input type="text" name="kg" id="kg" class="form-control"
+                                    value="{{ Auth::user()->cm }}" style="background-color: white; width:85%" autofocus>
 
                                 </div>
 
