@@ -40,8 +40,8 @@ $(document).ready(function(){
     var kg = $('#kg').val();
     var convertedbmi = parseFloat((kg/centimeter/centimeter) * 10000).toFixed(2);
 
-     $('#bmi1').val(convertedbmi);
-     $('#bmi').html(convertedbmi);
+     $('#bmi').val(convertedbmi);
+
 
 }
      //convertion of Centimeter to Inches
@@ -82,8 +82,8 @@ $(document).ready(function(){
         var inch = $('#inch').val();
         var calculationbmi = parseFloat((lb * 703) / (inch * inch)).toFixed(2);
 
-        $('#bmi').html(calculationbmi);
-        $('#bmi1').html(calculationbmi);
+        $('#bmi').validate(calculationbmi);
+      
 
 
 
