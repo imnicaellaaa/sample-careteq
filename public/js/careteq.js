@@ -1,6 +1,96 @@
 $(document).ready(function(){
 
     //declaring of of the variables called for every funtions
+    $("#centimeter").change(function(){
+
+        calculateBMI();
+     });
+     $("#kg").change(function(){
+
+        calculateBMI();
+     });
+     $("#kg").change(function(){
+
+        convertionKilogramstoPounds();
+     });
+
+     $('#lb').change(function(){
+        convertionPoundstoKilogram();
+     });
+     $('#centimeter').change(function(){
+         convertionCentimeterstoInches();
+     });
+     $('#inch').change(function(){
+         convertionInchestoCentimeter();
+     });
+     $('#lb').change(function(){
+        convertionKilogramstoPounds();
+     });
+     $('#inch').change(function(){
+        calculationBMI();
+     });
+     $('#lb').change(function(){
+        calculationBMI();
+     });
+
+
+ //calculation of cm and kg to BMI
+ function calculateBMI () {
+    var centimeter = $('#centimeter').val();
+    var kg = $('#kg').val();
+    var convertedbmi = parseFloat((kg/centimeter/centimeter) * 10000).toFixed(2);
+
+     $('#bmi1').val(convertedbmi);
+     $('#bmi').html(convertedbmi);
+
+}
+     //convertion of Centimeter to Inches
+     function convertionCentimeterstoInches () {
+        var centimeter = $('#centimeter').val();
+        var convertedInches = parseFloat (centimeter / 2.54).toFixed(2);
+
+        $('#inch').val(convertedInches, 'inches');
+    }
+
+    //convertion of Inches to Centimeter
+    function convertionInchestoCentimeter () {
+        var inch = $('#inch').val();
+        var convertedcm = parseFloat (inch * 2.54 ).toFixed(2);
+
+        $('#centimeter').val(convertedcm);
+    }
+
+    //convertion of kilogram to pounds
+    function convertionKilogramstoPounds () {
+        var kg = $('#kg').val();
+        var convertedlb = parseFloat(kg * 2.2046226218).toFixed(2);
+
+        $('#lb').val(convertedlb);
+
+    }
+
+    //convertion of pounds to kilogram
+    function convertionPoundstoKilogram () {
+        var lb = $('#lb').val();
+        var convertedkg = parseFloat(lb / 2.2046226218).toFixed(2);
+
+        $('#kg').val(convertedkg);
+    }
+    //calcultion of inches and pounds in BMI
+    function calculationBMI () {
+        var lb = $('#lb').val();
+        var inch = $('#inch').val();
+        var calculationbmi = parseFloat((lb * 703) / (inch * inch)).toFixed(2);
+
+        $('#bmi').html(calculationbmi);
+        $('#bmi1').html(calculationbmi);
+
+
+
+    }
+
+
+
     //age calculation thru birthday
 $('#bday').change(function () {
     var now = new Date();   //Current Date
@@ -137,6 +227,26 @@ $(document).ready(function(){
     $('#but_read').click(function(){
       var title = $('#selBrgy option:selected').text();
       var id = $('#selBrgy').val();
+      var idno = $('#id_no').val;
+
+      $('#result').html("id : " + id + ", name : " + name);
+    //   $('#result').attr("placeholder" + idno_format);
+
+
+
+    });
+  });
+
+  //Search in a dropdown Member Category
+$(document).ready(function(){
+
+    // Initialize select2
+    $("#selMemberCategory").select2();
+
+    // Read selected option
+    $('#but_read').click(function(){
+      var title = $('#selMemberCategory option:selected').text();
+      var id = $('#selMemberCategory').val();
       var idno = $('#id_no').val;
 
       $('#result').html("id : " + id + ", name : " + name);

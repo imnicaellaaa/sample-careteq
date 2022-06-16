@@ -15,7 +15,7 @@
                             <img class="rounded-circle mt-5" width="150px"
                                 src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png">
 
-                                <span class="font-weight-bold p-2" style="font-size: 120%">{{ Auth::user()->fname }} {{ Auth::user()->manme }} {{ Auth::user()->lname }}</span>
+                                <span class="font-weight-bold p-2" style="font-size: 120%">{{ Auth::user()->fname }} {{ Auth::user()->mname }} {{ Auth::user()->lname }}</span>
                                 <span class="text-black-50">{{ Auth::user()->email }}</span>
 
 
