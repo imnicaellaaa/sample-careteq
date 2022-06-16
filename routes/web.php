@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\profileinfoController;
+use App\Http\Controllers\ProfileInfoEditController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // Profile Page
 Route::get('/profileinfo', [profileinfoController::class, 'index'])->name('info.profileinfo');
-Route::get('/profileinfoedit', [profileinfoController::class, 'profileinfoEdit'])->name('info.profileinfoedit');
+Route::get('/profileinfoedit', [ProfileInfoEditController::class, 'index'])->name('info.profileinfoedit');
 
 // Test Page
 Route::get('/testresult', [App\Http\Controllers\testresultController::class, 'index'])->name('info.testeresult');

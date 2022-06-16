@@ -32,6 +32,11 @@ return new class extends Migration
             $table->string('status');
             $table->string('patient_id')->nullable();
             $table->string('id_type');
+            $table->float('centimeter')->nullable();;
+            $table->float('inches')->nullable();;
+            $table->float('kilogram')->nullable();;
+            $table->float('pounds')->nullable();
+            $table->float('bmi')->nullable();
             $table->string('id_no');
             $table->string('upload_id');
             $table->string('email')->unique();

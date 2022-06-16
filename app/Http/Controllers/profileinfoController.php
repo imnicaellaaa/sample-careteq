@@ -10,7 +10,5 @@ class profileinfoController extends Controller
       return view("info.profileinfo");
   }
 
-  public function profileinfoEdit(){
-    return view("info.profileinfoedit");
-}
+
 }

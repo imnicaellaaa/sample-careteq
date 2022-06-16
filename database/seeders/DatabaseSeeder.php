@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             MunicipalitySeeder::class,
             IdTypeSeeder::class,
             BarangaySeeder::class,
+            MemberCategorySeeder::class,
 
         ]);
     }
