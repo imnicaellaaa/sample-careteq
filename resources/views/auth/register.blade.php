@@ -3,7 +3,6 @@
 <script src="{{ asset('js/jquery-1.11.1.js') }}"></script>
 <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
 <script src="{{ asset('js/careteq.js') }}"></script>
-
 <!-- Select2 CSS -->
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 
@@ -396,7 +395,7 @@
                                                 <div class="col">
                                                     {{-- EXISTING PATIENT --}}
                                                     <input type="checkbox" class="form-check-input" type="checkbox"
-                                                        name="status" id="existing_patient" value="Existing_patient" {{ old('status') == 'Existing Patient' ? 'checked' : '' }}>
+                                                        name="status" id="existing_patient" value="Existing Patient" {{ old('status') == 'Existing Patient' ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="status">
                                                         {{ __('Existing Patient') }}</label>
                                                 </div>

@@ -83,7 +83,7 @@ $(document).ready(function(){
         var calculationbmi = parseFloat((lb * 703) / (inch * inch)).toFixed(2);
 
         $('#bmi').validate(calculationbmi);
-      
+
 
 
 
@@ -117,9 +117,13 @@ $('#new_patient').change(function() {
 $('#existing_patient').change(function() {
     if($(this).is(":checked")){
       $('#new_patient').attr('checked', false);
-      $("#patient_id").toggle();
-      $("#patient_id1").toggle();
+      $("#patient_id").show();
+      $("#patient_id1").show();
 
+    }
+    else{
+        $("#patient_id").hide();
+      $("#patient_id1").hide();
     }
 });
 //Search in a dropdown title
