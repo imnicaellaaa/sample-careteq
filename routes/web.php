@@ -28,7 +28,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // Profile Page
 Route::get('/profileinfo', [profileinfoController::class, 'index'])->name('info.profileinfo');
-Route::get('/profileinfoedit', [ProfileInfoEditController::class, 'index'])->name('info.profileinfoedit');
+Route::get('/profileinfoedit',[ProfileInfoEditController::class,'index'])->name('info.profileinfoedit');
+Route::post('/profileinfoUpdate',[ProfileInfoEditController::class,'create'])->name('info.update');
 
 // Test Page
 Route::get('/testresult', [App\Http\Controllers\testresultController::class, 'index'])->name('info.testeresult');

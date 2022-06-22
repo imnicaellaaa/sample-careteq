@@ -46,13 +46,13 @@
                                     {{-- FIRST NAME --}}
                                     <div class="col">
                                         <div class="mb-3">
-                                            <label for="fname" class="form-label"><b style="color: red">*</b>
+                                            <label for="firstname" class="form-label"><b style="color: red">*</b>
                                                 {{ __('First Name') }}</label>
-                                            <input id="fname" name="fname" type="text"
+                                            <input id="firstname" name="firstname" type="text"
                                                 class="form-control  @error('fname') is-invalid @enderror autofocus "
-                                                value="{{ old('fname') }}">
+                                                value="{{ old('firstname') }}">
                                         </div>
-                                        @error('fname')
+                                        @error('firstname')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -63,9 +63,9 @@
                                     <div class="col">
                                         <div class="mb-3">
                                             <div class="mb-3">
-                                                <label for="mname" class="form-label">{{ __('Middle Name') }}</label>
-                                                <input id="mname" name="mname" type="text" class="form-control autofocus"
-                                                    value="{{ old('mname') }}">
+                                                <label for="middlename" class="form-label">{{ __('Middle Name') }}</label>
+                                                <input id="middlename" name="middlename" type="text" class="form-control autofocus"
+                                                    value="{{ old('middlename') }}">
                                             </div>
 
                                         </div>
@@ -75,13 +75,13 @@
                                     <div class="col">
                                         <div class="mb-3">
                                             <div class="mb-3">
-                                                <label for="lname" class="form-label"><b style="color: red">*</b>
+                                                <label for="lastname" class="form-label"><b style="color: red">*</b>
                                                     {{ __('Last Name') }}</label>
-                                                <input id="lname" name="lname" type="text"
-                                                    class="form-control  @error('lname') is-invalid @enderror autofocus"
-                                                    value="{{ old('lname') }}">
+                                                <input id="lastname" name="lastname" type="text"
+                                                    class="form-control  @error('lastname') is-invalid @enderror autofocus"
+                                                    value="{{ old('lastname') }}">
                                             </div>
-                                            @error('lname')
+                                            @error('lastname')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -266,7 +266,7 @@
                                                 value="{{ old('brgy') }}">
                                                 <option hidden>Choose Barangay</option>
                                                 @foreach ($brgy as $barangay)
-                                                    <option value="{{$barangay->name}}" {{old('brgy') == $barangay->name ? 'selected':''}}>{{ $barangay->name }}</option>
+                                                    <option value="{{$barangay->brgyDesc}}" {{old('brgy') == $barangay->brgyDesc ? 'selected':''}}>{{ $barangay->brgyDesc }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
