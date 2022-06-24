@@ -67,8 +67,8 @@ Route::get('/appointmentuser', [App\Http\Controllers\appointmentuserController::
 // Select Doctor Page
 Route::get('/selectdoctor', [App\Http\Controllers\selectdoctorController::class, 'index'])->name('telecare.selectdoctor');
 
-
-
+// Admin Dashboard
+Route::get('/dashboard',[App\Http\Controllers\dashboardController::class, 'index'])->name('admin.dashboard');
 
 
 
