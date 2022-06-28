@@ -22,9 +22,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-     {{-- In line CSS cause im too lazy to put it in a seperate CSS file --}}
+    {{-- In line CSS cause im too lazy to put it in a seperate CSS file --}}
     <style>
         .sidebar-nav ul li a {
 
@@ -92,11 +93,10 @@
     <div id="app">
         <div class="sidebar-nav">
             <div class="navbar navbar-dark bg-dark fixed-top">
-                
-                
+
                 <div class="container">
                     {{-- Mobile menu toggle button --}}
-                    
+
                     <div class="navbar-brand">
                         <span>Careteq</span>
                     </div>
@@ -106,31 +106,45 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                   
-
                     {{-- Menu List --}}
                     <div class="bg-light offcanvas offcanvas-start shadow" tabindex="-1" id="offcanvasNavbar"
-                        aria-labelledby="offcanvasNavbarLabel">
+                        aria-labelledby="offcanvasNavbarLabel" style="width:20%;">
                         <div class="offcanvas-body">
                             <ul class="navbar-nav">
 
-                                <li><a href="#"> <span class="item-text">Home</span></a></li>
+                                <div>
+                                    <h1 class="text-center fs-5 mb-3">logo here</h1>
+                                </div>
 
-                                <li><a href="#"><span class="item-text">Contact Us</span></a></li>
+                                {{-- Profile Image --}}
+                                <li>
+                                    <div class="d-flex-inline">
+                                        <img src="https://img.freepik.com/free-vector/man-shows-gesture-great-idea_10045-637.jpg?t=st=1656308571~exp=1656309171~hmac=510871e32c37c4408d415532e7a4da173d7a32297f2fb62f9d14bd36be08f67b&w=826"
+                                            class="rounded mx-auto d-block" style="width:150px; height:150px;">
 
-                                <li><a href="#"><span class="item-text">About Us</span></a></li>
+                                        <p class="text-center fs-6 text-black fw-bold mt-2">First Name Last Name</p>
+                                        <a class="text-center fs-6 mt-2" href="">
+                                            <i class="fa-solid fa-pen-to-square"></i> Edit Profile</a>
+                                    </div>
 
-                                <li><a href="#"> <span class="item-text">Products</span></a></li>
+                                </li>
+
+                                <hr>
+
+                                <span></span>
+
+                                <li><a href="#"><span class="item-text"><i class="fa-solid fa-check px-2"></i>Item
+                                            here</span></a></li>
+
+                                <li><a href="#"><span class="item-text"><i class="fa-solid fa-check px-2"></i>Item
+                                            here</span></a></li>
 
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
 
-                                <li><a href="#"><span class="item-text">Send</span></a></li>
-
-                                <li><a href="#"><span class="item-text">Share</span></a></li>
-
-                                <li><a href="#"><span class="item-text">Settings</span></a></li>
+                                <li><a href="#"><span class="item-text"><i class="fa-solid fa-check px-2"></i>Item
+                                            here</span></a></li>
 
                             </ul>
                         </div>

@@ -70,5 +70,8 @@ Route::get('/selectdoctor', [App\Http\Controllers\selectdoctorController::class,
 // Admin Dashboard
 Route::get('/dashboard',[App\Http\Controllers\dashboardController::class, 'index'])->name('admin.dashboard');
 
+// Admin Login
+Route::get('/adminlogin',[App\Http\Controllers\adminloginController::class, 'index'])->name('admin.adminlogin');
+
 
 

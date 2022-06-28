@@ -1,0 +1,23 @@
+a {
+    text-decoration: none;
+}
+
+.login-page {
+    width: 100%;
+    height: 70%;
+    display: inline-block;
+    display: flex;
+    align-items: center;
+}
+
+.form-right i {
+    font-size: 100px;
+}
+
+.div-img {
+    background-image: url("https://www.manilatimes.net/manilatimes/uploads/images/2022/03/21/56840.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
