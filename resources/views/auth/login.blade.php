@@ -2,6 +2,7 @@
 
 @section('content')
     <!-- CSS -->
+
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     <div class="login-page bg-light">
@@ -13,13 +14,13 @@
                         <div class="row">
                             <div class="col-md-7 pe-0">
                                 <div class="form-left h-100 py-5 px-5">
-                                    <form action="" class="row g-4">
-
+                                    <form action="{{ route('login') }}" method="POST" class="row g-4">
+                                        @csrf
                                         {{-- Email --}}
                                         <div class="col-12">
-                                            <label>Email<span class="text-danger">*</span></label>
+                                            <label>{{ __('Email Address') }}<span class="text-danger">*</span></label>
                                             <div class="input-group">
-                                                <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
+                                                <div class="input-group-text"><i class="fa fa-user"></i></div>
                                                 <input id="email" type="email"
                                                     class="form-control @error('email') is-invalid @enderror" name="email"
                                                     value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -34,9 +35,9 @@
 
                                         {{-- Password --}}
                                         <div class="col-12">
-                                            <label>Password<span class="text-danger">*</span></label>
+                                            <label>{{ __('Password') }}<span class="text-danger">*</span></label>
                                             <div class="input-group">
-                                                <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
+                                                <div class="input-group-text"><i class="fa fa-unlock-alt"></i></div>
                                                 <input type="password" class="form-control" id="password" name="password" required>
 
                                                 @error('password')
@@ -49,13 +50,13 @@
 
                                         <div class="col-sm-6">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="inlineFormCheck">
-                                                <label class="form-check-label" for="inlineFormCheck">Remember me</label>
+                                                <input class="form-check-input" type="checkbox"  id="remember" id="exampleCheck1" name="remember">
+                                                <label class="form-check-label" for="exampleCheck1">{{ __('Remember Me') }}</label>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-6">
-                                       
+
 
                                             @if (Route::has('password.request'))
                                                 <a class=" float-end text-primary" href="{{ route('password.request') }}">
@@ -67,9 +68,9 @@
 
                                         <div class="col-12">
                                             <button type="submit"
-                                                class="btn btn-secondary px-4 float-start mt-4 col-lg-6">login</button>
+                                                class="btn btn-secondary px-4 float-start mt-4 col-lg-12">{{ __('Login') }}</button>
                                         </div>
-                                        
+
                                     </form>
 
                                 </div>

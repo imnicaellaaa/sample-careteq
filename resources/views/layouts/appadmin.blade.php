@@ -8,11 +8,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name Admin', 'Hello world') }}</title>
+    <title>{{ config('app.name', 'Hello world') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
 
 
     <!-- Fonts -->
@@ -24,13 +22,15 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+
 </head>
 
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/profileinfo') }}">
                     {{ config('app.name', 'Hello world') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -64,7 +64,7 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->title }} {{ Auth::user()->fname }} {{ Auth::user()->lname }}
+                                    {{ Auth::user()->title }} {{ Auth::user()->firstname }} {{ Auth::user()->middlename }} {{ Auth::user()->lastname }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -89,6 +89,17 @@
             @yield('content')
         </main>
 
+        {{-- Footer --}}
+        {{-- <footer class="footer mt-auto py-3 bg-dark">
+            <div class="container text-light">
+
+                <div class="d-flex flex-wrap">
+                    One Patient
+                </div>
+
+
+            </div>
+        </footer> --}}
 
     </div>
 </body>
