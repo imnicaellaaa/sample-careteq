@@ -73,5 +73,9 @@ Route::get('/dashboard',[App\Http\Controllers\dashboardController::class, 'index
 // Admin Login
 Route::get('/adminlogin',[App\Http\Controllers\adminloginController::class, 'index'])->name('admin.adminlogin');
 
+// Admin Doctor List
+Route::get('/doctorlist',[App\Http\Controllers\doctorlistController::class, 'index'])->name('admin.doctorlist');
 
+// Admin Prescription List
+Route::get('/prescriptionlist',[App\Http\Controllers\prescriptionlistController::class, 'index'])->name('admin.prescriptionlist');
 
