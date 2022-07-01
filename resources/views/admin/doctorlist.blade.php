@@ -7,7 +7,7 @@
             <div class="p-2 fs-3">Doctors List</div>
 
             <div class="ms-auto p-2">
-                <button class="btn-success rounded-3">
+                <button class="btn-success rounded-3" data-bs-toggle="modal" data-bs-target="#addModal">
                     <i class="fa-solid fa-plus"></i> Add Doctor
                 </button>
             </div>
@@ -46,12 +46,12 @@
             </tbody>
         </table>
 
-        {{-- Edit Modal --}}
-        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        {{-- ADD Modal --}}
+        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModallabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit Doctor Details</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Add Doctor</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -74,9 +74,16 @@
                                     aria-describedby="addon-wrapping">
                             </div>
 
-                            <button class="btn btn-success col-lg-4" type="submit">Submit Changes</button>
+                            <div class="input-group flex-nowrap mb-2">
+                                {{-- Edit Specializaion --}}
+                                <input type="text" class="form-control" placeholder="Specialization" aria-label="specialization"
+                                    aria-describedby="addon-wrapping">
+                            </div>
+
+                            <button class="btn btn-success col-lg-4" type="submit">Submit</button>
                         </form>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -109,12 +116,14 @@
                                     aria-describedby="addon-wrapping">
                             </div>
 
+                            <div class="input-group flex-nowrap mb-2">
+                                {{-- Edit Specialization --}}
+                                <input type="text" class="form-control" placeholder="Specialization" aria-label="specialization"
+                                    aria-describedby="addon-wrapping">
+                            </div>
+
                             <button class="btn btn-success col-lg-4" type="submit">Submit Changes</button>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -128,9 +137,6 @@
                         <h5 class="modal-title" id="exampleModalLabel">Do you want to delete this record?</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-success">Yes</button>
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
@@ -138,5 +144,7 @@
                 </div>
             </div>
         </div>
+
+
     </div>
 @endsection
