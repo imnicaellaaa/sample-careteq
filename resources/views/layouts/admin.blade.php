@@ -108,7 +108,7 @@
 
                     {{-- Menu List --}}
                     <div class="bg-light offcanvas offcanvas-start shadow" tabindex="-1" id="offcanvasNavbar"
-                        aria-labelledby="offcanvasNavbarLabel" style="width:20%;">
+                        aria-labelledby="offcanvasNavbarLabel" >
                         <div class="offcanvas-body">
                             <ul class="navbar-nav">
 
