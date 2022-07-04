@@ -289,6 +289,7 @@
                                 <div class="col-md-6"><label class="labels"><b style="color: red">*</b> Member Category</label>
                                     <select name="member_category" id="selMemberCategory" class="form-select form-select-md @error('member_category') is-invalid @enderror"
                                     style="background-color: white" value="{{Auth::user()->member_category}}" :value="old('member_category')" required autofocus>
+
                                         <option hidden>{{ Auth::user()->member_category }}</option>
                                         @foreach ($member_category as $membercategory )
                                                     <option value="{{$membercategory->membercategory_desc}}" {{old('member_category') == $membercategory->membercategory_desc ? 'selected':''}}>{{ $membercategory->membercategory_desc}}</option>

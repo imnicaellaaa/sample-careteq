@@ -254,6 +254,7 @@ $(document).ready(function(){
       var idno = $('#id_no').val;
 
       $('#result').html("id : " + id + ", name : " + name);
+    //   $('#selMembercategory').attr("placeholder", "Choose Member Category")
     //   $('#result').attr("placeholder" + idno_format);
 
 
@@ -540,3 +541,7 @@ function formValidation(oEvent) {
 
             })
         });
+
+        $(document).ready(function(){
+            $('#selMemberCategory').attr("placeholder", "One");
+          })

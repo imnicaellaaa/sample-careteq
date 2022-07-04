@@ -248,6 +248,7 @@
                                 <div class="col-md-6"><label class="labels"><b style="color: red">*</b> Member Category</label>
                                     <select name="member_category" id="selMemberCategory" class="form-select form-select-md @error('member_category') is-invalid @enderror"
                                    disabled>
+                                   {{--  <option disabled selected hidden>Choose Memeber Category</option>  --}}
                                         <option hidden>{{ Auth::user()->member_category }}</option>
 
                                     </select>
