@@ -14,24 +14,36 @@
 <!-- Select2 JS -->
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
-<script>
-    window.setTimeout(function() {
-        $(".alert").fadeTo(2000, 500).slideUp(1000, function(){
-            $(this).remove();
-        });
-    }, 2000);
-</script>
+<style>
+    .btn-text-right{
+        text-align: right;
+        border-radius: 50px;
+    }
+</style>
 @if(session()->has('message'))
+<div class="container mt-2" id="successDialog">
 <div class="alert alert-success alert-dismissible fade show" role="alert" id="mySuccess">
     <strong>Success!</strong> {{ session()->get('message') }}
+    <hr>
+    <div class="btn-text-right">
+        <button type="button" class="btn" id="sucessBtnOkay" name="sucessBtnOkay" onclick="sucessBtnOkay()" style="background-color: rgb(4, 191, 104); font-weight:bold ">Okay</button>
+    </div>
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
 </div>
 @endif
 
 @if(session()->has('error'))
+<div class="container mt-3" id="errorDialog">
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
     <strong>Error!</strong> {{ session()->get('error') }}
+    <hr>
+    <div class="btn-text-right">
+        <button type="button" class="btn" id="errorBtnOkay" name="errorBtnOkay" onclick="errorBtnOkay()" style="background-color: rgb(229, 109, 109); font-weight:bold ">Okay</button>
+    </div>
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+
+</div>
 </div>
 @endif
 

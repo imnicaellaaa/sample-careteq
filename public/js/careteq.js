@@ -32,7 +32,30 @@ $(document).ready(function(){
      $('#lb').change(function(){
         calculationBMI();
      });
+     $('#errorBtnOkay').click(function(){
+        errorBtnOkay();
+     });
+     $('#sucessBtnOkay').click(function(){
+        sucessBtnOkay();
+     });
 
+      //Close Success Dialog by clicking the okay button
+      function sucessBtnOkay(){
+        $('#successDialog').hide();
+        window.location.href = "/profileinfo";
+      }
+
+     //Close Error Dialog by clicking the okay button
+     function errorBtnOkay(){
+       $('#errorDialog').hide();
+     }
+
+    //Automatic close the Dialog by 6 seconds
+    //  window.setTimeout(function() {
+    //     $(".alert").fadeTo(6000, 500).slideUp(1000, function(){
+    //         $(this).remove();
+    //     });
+    // }, 2000);
 
  //calculation of cm and kg to BMI
  function calculateBMI () {
@@ -41,7 +64,6 @@ $(document).ready(function(){
     var convertedbmi = parseFloat((kg/centimeter/centimeter) * 10000).toFixed(2);
 
      $('#bmi').val(convertedbmi);
-
 
 }
      //convertion of Centimeter to Inches
@@ -82,8 +104,7 @@ $(document).ready(function(){
         var inch = $('#inch').val();
         var calculationbmi = parseFloat((lb * 703) / (inch * inch)).toFixed(2);
 
-        $('#bmi').validate(calculationbmi);
-
+        $('#bmi').val(calculationbmi);
 
 
 
@@ -126,6 +147,7 @@ $('#existing_patient').change(function() {
       $("#patient_id1").hide();
     }
 });
+
 //Search in a dropdown title
 $(document).ready(function(){
 
@@ -254,7 +276,6 @@ $(document).ready(function(){
       var idno = $('#id_no').val;
 
       $('#result').html("id : " + id + ", name : " + name);
-    //   $('#selMembercategory').attr("placeholder", "Choose Member Category")
     //   $('#result').attr("placeholder" + idno_format);
 
 
@@ -536,12 +557,13 @@ function formValidation(oEvent) {
         $(function(){
             $("#selID_Type").change(function(){
                 var duplicate = $("#selID_Type option:selected").text();
-                $("#selID_Type1").val(duplicate);
+
+                // $("#selID_Type1").val(duplicate);
                 $("#id_no").attr('placeholder', duplicate);
 
             })
         });
 
         $(document).ready(function(){
-            $('#selMemberCategory').attr("placeholder", "One");
+
           })

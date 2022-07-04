@@ -13,6 +13,7 @@ use App\Models\MemberCategory;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileInfoEditController extends Controller
 {
@@ -35,6 +36,7 @@ class ProfileInfoEditController extends Controller
                  'municipality' => $municipality,
                  'member_category' => $member_category,
                  'brgy' => $barangay,
+                 'user' => Auth::user()
         ]);
     }
 
