@@ -76,19 +76,9 @@ class ProfileInfoEditController extends Controller
 
     public function create(Request $request)
     {
-        // $request->validate([
-        //     'firstname' => 'string|max:255',
-        //     'middlename' => 'string|max:255',
-        //     'lastname' => 'string|max:255',
-        // ]);
-        // $validate = Validator::make($request,[
-        //     'firstname' => ['string', 'max:255'],
-        //     'middlename' => ['string', 'max:255'],
-        //     'lastname' => ['string', 'max:255'],
-        // ]);
-
-    //    return var_dump($request->all()); die();
-    // return $request->bmi;
+        $avatars = request()->file( key: 'avatar')->getClientOriginalName();
+        request()->file( key: 'avatar')->move('images/uploads/avatars', $avatars);
+        $imagePath = $avatars;
 
         //saving all the inputed data to the profile_information database
        if( $query = DB::table('users')
@@ -121,6 +111,7 @@ class ProfileInfoEditController extends Controller
                         'membership_no' =>$request->membership_no,
                         'plan_name' => $request->plan_name,
                         'approval_number' =>$request->approval_number,
+                        'avatar' => $imagePath,
 
 
 

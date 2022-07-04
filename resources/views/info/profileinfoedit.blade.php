@@ -59,10 +59,11 @@
                     <div class="col-md-3 border-right">
                         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
 
-                            <img class="rounded-circle mt-5"width="150px"
-                                src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png">
-
-
+                            <img class="rounded-circle mt-5" width="150px" height="150px" src="/images/uploads/avatars/{{Auth::user()->avatar}}">
+                            <div class="mt-2">
+                            <input type="file" name="avatar" id="avatar" class="form-control">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            </div>
                                 <span class="font-weight-bold p-2" style="font-size: 120%">{{ Auth::user()->firstname }} {{ Auth::user()->middlename }} {{ Auth::user()->lastname }}</span>
                                 <span class="text-black-50">{{ Auth::user()->email }}</span>
 
