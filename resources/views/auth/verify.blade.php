@@ -16,7 +16,7 @@
                                     </div>
                                 @endif
 
-                                {{ __('Before proceeding, please check your email for a verification link.') }}
+                                {{ __('Before proceeding, please check your email or spam for a verification link.') }}
                                 {{ __('If you did not receive the email') }},
                             </div>
                         </div>
