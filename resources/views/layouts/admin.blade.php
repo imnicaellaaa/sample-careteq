@@ -108,7 +108,7 @@
 
                     {{-- Menu List --}}
                     <div class="bg-light offcanvas offcanvas-start shadow" tabindex="-1" id="offcanvasNavbar"
-                        aria-labelledby="offcanvasNavbarLabel" >
+                        aria-labelledby="offcanvasNavbarLabel">
                         <div class="offcanvas-body">
                             <ul class="navbar-nav">
 
@@ -133,29 +133,36 @@
 
                                 <span></span>
 
-                                <li class="nav-item"><a href="#"><span class="item-text"><i
-                                                class="fa-solid fa-check px-2"></i>Doctors</span></a></li>
-
-                                <li><a href="#"><span class="item-text"><i
-                                                class="fa-solid fa-check px-2"></i>Reports</span></a></li>
-
-                                <li><a href="#"><span class="item-text"><i
-                                                class="fa-solid fa-check px-2"></i>Patients</span></a></li>
-
-
-                                <li><a href="#"><span class="item-text"><i
-                                                class="fa-solid fa-check px-2"></i>Prescriptions</span></a></li>
-
                                 <h6
                                     class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                                    <span>Saved reports</span>
+                                    <span>Admin Actions</span>
                                     <a class="link-secondary" href="#" aria-label="Add a new report">
                                         <span data-feather="plus-circle"></span>
                                     </a>
                                 </h6>
 
-                                <li><a href="#"><span class="item-text"><i
-                                                class="fa-solid fa-check px-2"></i>Item here</span></a></li>
+                                <li class="nav-item"><a href="#"><span class="item-text"><i
+                                                class="fa-solid fa-user-doctor"></i> Doctors</span></a></li>
+
+                                <li><a href="#"><span class="item-text"><i class="fa-solid fa-book-medical"></i>
+                                            Reports</span></a></li>
+
+                                <li><a href="#"><span class="item-text"><i class="fa-solid fa-head-side-mask"></i>
+                                            Patients</span></a></li>
+
+                                <li><a href="#"><span class="item-text"><i class="fa-solid fa-file-medical"></i>
+                                            Prescriptions</span></a></li>
+
+                                <h6
+                                    class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                                    <span>Actions</span>
+                                    <a class="link-secondary" href="#" aria-label="Add a new report">
+                                        <span data-feather="plus-circle"></span>
+                                    </a>
+                                </h6>
+
+                                <li><a href="#"><span class="item-text text-danger"><i
+                                                class="fa-solid fa-arrow-right-from-bracket"></i> Logout</span></a></li>
 
                             </ul>
                         </div>

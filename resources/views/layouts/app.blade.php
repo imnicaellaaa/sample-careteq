@@ -41,9 +41,11 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
 
-                    </ul>
+           
+                     <ul class="navbar-nav me-auto">
+                        <li class="nav-item">Scheduler</li>
+                    </ul> 
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
