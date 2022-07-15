@@ -43,9 +43,9 @@
                     <!-- Left Side Of Navbar -->
 
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                            <a class="nav-link" href="{{ url('/profileinfo') }}">Profile Info</a>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-item">
                            <a class="nav-link" href=""> Scheduler</a>
@@ -69,12 +69,18 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->title }} {{ Auth::user()->firstname }} {{ Auth::user()->middlename }} {{ Auth::user()->lastname }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                                    <a href="{{ url('/profileinfo') }}" class="dropdown-item">
+                                        Profile
+                                    </a>
+
+                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                                          document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -96,17 +102,6 @@
             @yield('content')
         </main>
 
-        {{-- Footer --}}
-        {{-- <footer class="footer mt-auto py-3 bg-dark">
-            <div class="container text-light">
-
-                <div class="d-flex flex-wrap">
-                    One Patient
-                </div>
-
-
-            </div>
-        </footer> --}}
 
     </div>
 </body>

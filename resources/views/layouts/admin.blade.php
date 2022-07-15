@@ -141,7 +141,7 @@
                                     </a>
                                 </h6>
 
-                                <li class="nav-item"><a href="#"><span class="item-text"><i
+                                <li class="nav-item"><a href="doctorlist"><span class="item-text"><i
                                                 class="fa-solid fa-user-doctor"></i> Doctors</span></a></li>
 
                                 <li><a href="#"><span class="item-text"><i class="fa-solid fa-book-medical"></i>
@@ -150,7 +150,7 @@
                                 <li><a href="#"><span class="item-text"><i class="fa-solid fa-head-side-mask"></i>
                                             Patients</span></a></li>
 
-                                <li><a href="#"><span class="item-text"><i class="fa-solid fa-file-medical"></i>
+                                <li><a href="prescriptionlist"><span class="item-text"><i class="fa-solid fa-file-medical"></i>
                                             Prescriptions</span></a></li>
 
                                 <h6

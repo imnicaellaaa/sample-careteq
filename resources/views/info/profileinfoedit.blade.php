@@ -34,7 +34,7 @@
 @endif
 
 @if(session()->has('error'))
-<div class="container mt-3" id="errorDialog">
+<div class="container mt-5" id="errorDialog">
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
     <strong>Error!</strong> {{ session()->get('error') }}
     <hr>
@@ -73,7 +73,7 @@
                 </form>
 
                     {{-- MIDDLE SECTION --}}
-                    <div class="col-md-5 border-right">
+                    <div class="col-md-4 border-right">
                         <div class="p-3 py-5">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <h4 class="text-right">Your Profile</h4>
@@ -84,7 +84,7 @@
                             <div class="row mt-2">
 
                                 {{-- FIRST NAME --}}
-                                <div class="col-md-6"><label class="labels">First Name</label>
+                                <div class="col-md-6 p-2"><label class="labels">First Name</label>
                                     <input type="text" name="firstname" id="firstname" class="form-control @error('firstname') is-invalid @enderror" value="{{ Auth::user()->firstname }}" style="background-color: white"  autofocus>
 
                                     @error('firstname')
@@ -95,7 +95,7 @@
                                 </div>
 
                                 {{-- MIDDLE NAME --}}
-                                <div class="col-md-6"><label class="labels">Middle Name</label>
+                                <div class="col-md-6 p-2"><label class="labels">Middle Name</label>
                                     <input type="text" name="middlename" id="middlename" class="form-control" value="{{ Auth::user()->middlename }}"  style="background-color: white" autofocus>
                                 </div>
 
@@ -103,29 +103,34 @@
                                 <div class="col-md-6 p-2"><label class="labels">Last Name</label>
                                     <input type="text" name="lastname" id="lastname" class="form-control" value="{{ Auth::user()->lastname }}" style="background-color: white"  autofocus>
                                 </div>
+
+                                {{-- USER ID (HIDDEN) --}}
+                                <div class="center mt-2">
+                                    <input type="text" name="user_id" id="user_id" class="d-none form-co" value="{{Auth::user()->id}}">
+                                </div>
                             </div>
 
                             {{-- OTHER STUFF --}}
                             <div class="row mt-2">
 
                                  {{-- PATIENT ID --}}
-                                 <div class="col-md-6">
+                                 <div class="col-md-6 p-2">
                                     <label class="labels">Patient ID</label>
                                     <input type="text" class="form-control" name="patient_id" id="patient_id" style="font-weight:bold" value="{{Auth::user()->patient_id}}" readonly></input>
                                 </div>
 
                                 {{-- BDAY --}}
-                                <div class="col-md-6"><label class="labels">Birthday</label>
+                                <div class="col-md-6 p-2"><label class="labels">Birthday</label>
                                     <input type="date" name="bday" id="bday" class="form-control" value="{{ Auth::user()->bday }}" style="background-color: white"  autofocus>
                                 </div>
 
                                 {{-- SUFFIX --}}
-                                <div class="col-md-6"><label class="labels">Suffix</label>
+                                <div class="col-md-6 p-2"><label class="labels">Suffix</label>
                                     <input type="text" name="suffix" id="suffix" class="form-control" value="{{ Auth::user()->suffix }}" style="background-color: white"  autofocus>
                                 </div>
 
                                 {{-- AGE --}}
-                                <div class="col-md-6"><label class="labels">Age</label>
+                                <div class="col-md-6 p-2"><label class="labels">Age</label>
                                     <input type="text" name="age" id="age" class="form-control" value="{{ Auth::user()->age }}" readonly  autofocus>
                                 </div>
 
@@ -166,7 +171,7 @@
 
                             </div>
 
-                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                 <div class="d-flex justify-content-between align-items-center mb-3 mt-3">
                                 <h4 class="text-right ">Address</h4>
                             </div>
 
@@ -237,15 +242,15 @@
                     {{-- RIGHT SIDE (MEDICAL INFORMATION) --}}
                     <div class="col-md-4">
                         <div class="p-3 py-5">
-                            <h4 class="text-right">Medical Information</h4>
-                            {{-- <div class="d-flex justify-content-between align-items-center experience">
-
-                            </div> --}}
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="text-right">Medical Information</h4>
+                               
+                            </div>
 
                             <div class="row mt-2">
 
                                 {{-- HEIGHT IN CENTIMETER --}}
-                                <div class="col-md-6"><label class="labels">Height in Centimeter</label>
+                                <div class="col-md-6 p-2"><label class="labels">Height in Centimeter</label>
                                     <input type="number" name="centimeter" id="centimeter" class="form-control"
                                      style="background-color: white; width:85%" value="{{ Auth::user()->centimeter}}"
                                     step=".01" placeholder="cm" autofocus>
@@ -253,7 +258,7 @@
                                 </div>
 
                                 {{-- HEIGHT IN INCHES --}}
-                                <div class="col-md-6"><label class="labels">Height in Inches</label>
+                                <div class="col-md-6 p-2"><label class="labels">Height in Inches</label>
                                     <input type="number" name="inches" id="inch" class="form-control"
                                     value="{{ Auth::user()->inches}}" style="background-color: white; width:85%"
                                     step=".01" placeholder="inches" autofocus>
@@ -276,16 +281,18 @@
 
                                 </div>
 
+                                
                                 {{-- BMI --}}
-                                <div class="col-md-6"><label class="labels">BMI</label>
-                                    <input type="number" name="bmi" id="bmi" class="form-control"
+                                <div class="col-md-6 p-2"><label class="labels">BMI</label>
+                                    <input type="number" name="bmi" id="bmi" class="form-control" style=" width:85%"
                                     value="{{ Auth::user()->bmi }}" readonly autofocus>
                                 </div>
+                            </div>
 
                                 <div class="row mt-2">
 
                                     {{-- PHILHEALTH NUMBER --}}
-                                <div class="col-md-6"><label class="labels"><b style="color: red">*</b> PhilHealth Number</label>
+                                <div class="col-md-6 p-2"><label class="labels"><b style="color: red">*</b> PhilHealth Number</label>
                                     <input type="number" name="philhealth_no" id="philhealth_no" class="form-control @error('philhealth_no') is-invalid @enderror"
                                     :value="old('philhealth_no')" value="{{Auth::user()->philhealth_no}}" style="background-color: white" placeholder="12-345678910-1"
                                      required autofocus>
@@ -299,7 +306,7 @@
                                 </div>
 
                                 {{-- MEMBER CATEGORY --}}
-                                <div class="col-md-6"><label class="labels"><b style="color: red">*</b> Member Category</label>
+                                <div class="col-md-6 p-2"><label class="labels"><b style="color: red">*</b> Member Category</label>
                                     <select name="member_category" id="selMemberCategory" class="form-select form-select-md @error('member_category') is-invalid @enderror"
                                     style="background-color: white" value="{{Auth::user()->member_category}}" :value="old('member_category')" required autofocus>
 
@@ -358,15 +365,15 @@
                                             @enderror
                                 </div>
 
-                                <div class="row mb-0">
-                                    <div class="col-md-8 offset-md-7 p-4">
+                                <div class="row mb-1">
+                                    <div class="col-md-8 ">
                                         <button type="submit" id="btnEdit" class="btn btn-primary" >
                                             {{ __('Update Changes') }}
                                         </button>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                 
                     </div>
                 </div>
             </div>

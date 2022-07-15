@@ -79,3 +79,8 @@ Route::get('/doctorlist',[App\Http\Controllers\doctorlistController::class, 'ind
 // Admin Prescription List
 Route::get('/prescriptionlist',[App\Http\Controllers\prescriptionlistController::class, 'index'])->name('admin.prescriptionlist');
 
+// Admin Patient List
+Route::get('/patientlist',[App\Http\Controllers\patientlistController::class, 'index'])->name('admin.patientlist');
+
+// Admin Report List
+Route::get('/reportlist',[App\Http\Controllers\reportlistController::class, 'index'])->name('admin.reportlist');
