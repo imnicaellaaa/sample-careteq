@@ -184,12 +184,12 @@ $(document).ready(function(){
    $(document).ready(function(){
 
     // Initialize select2
-    $("#selCountry").select2();
+    $("#country").select2();
 
     // Read selected option
     $('#but_read').click(function(){
-      var title = $('#selCountry option:selected').text();
-      var id = $('#selCountry').val();
+      var title = $('#country option:selected').text();
+      var id = $('#country').val();
 
       $('#result').html("id : " + id + ", name : " + name);
 
@@ -200,12 +200,12 @@ $(document).ready(function(){
   $(document).ready(function(){
 
     // Initialize select2
-    $("#selProvince").select2();
+    $("#province").select2();
 
     // Read selected option
     $('#but_read').click(function(){
-      var title = $('#selProvince option:selected').text();
-      var id = $('#selProvince').val();
+      var title = $('#province option:selected').text();
+      var id = $('#province').val();
 
       $('#result').html("id : " + id + ", name : " + name);
 
@@ -216,12 +216,12 @@ $(document).ready(function(){
    $(document).ready(function(){
 
     // Initialize select2
-    $("#selMunicipality").select2();
+    $("#municipality").select2();
 
     // Read selected option
     $('#but_read').click(function(){
-      var title = $('#selMunicipality option:selected').text();
-      var id = $('#selMunicipality').val();
+      var title = $('#municipality option:selected').text();
+      var id = $('#municipality').val();
 
       $('#result').html("id : " + id + ", name : " + name);
 
@@ -247,12 +247,12 @@ $(document).ready(function(){
 $(document).ready(function(){
 
     // Initialize select2
-    $("#selBrgy").select2();
+    $("#barangay").select2();
 
     // Read selected option
     $('#but_read').click(function(){
-      var title = $('#selBrgy option:selected').text();
-      var id = $('#selBrgy').val();
+      var title = $('#barangay option:selected').text();
+      var id = $('#barangay').val();
       var idno = $('#id_no').val;
 
       $('#result').html("id : " + id + ", name : " + name);
@@ -564,6 +564,167 @@ function formValidation(oEvent) {
             })
         });
 
-        $(document).ready(function(){
+        //province start
+$(document).ready(function() {
+    $('#country').on('change', function()
+    {
+       var country = $(this).val();
+       if(country) {
+              //alert(country); return false;
+              var url = window.location.origin+'/getprovinces/'+country;
+              //alert(url); return false;
+              $.ajaxSetup
+              ({
+                  headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+              });
+                $.ajax({
+                    url: url,
+                    method: 'get',
+                    data: { 'country_code': country }, // prefer use serialize method
+                    success:function(data)
+                    {
+                        //alert (data); return false;
+                      if(data){
+                         //alert (data); return false;
+                         $("#province").empty();
+                         $("#province").append('<option value=" ">Select Province</option>');
+                        for(var n=0; n<data.length; n++) {
+                           $("#province").append('<option>'+data[n]['province']+'</option>');
+                        }
+                        $("#municipality").empty();
+                        $("#barangay").empty();
+                        $("#zip_code").val('');
+                      }
 
-          })
+                        else
+                        {
+                          $('#province').empty();
+                        }
+                      }
+              });
+            }
+    });
+    //province end
+
+    // municipality start
+    $('#province').on('change', function()
+    {
+       var province = $(this).val();
+       //alert(province); return false;
+       if(province) {
+              //alert(province); return false;
+              var url = window.location.origin+'/getmunicipality/'+province;
+              //alert(url); return false;
+              $.ajaxSetup
+              ({
+                  headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+              });
+                $.ajax({
+                    url: url,
+                    method: 'get',
+                    data: { 'province': province }, // prefer use serialize method
+                    success:function(data)
+                    {
+                        //alert (data); return false;
+                      if(data){
+                         //alert (data); return false;
+                         $("#municipality").append('<option value=" ">Select Municipality</option>');
+                        for(var n=0; n<data.length; n++) {
+                           $("#municipality").append('<option>'+data[n]['municipality']+'</option>');
+                        }
+                      }
+
+                        else
+                        {
+                          $('#municipality').empty();
+                        }
+                      }
+              });
+            }
+    });
+    //municipality end
+
+
+     // barangay start
+     $('#municipality').on('change', function()
+     {
+        var municipality = $(this).val();
+        //alert(province); return false;
+        if(municipality) {
+               //alert(province); return false;
+               var url = window.location.origin+'/getbarangays/'+province;
+               //alert(url); return false;
+               $.ajaxSetup
+               ({
+                   headers: {
+                       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               }
+               });
+                 $.ajax({
+                     url: url,
+                     method: 'get',
+                     data: { 'municipality': municipality }, // prefer use serialize method
+                     success:function(data)
+                     {
+                         //alert (data); return false;
+                       if(data){
+                          //alert (data); return false;
+                          $("#barangay").append('<option value=" ">Select Barangay</option>');
+                         for(var n=0; n<data.length; n++) {
+                            $("#barangay").append('<option>'+data[n]['barangay']+'</option>');
+
+                         }
+                       }
+
+                         else
+                         {
+                           $('#barangay').empty();
+                         }
+                       }
+               });
+             }
+     });
+     //barangay end
+
+     //zip code start
+      $('#barangay').on('change', function()
+     {
+        var barangay = $(this).val();
+        var province = $('#province').val();
+        //alert(barangay); return false;
+        if(barangay) {
+               //alert(barangay); return false;
+               var url = window.location.origin+'/getzipcode/'+barangay;
+               //alert(url); return false;
+               $.ajaxSetup
+               ({
+                   headers: {
+                       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               }
+               });
+                 $.ajax({
+                     url: url,
+                     method: 'get',
+                     data: { 'barangay': barangay, 'province': province }, // prefer use serialize method
+                     success:function(data)
+                     {
+                         //alert (data); return false;
+                       if(data){
+                          //alert (data); return false;
+                          $('#zip_code').val(data[0]['zip_code']);
+
+                       }
+
+                         else
+                         {
+                           $('#barangay').empty();
+                         }
+                       }
+               });
+             }
+     });
+    })

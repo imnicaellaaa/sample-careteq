@@ -15,8 +15,14 @@ return new class extends Migration
     {
         Schema::create('provinces', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('country_id');
+            $table->string('country_name');
+            $table->string('country_code');
+            $table->string('region_name');
+            $table->string('region_code');
+            $table->string('province');
+            $table->string('municipality');
+            $table->string('barangay');
+            $table->string('zip_code');
             $table->timestamps();
         });
     }

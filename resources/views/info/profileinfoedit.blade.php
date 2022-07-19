@@ -59,7 +59,7 @@
                     <div class="col-md-3 border-right">
                         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
 
-                            <img class="rounded-circle mt-5" width="150px" height="150px" src="/images/uploads/avatars/{{Auth::user()->avatar}}">
+                            <img class="rounded-circle mt-5" width="150px" height="150px" src="/images/uploads/avatars_userstable/{{Auth::user()->avatar}}">
                             <div class="mt-2">
                             <input type="file" name="avatar" id="avatar" class="form-control">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -85,7 +85,7 @@
 
                                 {{-- FIRST NAME --}}
                                 <div class="col-md-6 p-2"><label class="labels">First Name</label>
-                                    <input type="text" name="firstname" id="firstname" class="form-control @error('firstname') is-invalid @enderror" value="{{ Auth::user()->firstname }}" style="background-color: white"  autofocus>
+                                    <input type="text" name="firstname" id="firstname" class="form-control @error('firstname') is-invalid @enderror" value="{{ Auth::user()->firstname }}"  readonly>
 
                                     @error('firstname')
                                     <span class="invalid-feedback" role="alert">
@@ -96,12 +96,12 @@
 
                                 {{-- MIDDLE NAME --}}
                                 <div class="col-md-6 p-2"><label class="labels">Middle Name</label>
-                                    <input type="text" name="middlename" id="middlename" class="form-control" value="{{ Auth::user()->middlename }}"  style="background-color: white" autofocus>
+                                    <input type="text" name="middlename" id="middlename" class="form-control" value="{{ Auth::user()->middlename }}"   readonly>
                                 </div>
 
                                 {{-- LAST NAME --}}
                                 <div class="col-md-6 p-2"><label class="labels">Last Name</label>
-                                    <input type="text" name="lastname" id="lastname" class="form-control" value="{{ Auth::user()->lastname }}" style="background-color: white"  autofocus>
+                                    <input type="text" name="lastname" id="lastname" class="form-control" value="{{ Auth::user()->lastname }}"  readonly>
                                 </div>
 
                                 {{-- USER ID (HIDDEN) --}}
@@ -137,13 +137,13 @@
 
 
                                 {{-- TELEPHONE NUMBER --}}
-                                <div class="col-md-6 p-2"><label class="labels">Tel (Home)</label>
-                                    <input type="number" name="telno" id="telno" class="form-control" value="{{ Auth::user()->telno }}" style="background-color: white" autofocus>
+                                <div class="col-md-6 p-2"><label class="labels">Telephone No. (Home)</label>
+                                    <input type="text" name="telno" id="telno" class="form-control" value="{{ Auth::user()->telno }}" style="background-color: white" autofocus>
                                 </div>
 
                                 {{-- MOBILE NUMBER --}}
                                 <div class="col-md-6 p-2"><label class="labels">Mobile No.</label>
-                                    <input type="number" name="mobile_no" id="mobile_no" class="form-control" :value="old('mobile_no')" value="{{ Auth::user()->mobile_no }}" style="background-color: white" autofocus>
+                                    <input type="text" name="mobile_no" id="mobile_no" class="form-control" :value="old('mobile_no')" value="{{ Auth::user()->mobile_no }}" style="background-color: white" autofocus>
                                 </div>
 
                                  {{-- TITLE --}}
@@ -186,38 +186,29 @@
 
                                  {{-- POSTAL CODE --}}
                                  <div class="col-md-6"><label class="labels">Postal Code</label>
-                                    <input type="text" name="postal_code" id="postal_code" class="form-control"
-                                    value="{{ Auth::user()->postal_code }}" style="background-color: white" autofocus>
+                                    <input type="text" name="postal_code" id="zip_code" class="form-control"
+                                    value="{{ Auth::user()->postal_code }}" disabled>
                                 </div>
 
                                 {{-- BARANGAY --}}
                                 <div class="col-md-6 p-2"><label class="labels">Barangay</label>
-                                    <select name="brgy" id="selBrgy" class="form-control" style="background-color: white" autofocus>
+                                    <select name="brgy" id="barangay" class="form-control" style="background-color: white" autofocus>
                                     <option hidden>{{ Auth::user()->brgy }}</option>
-                                                @foreach ($brgy as $barangay)
-                                                    <option value="{{$barangay->brgyDesc}}" {{old('brgy') == $barangay->brgyDesc ? 'selected':''}}>{{ $barangay->brgyDesc }}</option>
-                                                @endforeach
                                             </select>
                                 </div>
 
                                 {{-- mUNICIPALITY OR CITY --}}
                                 <div class="col-md-6 p-2"><label class="labels">Municipality / City</label>
-                                    <select class="form-control" id="selMunicipality"name="municipality" style="background-color: white"  autofocus>
+                                    <select class="form-control" id="municipality"name="municipality" style="background-color: white"  autofocus>
                                             <option hidden>{{ Auth::user()->municipality }}</option>
-                                                @foreach ($municipality as $municipalities)
-                                                    <option value="{{$municipalities->name}}" {{old('municipality') == $municipalities->name ? 'selected':''}}>{{ $municipalities->name }}</option>
-                                                @endforeach
                                             </select>
 
                                 </div>
 
                                 {{-- PROVINCE --}}
                                 <div class="col-md-6 p-2"><label class="labels">Province</label>
-                                    <select class="form-control" id="selProvince"name="province" style="background-color: white"  autofocus>
+                                    <select class="form-control" id="province"name="province" style="background-color: white"  autofocus>
                                         <option hidden>{{ Auth::user()->province }}</option>
-                                            @foreach ($province as $provinces)
-                                                <option value="{{$provinces->name}}" {{old('province') == $provinces->name ? 'selected':''}}>{{ $provinces->name }}</option>
-                                            @endforeach
                                         </select>
                                 </div>
 
@@ -225,11 +216,11 @@
 
                                 {{-- COUNTRY --}}
                                 <div class="col-md-6 p-2"><label class="labels">Country</label>
-                                    <select class="form-control" id="selCountry"name="country" style="background-color: white"  autofocus>
+                                    <select class="form-control" id="country"name="country" style="background-color: white"  autofocus>
                                         <option hidden>{{ Auth::user()->country }}</option>
-                                            @foreach ($country as $countries)
-                                                <option value="{{$countries->name}}" {{old('country') == $countries->name ? 'selected':''}}>{{ $countries->name }}</option>
-                                            @endforeach
+                                        @foreach ($country as $countries)
+                                        <option value="{{$countries->country_code}}" {{old('country') == $countries->country_code ? 'selected':''}}>{{ $countries->country_name }}</option>
+                                    @endforeach
                                         </select>
                                 </div>
 
@@ -244,7 +235,7 @@
                         <div class="p-3 py-5">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <h4 class="text-right">Medical Information</h4>
-                               
+
                             </div>
 
                             <div class="row mt-2">
@@ -281,7 +272,7 @@
 
                                 </div>
 
-                                
+
                                 {{-- BMI --}}
                                 <div class="col-md-6 p-2"><label class="labels">BMI</label>
                                     <input type="number" name="bmi" id="bmi" class="form-control" style=" width:85%"
@@ -292,10 +283,10 @@
                                 <div class="row mt-2">
 
                                     {{-- PHILHEALTH NUMBER --}}
-                                <div class="col-md-6 p-2"><label class="labels"><b style="color: red">*</b> PhilHealth Number</label>
+                                <div class="col-md-6 p-2"><label class="labels"> PhilHealth Number</label>
                                     <input type="number" name="philhealth_no" id="philhealth_no" class="form-control @error('philhealth_no') is-invalid @enderror"
                                     :value="old('philhealth_no')" value="{{Auth::user()->philhealth_no}}" style="background-color: white" placeholder="12-345678910-1"
-                                     required autofocus>
+                                      autofocus>
 
 
                                     @error('philhealth_no')
@@ -306,9 +297,9 @@
                                 </div>
 
                                 {{-- MEMBER CATEGORY --}}
-                                <div class="col-md-6 p-2"><label class="labels"><b style="color: red">*</b> Member Category</label>
+                                <div class="col-md-6 p-2"><label class="labels"> Member Category</label>
                                     <select name="member_category" id="selMemberCategory" class="form-select form-select-md @error('member_category') is-invalid @enderror"
-                                    style="background-color: white" value="{{Auth::user()->member_category}}" :value="old('member_category')" required autofocus>
+                                    style="background-color: white" value="{{Auth::user()->member_category}}" :value="old('member_category')" autofocus>
 
                                         <option hidden>{{ Auth::user()->member_category }}</option>
                                         @foreach ($member_category as $membercategory )
@@ -318,10 +309,10 @@
                                 </div>
 
                                   {{-- HEALTH INSURANCE --}}
-                                  <div class="col-md-6 p-2"><label class="labels"><b style="color: red">*</b> Health Insurance</label>
+                                  <div class="col-md-6 p-2"><label class="labels"> Health Insurance</label>
                                     <input type="number" name="health_insurance" id="health_insurance" class="form-control @error('health_insurance') is-invalid @enderror"
                                     :value="old('health_insurance')" value="{{Auth::user()->health_insurance}}"  style="background-color: white"
-                                     required autofocus>
+                                      autofocus>
                                     @error('health_insurance')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -330,10 +321,10 @@
                                 </div>
 
                                  {{-- MEMBERSHIP NUMBER --}}
-                                 <div class="col-md-6 p-2"><label class="labels"><b style="color: red">*</b> Membership Number</label>
+                                 <div class="col-md-6 p-2"><label class="labels"> Membership Number</label>
                                     <input type="number" name="membership_no" id="membership_no" class="form-control @error('membership_no') is-invalid @enderror"
                                     :value="old('membership_no')" style="background-color: white" value="{{Auth::user()->membership_no}}"
-                                    required autofocus>
+                                     autofocus>
                                     @error('membership_no')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -342,10 +333,10 @@
                                 </div>
 
                                 {{-- PLAN NAME --}}
-                                <div class="col-md-6 p-2"><label class="labels"><b style="color: red">*</b> Plan Name</label>
+                                <div class="col-md-6 p-2"><label class="labels"> Plan Name</label>
                                     <input type="text" name="plan_name" id="plan_name" class="form-control @error('plan_name') is-invalid @enderror"
                                     :value="old('plan_name')" style="background-color: white" value="{{Auth::user()->plan_name}}"
-                                    required autofocus>
+                                     autofocus>
                                     @error('plan_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -353,17 +344,7 @@
                                             @enderror
                                 </div>
 
-                                {{-- APPROVAL NUMBER --}}
-                                <div class="col-md-6 p-2"><label class="labels"><b style="color: red">*</b> Approval Number</label>
-                                    <input type="number" name="approval_number" id="approval_number" class="form-control @error('approval_number') is-invalid @enderror"
-                                    :value="old('approval_number')" value="{{Auth::user()->approval_number}}"  style="background-color: white"
-                                     autofocus>
-                                    @error('approval_number')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                </div>
+
 
                                 <div class="row mb-1">
                                     <div class="col-md-8 ">
@@ -373,7 +354,7 @@
                                     </div>
                                 </div>
                             </div>
-                 
+
                     </div>
                 </div>
             </div>

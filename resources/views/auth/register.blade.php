@@ -45,6 +45,7 @@
                                     {{-- FIRST NAME --}}
                                     <div class="col">
                                         <div class="mb-3">
+                                            <input type="hidden" name="user_role" id="user_role" value="0">
                                             <label for="firstname" class="form-label"><b style="color: red">*</b>
                                                 {{ __('First Name') }}</label>
                                             <input id="firstname" name="firstname" type="text"
@@ -196,11 +197,11 @@
                                                 {{ __('Country') }}</label>
                                             <select
                                                 class="form-select form-select-md @error('country') is-invalid @enderror"
-                                                aria-label=".form-select-lg example" id="selCountry" name="country"
+                                                aria-label=".form-select-lg example" id="country" name="country"
                                                 value="{{ old('$item->name') }}">
                                                 <option hidden>Choose Country</option>
                                                 @foreach ($country as $countries)
-                                                <option value="{{$countries->name}}" {{old('country') == $countries->name ? 'selected':''}}>{{ $countries->name }}</option>
+                                                    <option value="{{$countries->country_code}}" {{old('country') == $countries->country_code ? 'selected':''}}>{{ $countries->country_name }}</option>
                                                 @endforeach
                                             </select>
                                             @error('country')
@@ -218,13 +219,10 @@
                                                 {{ __('Province') }}</label>
                                             <select
                                                 class="form-select form-select-md  @error('province') is-invalid @enderror"
-                                                aria-label=".form-select-lg example" id="selProvince" name="province"
+                                                aria-label=".form-select-lg example" id="province" name="province"
                                                 value="{{ old('$item->name') }}">
-                                                <option hidden>Choose Province</option>
-                                                @foreach ($province as $provinces)
-                                                    <option value="{{$provinces->name}}" {{old('province') == $provinces->name ? 'selected':''}}>{{ $provinces->name }}</option>
-                                                @endforeach
                                             </select>
+
                                             @error('province')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -240,12 +238,8 @@
                                                 {{ __('Municipality/City') }}</label>
                                             <select
                                                 class="form-select form-select-md  @error('municipality') is-invalid @enderror"
-                                                aria-label=".form-select-lg example" id="selMunicipality"
+                                                aria-label=".form-select-lg example" id="municipality"
                                                 name="municipality" value="{{ old('$item->name') }}">
-                                                <option hidden>Choose Municipality/City</option>
-                                                @foreach ($municipality as $municipalities)
-                                                    <option value="{{$municipalities->name}}" {{old('municipality') == $municipalities->name ? 'selected':''}}>{{ $municipalities->name }}</option>
-                                                @endforeach
                                             </select>
                                             @error('municipality')
                                                 <span class="invalid-feedback" role="alert">
@@ -261,12 +255,8 @@
                                             <label for="barangay" class="form-label"><b style="color: red">*</b>
                                                 {{ __('Barangay') }}</label>
                                             <select class="form-select form-select-md  @error('brgy') is-invalid @enderror"
-                                                aria-label=".form-select-lg example" id="selBrgy" name="brgy"
+                                                aria-label=".form-select-lg example" id="barangay" name="brgy"
                                                 value="{{ old('brgy') }}">
-                                                <option hidden>Choose Barangay</option>
-                                                @foreach ($brgy as $barangay)
-                                                    <option value="{{$barangay->brgyDesc}}" {{old('brgy') == $barangay->brgyDesc ? 'selected':''}}>{{ $barangay->brgyDesc }}</option>
-                                                @endforeach
                                             </select>
                                         </div>
                                         @error('brgy')
@@ -299,9 +289,9 @@
                                         <div class="mb-3">
                                             <label for="postal_code"
                                                 class="form-label">{{ __('Postal Code') }}</label>
-                                            <input id="postal_code" name="postal_code" type="text"
+                                            <input id="zip_code" name="postal_code" type="text"
                                                 class="form-control  @error('postal_code') is-invalid @enderror autofocus"
-                                                value="{{ old('postal_code') }}">
+                                                value="{{ old('postal_code') }}"  readonly>
                                         </div>
                                         @error('postal_code')
                                             <span class="invalid-feedback" role="alert">
@@ -410,7 +400,7 @@
                                             <div class="mb-3">
                                                 <label for="patient_id1"
                                                     class="form-label" id="patient_id1" style="display: none">{{ __('Patient ID') }}</label>
-                                                <input id="patient_id" name="patient_id" type="text" class="form-control autofocus" style="display: none">
+                                                <input id="patient_id" name="patient_id" type="text" class="form-control autofocus" style="display: none" value="{{ old('patient_id') }}">
                                                 </ul>
                                             </div>
                                         </div>

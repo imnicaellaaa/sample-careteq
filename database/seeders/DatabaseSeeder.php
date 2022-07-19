@@ -17,11 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             GenderSeeder::class,
             TitleSeeder::class,
-            CountrySeeder::class,
-            ProvinceSeeder::class,
-            MunicipalitySeeder::class,
             IdTypeSeeder::class,
-            BarangaySeeder::class,
             MemberCategorySeeder::class,
 
         ]);

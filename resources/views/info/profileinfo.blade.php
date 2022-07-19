@@ -26,7 +26,7 @@
                         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
 
                             <img class="rounded-circle mt-5" width="150px" height="150px"
-                                src="/images/uploads/avatars/{{ Auth::user()->avatar }}">
+                                src="/images/uploads/avatars_userstable/{{ Auth::user()->avatar }}">
 
                             <span class="font-weight-bold p-2" style="font-size: 120%">{{ Auth::user()->firstname }}
                                 {{ Auth::user()->middlename }} {{ Auth::user()->lastname }}</span>
@@ -99,14 +99,14 @@
 
 
                                 {{-- TELEPHONE NUMBER --}}
-                                <div class="col-md-6 p-2"><label class="labels">Tel (Home)</label>
-                                    <input type="number" name="telno" id="telno" class="form-control"
+                                <div class="col-md-6 p-2"><label class="labels">Telephone Number (Home)</label>
+                                    <input type="text" name="telno" id="telno" class="form-control"
                                         value="{{ Auth::user()->telno }}" disabled>
                                 </div>
 
                                 {{-- MOBILE NUMBER --}}
-                                <div class="col-md-6 p-2"><label class="labels">Mobile No.</label>
-                                    <input type="number" name="mobile_no" id="mobile_no" class="form-control"
+                                <div class="col-md-6 p-2"><label class="labels">Mobile Number</label>
+                                    <input type="text" name="mobile_no" id="mobile_no" class="form-control"
                                         value="{{ Auth::user()->mobile_no }}" disabled>
                                 </div>
 
@@ -152,7 +152,7 @@
 
                                 {{-- BARANGAY --}}
                                 <div class="col-md-6 p-2"><label class="labels">Barangay</label>
-                                    <select name="brgy" id="selBrgy" class="form-control" disabled>
+                                    <select name="brgy" id="barangay" class="form-control" disabled>
                                         <option hidden>{{ Auth::user()->brgy }}</option>
 
                                     </select>
@@ -160,7 +160,7 @@
 
                                 {{-- mUNICIPALITY OR CITY --}}
                                 <div class="col-md-6 p-2"><label class="labels">Municipality / City</label>
-                                    <select class="form-control" id="selMunicipality"name="municipality" disabled>
+                                    <select class="form-control" id="municipality"name="municipality" disabled>
                                         <option hidden>{{ Auth::user()->municipality }}</option>
 
                                     </select>
@@ -169,7 +169,7 @@
 
                                 {{-- PROVINCE --}}
                                 <div class="col-md-6 p-2"><label class="labels">Province</label>
-                                    <select class="form-control" id="selProvince"name="province" disabled>
+                                    <select class="form-control" id="province"name="province" disabled>
                                         <option hidden>{{ Auth::user()->province }}</option>
 
                                     </select>
@@ -179,7 +179,7 @@
 
                                 {{-- COUNTRY --}}
                                 <div class="col-md-6 p-2"><label class="labels">Country</label>
-                                    <select class="form-control" id="selCountry"name="country" disabled>
+                                    <select class="form-control" id="country"name="country" disabled>
                                         <option hidden>{{ Auth::user()->country }}</option>
 
                                     </select>
