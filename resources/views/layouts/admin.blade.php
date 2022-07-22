@@ -141,16 +141,19 @@
                                     </a>
                                 </h6>
 
-                                <li class="nav-item"><a href="doctorlist"><span class="item-text"><i
+                                <li class="nav-item"><a href=""><span class="item-text"><i
+                                    class="fa-solid fa fa-calendar"></i> Appointments</span></a></li>
+
+                                <li class="nav-item"><a href="{{ url('admin/doctorslist')}}"><span class="item-text"><i
                                                 class="fa-solid fa-user-doctor"></i> Doctors</span></a></li>
 
                                 <li><a href="#"><span class="item-text"><i class="fa-solid fa-book-medical"></i>
                                             Reports</span></a></li>
 
-                                <li><a href="#"><span class="item-text"><i class="fa-solid fa-head-side-mask"></i>
+                                <li><a href="{{ url('admin/patientlist')}}"><span class="item-text"><i class="fa-solid fa-head-side-mask"></i>
                                             Patients</span></a></li>
 
-                                <li><a href="prescriptionlist"><span class="item-text"><i class="fa-solid fa-file-medical"></i>
+                                <li><a href="{{ url('admin/prescriptionlist')}}"><span class="item-text"><i class="fa-solid fa-file-medical"></i>
                                             Prescriptions</span></a></li>
 
                                 <h6
@@ -161,8 +164,12 @@
                                     </a>
                                 </h6>
 
-                                <li><a href="#"><span class="item-text text-danger"><i
+                                <li><a href="{{ route('admin.logout') }}" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();"><span class="item-text text-danger"><i
                                                 class="fa-solid fa-arrow-right-from-bracket"></i> Logout</span></a></li>
+                                                <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                                                    @csrf
+                                                </form>
 
                             </ul>
                         </div>

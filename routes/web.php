@@ -5,6 +5,12 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\profileinfoController;
 use App\Http\Controllers\ProfileInfoEditController;
+use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\adminloginController;
+use App\Http\Controllers\doctorlistController;
+use App\Http\Controllers\prescriptionlistController;
+use App\Http\Controllers\patientlistController;
+use App\Http\Controllers\reportlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,20 +77,21 @@ Route::get('/appointmentuser', [App\Http\Controllers\appointmentuserController::
 // Select Doctor Page
 Route::get('/selectdoctor', [App\Http\Controllers\selectdoctorController::class, 'index'])->name('telecare.selectdoctor');
 
+
+
 // Admin Dashboard
-Route::get('/dashboard',[App\Http\Controllers\dashboardController::class, 'index'])->name('admin.dashboard');
-
-// Admin Login
-Route::get('/adminlogin',[App\Http\Controllers\adminloginController::class, 'index'])->name('admin.adminlogin');
-
-// Admin Doctor List
-Route::get('/doctorlist',[App\Http\Controllers\doctorlistController::class, 'index'])->name('admin.doctorlist');
-
-// Admin Prescription List
-Route::get('/prescriptionlist',[App\Http\Controllers\prescriptionlistController::class, 'index'])->name('admin.prescriptionlist');
-
-// Admin Patient List
-Route::get('/patientlist',[App\Http\Controllers\patientlistController::class, 'index'])->name('admin.patientlist');
-
-// Admin Report List
-Route::get('/reportlist',[App\Http\Controllers\reportlistController::class, 'index'])->name('admin.reportlist');
+Route::namespace("Admin")->prefix('admin')->group(function(){
+    Route::get('/dashboard', [dashboardController::class,'index'])->name('admin.dashboard');
+    Route::namespace('Auth')->group(function(){
+    Route::get('/adminlogin', [adminloginController::class, 'index'])->name('admin.adminlogin');
+    Route::post('/adminlogin', [adminloginController::class, 'adminloginFunction'])->name('admin.adminloginFunction');
+    Route::post('adminlogout', [adminloginController::class, 'logout'])->name('admin.logout');
+    Route::get('/doctorslist', [doctorlistController::class, 'index'])->name('admin.doctorslist');
+    Route::post('/adddoctor', [doctorlistController::class, 'addDoctor'])->name('admin.addDoctor');
+    Route::post('/editdoctor', [doctorlistController::class, 'editDoctorInformation'])->name('admin.editDoctorInformation');
+    Route::delete('/deletedoctor/{id}', [doctorlistController::class, 'destroy'])->name('admin.deleteDoctorsInformation');
+    Route::get('/prescriptionlist', [prescriptionlistController::class, 'index'])->name('admin.prescriptionlist');
+    Route::get('/patientlist',[patientlistController::class, 'index'])->name('admin.patientlist');
+    Route::get('/reportlist',[reportlistController::class, 'index'])->name('admin.reportlist');
+    });
+   });

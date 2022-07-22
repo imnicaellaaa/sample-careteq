@@ -9,7 +9,7 @@
                     <div class="card-body ">
                         {{-- insert logo image here --}}
 
-                        <form method="POST" class="py-4" action="">
+                        <form method="POST" class="py-4" action="{{ route('admin.adminloginFunction') }}">
                             @csrf
 
                             {{-- EMAIL --}}

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class RedirectIfAuthenticated
 {
-    /**
+     /**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -17,16 +17,22 @@ class RedirectIfAuthenticated
      * @param  string|null  ...$guards
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, ...$guards)
-    {
-        $guards = empty($guards) ? [null] : $guards;
 
-        foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
-            }
+public function handle($request, Closure $next, $guard = null)
+{
+    if (Auth::guard($guard)->check()) {
+
+        if($guard == "admin"){
+            //user was authenticated with admin guard.
+            return redirect()->route('admin.adminlogin');
+        } else {
+            //default guard.
+            return redirect()->route('login');
         }
 
-        return $next($request);
     }
+
+    return $next($request);
+
+}
 }

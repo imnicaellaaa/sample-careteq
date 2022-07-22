@@ -19,7 +19,9 @@ class DatabaseSeeder extends Seeder
             TitleSeeder::class,
             IdTypeSeeder::class,
             MemberCategorySeeder::class,
-
+            AdminSeeder::class,
+            AbbreviationSeeder::class,
+            SpecializationSeeder::class,
         ]);
     }
 }
