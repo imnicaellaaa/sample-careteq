@@ -126,42 +126,43 @@ class ProfileInfoEditController extends Controller
         // $imagePath2 = $avatar;
 
         //saving all the inputed data to the profile_information database
-        // if($query2 = DB::table('profileinfo')
-        //              ->where('id', $request->user_id)
-        //              ->insert(['firstname'=>$request->firstname,
-        //                 'middlename'=>$request->middlename,
-        //                 'lastname'=>$request->lastname,
-        //                 'patient_id'=>$request->patient_id,
-        //                 'bday' =>$request->bday,
-        //                 'age'=>$request->age,
-        //                 'suffix'=>$request->suffix,
-        //                 'telno' =>$request->telno,
-        //                 'mobile_no'=>$request->mobile_no,
-        //                 'title' => $request->title,
-        //                 'gender' =>$request->gender,
-        //                 'houseNo_streetName'=>$request->houseNo_streetName,
-        //                 'brgy' => $request->brgy,
-        //                 'postal_code'=>$request->postal_code,
-        //                 'municipality'=>$request->municipality,
-        //                 'province' =>$request->province,
-        //                 'country'=>$request->country,
-        //                 'centimeter'=>$request->centimeter,
-        //                 'inches' =>$request->inches,
-        //                 'kilogram' => $request->kilogram,
-        //                 'pounds' =>$request->pounds,
-        //                 'bmi' =>$request->bmi,
-        //                 'philhealth_no' =>$request->philhealth_no,
-        //                 'member_category' =>$request->member_category,
-        //                 'health_insurance' =>$request->health_insurance,
-        //                 'membership_no' =>$request->membership_no,
-        //                 'plan_name' => $request->plan_name,
-        //                 'edited_by' => $request->user_id,
-        //                 'user_role' => $request->user_role,
-        //                 'updated_at' => Carbon::now(),
-        //                 // 'avatar' => $imagePath2,
+        if($query2 = DB::table('profileinfo')
+                     ->where('id', $request->user_id)
+                     ->insert(['firstname'=>$request->firstname,
+                        'middlename'=>$request->middlename,
+                        'lastname'=>$request->lastname,
+                        'patient_id'=>$request->patient_id,
+                        'bday' =>$request->bday,
+                        'age'=>$request->age,
+                        'suffix'=>$request->suffix,
+                        'telno' =>$request->telno,
+                        'mobile_no'=>$request->mobile_no,
+                        'title' => $request->title,
+                        'gender' =>$request->gender,
+                        'houseNo_streetName'=>$request->houseNo_streetName,
+                        'brgy' => $request->brgy,
+                        'postal_code'=>$request->postal_code,
+                        'municipality'=>$request->municipality,
+                        'province' =>$request->province,
+                        'country'=>$request->country,
+                        'centimeter'=>$request->centimeter,
+                        'inches' =>$request->inches,
+                        'kilogram' => $request->kilogram,
+                        'pounds' =>$request->pounds,
+                        'bmi' =>$request->bmi,
+                        'philhealth_no' =>$request->philhealth_no,
+                        'member_category' =>$request->member_category,
+                        'health_insurance' =>$request->health_insurance,
+                        'membership_no' =>$request->membership_no,
+                        'plan_name' => $request->plan_name,
+                        'edited_by' => $request->user_id,
+                        'user_role' => $request->user_role,
+                        'updated_at' => Carbon::now(),
+                        'avatar' => $imagePath,
 
-        // ]))
-        //updating data in users table
+        ]))
+
+        //update users table
        if( $query = DB::table('users')
                 ->where('id', $request->user_id)
                 ->update(['firstname'=>$request->firstname,
@@ -191,28 +192,24 @@ class ProfileInfoEditController extends Controller
                         'health_insurance' =>$request->health_insurance,
                         'membership_no' =>$request->membership_no,
                         'plan_name' => $request->plan_name,
+                        // 'avatar' => request()->file('avatar')->getClientOriginalName(),
                         'avatar' => $imagePath,
 
 
+        ]))
 
-        ])){
+         {
+            // return $request->avatar->request()->file('avatar')->getClientOriginalName();
+
             return redirect()->back()->with('message', 'Profile Information updated');
         }
         else{
-            return redirect()->back()->with('error', 'Profile Information has not been updated succesfuly');
+            return redirect()->back()->with('error', 'Profile Information has not been update succesfuly');
         }
-        // $query2 = DB::table('profileinfo')->insert([
-        //     'firstname'=>$request->input('firstname'),
-        //     'middlename'=>$request->input('middlename'),
-        //     'lastname'=>$request->input('lastname')
 
-        // ]);
-
-
-        // return redirect(route('info.profileinfo'));
 
 
     }
 
+    }
 
-}

@@ -99,7 +99,7 @@
 
 
                                 {{-- TELEPHONE NUMBER --}}
-                                <div class="col-md-6 p-2"><label class="labels">Telephone Number (Home)</label>
+                                <div class="col-md-6 p-2"><label class="labels">Telephone NO. (Home)</label>
                                     <input type="text" name="telno" id="telno" class="form-control"
                                         value="{{ Auth::user()->telno }}" disabled>
                                 </div>
