@@ -7,14 +7,18 @@
     <script src="{{ asset('js/careteq.js') }}"></script>
     <!-- Select2 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    {{-- Font Awesome --}}
+    <script src="https://kit.fontawesome.com/83a0cd4555.js" crossorigin="anonymous"></script>
+
 
     <script src="{{ asset('js/jquery-3.6.0/js') }}"></script>
     <script src="{{ asset('js/jquery-3.6.0.min/js') }}"></script>
 
     <!-- Select2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-
-
 
     <div class="container mt-5">
         <div class="row">
@@ -25,7 +29,7 @@
                     <div class="col-md-3 border-right">
                         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
 
-                            <img class="rounded-circle mt-5" width="150px" height="150px"
+                            <img class="rounded-circle mt-5" width="200px" height="200px"
                                 src="/images/uploads/avatars_userstable/{{ Auth::user()->avatar }}">
 
                             <span class="font-weight-bold p-2" style="font-size: 120%">{{ Auth::user()->firstname }}
