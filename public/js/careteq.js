@@ -263,6 +263,8 @@ $(document).ready(function(){
     });
   });
 
+
+
   //Search in a dropdown Member Category
 $(document).ready(function(){
 
@@ -727,4 +729,17 @@ $(document).ready(function() {
                });
              }
      });
+
+
     })
+    //DATE PICKER
+    $(document).ready(function () {
+        $('.datepicker').datepicker({
+            dateFormat: 'mm/dd/yy',
+            changeMonth: true,
+            changeYear: true,
+            autoclose: true,
+            yearRange: "1800:2080"
+
+        });
+    });

@@ -11,14 +11,11 @@
 
 <!-- Select2 JS -->
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#bday').datetimepicker({
-          format: 'MM/DD/YYYY',
-          locale: 'en'
-      }
-  });
-    </script>
+<link rel="stylesheet" href="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.css') }}">
+<link rel="stylesheet" href="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.min.css') }}">
+<script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.min.js') }}"></script>
+
 @section('content')
     <div class="container">
         <div class="container mt-5">
@@ -100,8 +97,8 @@
                                         <div class="mb-3">
                                             <label for="bday" class="form-label"><b style="color: red">*</b>
                                                 {{ __('Birthday') }}</label>
-                                            <input type="date" class="form-control  @error('bday') is-invalid @enderror"
-                                                id="bday" name="bday" value="{{ old('bday') }}">
+                                            <input type="text" class="form-control  @error('bday') is-invalid @enderror datepicker"
+                                                id="bday" name="bday" value="{{ old('bday') }}" placeholder="mm/dd/yyy">
                                         </div>
                                         @error('bday')
                                             <span class="invalid-feedback" role="alert">
