@@ -120,7 +120,7 @@
 
                                 </div>
 
-                                {{-- GENDER, SUFFIX --}}
+                                {{-- SEX, SUFFIX --}}
 
                                 <div class="row">
 
@@ -134,16 +134,16 @@
                                         </div>
                                     </div>
 
-                                    {{-- GENDER --}}
+                                    {{-- SEX --}}
                                     <div class="col">
                                         <div class="mb-3">
-                                            <label for="gender" class="form-label"><b style="color: red">*</b>
-                                                {{ __('Gender') }}</label>
+                                            <label for="sex" class="form-label"><b style="color: red">*</b>
+                                                {{ __('Sex') }}</label>
                                             <select
                                                 class="form-select form-select-md  @error('gender') is-invalid @enderror"
                                                 id="selGender" name="gender" aria-label=".form-select-lg example"
                                                 value="{{ old('$item->name') }}">
-                                                <option hidden>Choose Gender</option>
+                                                <option hidden>Choose Sex</option>
                                                 @foreach ($gender as $genders)
                                                 <option value="{{$genders->name}}" {{old('gender') == $genders->name ? 'selected':''}}>{{ $genders->name}}</option>
                                                 @endforeach
