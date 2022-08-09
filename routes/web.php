@@ -79,6 +79,7 @@ Route::get('/selectdoctor', [App\Http\Controllers\selectdoctorController::class,
 
 
 
+
 // Admin Dashboard
 Route::namespace("Admin")->prefix('admin')->group(function(){
     Route::get('/dashboard', [dashboardController::class,'index'])->name('admin.dashboard');
