@@ -122,7 +122,9 @@
                                         <img src="https://img.freepik.com/free-vector/man-shows-gesture-great-idea_10045-637.jpg?t=st=1656308571~exp=1656309171~hmac=510871e32c37c4408d415532e7a4da173d7a32297f2fb62f9d14bd36be08f67b&w=826"
                                             class="rounded mx-auto d-block" style="width:150px; height:150px;">
 
-                                        <p class="text-center fs-6 text-black fw-bold mt-2">First Name Last Name</p>
+                                        @foreach ($admin as $admins )
+                                        <p class="text-center fs-6 text-black fw-bold mt-2">{{$admins->name}}
+                                        @endforeach</p>
                                         <a class="text-center fs-6 mt-2" href="">
                                             <i class="fa-solid fa-pen-to-square"></i> Edit Profile</a>
                                     </div>
@@ -141,7 +143,7 @@
                                     </a>
                                 </h6>
 
-                                <li class="nav-item"><a href="http://25.11.205.10/admin/working_hours/create/?doctorsdetails=@foreach ( $doctor as $doctors )?id={{$doctors->id}}?doctorsname={{$doctors->firstname}} {{$doctors->lastname}} ?specialization={{$doctors->specialization}} @endforeach"><span class="item-text"><i
+                                <li class="nav-item"><a href="http://25.11.205.10/admin/working_hours/create/"><span class="item-text"><i
                                     class="fa fa-hourglass-half"></i> Working Hours</span></a></li>
 
                                 <li class="nav-item"><a href="http://25.11.205.10/admin/appointments/?patientname=@foreach ($user as $user ){{$user->id}}{{$user->firstname}} {{$user->lastname}}@endforeach"><span class="item-text"><i
