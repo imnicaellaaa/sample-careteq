@@ -100,7 +100,7 @@
                             </select></div>
 
                         {{-- Gender --}}
-                        <div class="col-md-3 p-2"><label class="labels">Gender</label><select name="gender" id="selGender"
+                        <div class="col-md-3 p-2"><label class="labels">Sex</label><select name="gender" id="selGender"
                                 style=" width:100%" class="form-control fs-5" disabled>
                                 <option hidden>{{ Auth::user()->gender }}</option>
 

@@ -201,10 +201,10 @@ class ProfileInfoEditController extends Controller
          {
             // return $request->avatar->request()->file('avatar')->getClientOriginalName();
 
-            return redirect()->back()->with('message', 'Profile Information updated');
+            return redirect()->back()->with('message', 'Profile information successfully updated');
         }
         else{
-            return redirect()->back()->with('error', 'Profile Information has not been update succesfuly');
+            return redirect()->back()->with('error', 'Profile information has not been updated successfully');
         }
 
 
