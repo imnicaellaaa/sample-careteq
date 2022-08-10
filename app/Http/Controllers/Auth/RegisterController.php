@@ -80,7 +80,7 @@ class RegisterController extends Controller
             'firstname' => $data['firstname'],
             'middlename' => $data['middlename'],
             'lastname' => $data['lastname'],
-            'bday' => $data['bday'],
+            'bday' => date('Y-m-d',strtotime($data['bday'])),
             'age' => $data['age'],
             'suffix' => $data['suffix'],
             'gender' => $data['gender'],
