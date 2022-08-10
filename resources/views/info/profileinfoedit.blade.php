@@ -20,6 +20,10 @@
     <!-- Select2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
+    <link rel="stylesheet" href="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.css') }}">
+<link rel="stylesheet" href="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.min.css') }}">
+<script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.min.js') }}"></script>
     <style>
         .btn-text-right {
             text-align: right;
@@ -146,14 +150,14 @@
 
                                 {{-- BDAY --}}
                                 <div class="col-md-3 p-2"><label class="labels">Birthday</label>
-                                    <input type="date" name="bday" id="bday" class="form-control"
-                                        value="{{ Auth::user()->bday }}" style="background-color: white" autofocus>
+                                    <input type="text" name="bday" id="bday" class="form-control datepicker"
+                                        value="{{ Auth::user()->bday }}" readonly>
                                 </div>
 
                                 {{-- AGE --}}
                                 <div class="col-md-3 p-2"><label class="labels">Age</label>
                                     <input type="text" name="age" id="age" class="form-control"
-                                        value="{{ Auth::user()->age }}" readonly autofocus>
+                                        value="{{ Auth::user()->age }}" readonly>
                                 </div>
 
 

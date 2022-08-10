@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name') }}</title>
+    <title>{{ config('app.name', 'Hello world') }}</title>
 
     <!-- Scripts -->
 
@@ -98,7 +98,7 @@
                     {{-- Mobile menu toggle button --}}
 
                     <div class="navbar-brand">
-                        <span ><a href ="{{ route('admin.dashboard') }}" class="text-decoration-none text-reset">Careteq</a></span>
+                        <span>Careteq</span>
                     </div>
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
@@ -113,7 +113,7 @@
                             <ul class="navbar-nav">
 
                                 <div>
-
+                                    <h1 class="text-center fs-5 mb-3">logo here</h1>
                                 </div>
 
                                 {{-- Profile Image --}}
@@ -131,6 +131,8 @@
 
                                 <hr>
 
+                                <span></span>
+
                                 <h6
                                     class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                                     <span>Admin Actions</span>
@@ -139,10 +141,13 @@
                                     </a>
                                 </h6>
 
-                                <li class="nav-item"><a href=""><span class="item-text"><i
+                                <li class="nav-item"><a href="http://25.11.205.10/admin/working_hours/create/?doctorsdetails=@foreach ( $doctor as $doctors )?id={{$doctors->id}}?doctorsname={{$doctors->firstname}} {{$doctors->lastname}} ?specialization={{$doctors->specialization}} @endforeach"><span class="item-text"><i
+                                    class="fa fa-hourglass-half"></i> Working Hours</span></a></li>
+
+                                <li class="nav-item"><a href="http://25.11.205.10/admin/appointments/?patientname=@foreach ($user as $user ){{$user->id}}{{$user->firstname}} {{$user->lastname}}@endforeach"><span class="item-text"><i
                                     class="fa-solid fa fa-calendar"></i> Appointments</span></a></li>
 
-                                <li class="nav-item"><a href="{{ url('admin/doctorslist')}}"><span class="item-text"><i
+                                <li class="nav-item"><a href="http://25.11.205.10/admin/employees"><span class="item-text"><i
                                                 class="fa-solid fa-user-doctor"></i> Doctors</span></a></li>
 
                                 <li><a href="#"><span class="item-text"><i class="fa-solid fa-book-medical"></i>

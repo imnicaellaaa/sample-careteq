@@ -92,6 +92,7 @@ Route::namespace("Admin")->prefix('admin')->group(function(){
     Route::post('/editdoctor', [doctorlistController::class, 'editDoctorInformation'])->name('admin.editDoctorInformation');
     Route::delete('/deletedoctor/{id}', [doctorlistController::class, 'destroy'])->name('admin.deleteDoctorsInformation');
     Route::get('/prescriptionlist', [prescriptionlistController::class, 'index'])->name('admin.prescriptionlist');
+    Route::post('addPrescription',[prescriptionlistController::class,'addPrescription'])->name('admin.addPrescription');
     Route::get('/patientlist',[patientlistController::class, 'index'])->name('admin.patientlist');
     Route::get('/reportlist',[reportlistController::class, 'index'])->name('admin.reportlist');
     });
