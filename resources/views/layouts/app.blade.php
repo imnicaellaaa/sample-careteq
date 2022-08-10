@@ -12,7 +12,6 @@
 
     <!-- Scripts -->
 
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -21,7 +20,7 @@
     <script src="https://kit.fontawesome.com/83a0cd4555.js" crossorigin="anonymous"></script>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 
 
 </head>
@@ -99,7 +98,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-2">
             @yield('content')
         </main>
 

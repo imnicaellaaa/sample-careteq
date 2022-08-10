@@ -71,25 +71,7 @@
                
             </div>
         </div>
-{{-- 
-        <div class="container mt-2 " id="successDialog">
-            <div class="alert alert-danger alert-dismissible fade show" role="alert" id="errorDialog">
-                <div class="d-flex">
-                    <div class="p-2 flex-fill">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-trash-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
-                        </svg>
-                        <strong>Error!</strong> {{ session()->get('error') }}
-                    </div>
 
-                    <div class="p-2 flex-shrink-1"> <button type="button" class="btn" id="sucessBtnOkay"
-                            name="sucessBtnOkay" onclick="sucessBtnOkay()"
-                            style="background-color: rgb(229, 109, 109) font-weight:bold ">Okay</button></div>
-                </div>
-            </div>
-        </div>  --}}
     @endif
 
     <form name="profileinfoedit" method="POST" action="{{ route('info.update') }}" enctype="multipart/form-data"
