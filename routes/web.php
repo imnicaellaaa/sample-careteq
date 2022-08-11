@@ -80,20 +80,20 @@ Route::get('/selectdoctor', [App\Http\Controllers\selectdoctorController::class,
 
 
 
-// Admin Dashboard
-Route::namespace("Admin")->prefix('admin')->group(function(){
-    Route::get('/dashboard', [dashboardController::class,'index'])->name('admin.dashboard');
-    Route::namespace('Auth')->group(function(){
-    Route::get('/adminlogin', [adminloginController::class, 'index'])->name('admin.adminlogin');
-    Route::post('/adminlogin', [adminloginController::class, 'adminloginFunction'])->name('admin.adminloginFunction');
-    Route::post('adminlogout', [adminloginController::class, 'logout'])->name('admin.logout');
-    Route::get('/doctorslist', [doctorlistController::class, 'index'])->name('admin.doctorslist');
-    Route::post('/adddoctor', [doctorlistController::class, 'addDoctor'])->name('admin.addDoctor');
-    Route::post('/editdoctor', [doctorlistController::class, 'editDoctorInformation'])->name('admin.editDoctorInformation');
-    Route::delete('/deletedoctor/{id}', [doctorlistController::class, 'destroy'])->name('admin.deleteDoctorsInformation');
-    Route::get('/prescriptionlist', [prescriptionlistController::class, 'index'])->name('admin.prescriptionlist');
-    Route::post('addPrescription',[prescriptionlistController::class,'addPrescription'])->name('admin.addPrescription');
-    Route::get('/patientlist',[patientlistController::class, 'index'])->name('admin.patientlist');
-    Route::get('/reportlist',[reportlistController::class, 'index'])->name('admin.reportlist');
-    });
-   });
+// // Admin Dashboard
+// Route::namespace("Admin")->prefix('admin')->group(function(){
+//     Route::get('/dashboard', [dashboardController::class,'index'])->name('admin.dashboard');
+//     Route::namespace('Auth')->group(function(){
+//     Route::get('/adminlogin', [adminloginController::class, 'index'])->name('admin.adminlogin');
+//     Route::post('/adminlogin', [adminloginController::class, 'adminloginFunction'])->name('admin.adminloginFunction');
+//     Route::post('adminlogout', [adminloginController::class, 'logout'])->name('admin.logout');
+//     Route::get('/doctorslist', [doctorlistController::class, 'index'])->name('admin.doctorslist');
+//     Route::post('/adddoctor', [doctorlistController::class, 'addDoctor'])->name('admin.addDoctor');
+//     Route::post('/editdoctor', [doctorlistController::class, 'editDoctorInformation'])->name('admin.editDoctorInformation');
+//     Route::delete('/deletedoctor/{id}', [doctorlistController::class, 'destroy'])->name('admin.deleteDoctorsInformation');
+//     Route::get('/prescriptionlist', [prescriptionlistController::class, 'index'])->name('admin.prescriptionlist');
+//     Route::post('addPrescription',[prescriptionlistController::class,'addPrescription'])->name('admin.addPrescription');
+//     Route::get('/patientlist',[patientlistController::class, 'index'])->name('admin.patientlist');
+//     Route::get('/reportlist',[reportlistController::class, 'index'])->name('admin.reportlist');
+//     });
+//    });

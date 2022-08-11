@@ -4,7 +4,6 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
-use Illuminate\Auth\AuthenticationException;
 
 class Handler extends ExceptionHandler
 {
@@ -47,21 +46,5 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
-    }
-    protected function unauthenticated($request, AuthenticationException $exception)
-    {
-        if (in_array('admin', $exception->guards())) {
-            return $request->expectsJson()
-                ? response()->json([
-                      'message' => $exception->getMessage()
-                ], 401)
-                : redirect()->guest(route('admin.adminlogin'));
-        }
-
-        return $request->expectsJson()
-            ? response()->json([
-                  'message' => $exception->getMessage()
-            ], 401)
-            : redirect()->guest(route('adminlogin'));
     }
 }
