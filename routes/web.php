@@ -6,11 +6,16 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\profileinfoController;
 use App\Http\Controllers\ProfileInfoEditController;
 use App\Http\Controllers\dashboardController;
-use App\Http\Controllers\adminloginController;
+// use App\Http\Controllers\adminloginController;
 use App\Http\Controllers\doctorlistController;
 use App\Http\Controllers\prescriptionlistController;
-use App\Http\Controllers\patientlistController;
+// use App\Http\Controllers\patientlistController;
 use App\Http\Controllers\reportlistController;
+use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\Admin\Auth\AdminLoginController;
+use App\Http\Controllers\Admin\PatientListController;
+use App\Http\Controllers\Admin\PrescriptionListControler;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -97,3 +102,17 @@ Route::get('/selectdoctor', [App\Http\Controllers\selectdoctorController::class,
 //     Route::get('/reportlist',[reportlistController::class, 'index'])->name('admin.reportlist');
 //     });
 //    });
+
+
+
+Route::namespace("Admin")->prefix('admin')->group(function(){
+	Route::get('/',[AdminHomeController::class, 'index'])->name('admin.home');
+	Route::namespace('Auth')->group(function(){
+		Route::get('/login', [AdminLoginController::class, 'showLoginForm'])->name('admin.login');
+		Route::post('/login', [AdminLoginController::class,'login']);
+		Route::post('logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
+        Route::get('/patientlist',[PatientListController::class, 'index'])->name('admin.patientlist');
+        Route::get('/prescriptionlist', [PrescriptionListControler::class, 'index'])->name('admin.prescriptionlist');
+        Route::post('addPrescription',[PrescriptionListControler::class,'addPrescription'])->name('admin.addPrescription');
+	});
+});
