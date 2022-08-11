@@ -175,7 +175,9 @@ class ProfileInfoEditController extends Controller
         //saving all the inputed data to the profile_information database
         if($query2 = DB::table('profileinfo')
                      ->where('id', $request->user_id)
-                     ->insert([
+                     ->insert(['patient_fullname' => $request->patient_fullname,
+                        'bday' => $request->bday,
+                        'age' => $request->age,
                         'patient_id'=>$request->patient_id,
                         'suffix'=>$request->suffix,
                         'telno' =>$request->telno,

@@ -128,7 +128,7 @@
                                     <label class="labels ">Full Name</label>
                                     <input type="text" class="form-control fs-5"
                                         value="{{ Auth::user()->firstname }} {{ Auth::user()->middlename }} {{ Auth::user()->lastname }} {{ Auth::user()->suffix }}"
-                                        disabled>
+                                        name="patient_fullname" id="patient_fullname" readonly>
                                 </div>
 
                                 {{-- BDAY --}}
