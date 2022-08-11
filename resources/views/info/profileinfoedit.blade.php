@@ -197,18 +197,18 @@
 
                                     </div>
 
-                                    {{-- Sex --}}
-                                    <div class="col-md-3 p-2"><label class="labels">Sex</label>
-                                        <select name="gender" id="selGender" class="form-control"
-                                            style="background-color: white" autofocus>
-                                            <option hidden>{{ Auth::user()->gender }}</option>
-                                            @foreach ($gender as $genders)
-                                                <option value="{{ $genders->name }}"
-                                                    {{ old('gender') == $genders->name ? 'selected' : '' }}>
-                                                    {{ $genders->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                        {{-- Sex --}}
+                                        <div class="col-md-3 p-2"><label class="labels">Sex</label>
+                                            <select name="gender" id="selGender" class="form-control"
+                                                style="background-color: white" autofocus>
+                                                <option hidden>{{ Auth::user()->gender }}</option>
+                                                @foreach ($gender as $genders)
+                                                    <option value="{{ $genders->name }}"
+                                                        {{ old('gender') == $genders->name ? 'selected' : '' }}>
+                                                        {{ $genders->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
 
                                 </div>
                             </div>

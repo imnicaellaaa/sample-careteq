@@ -146,14 +146,14 @@
                                 <li class="nav-item"><a href="http://25.11.205.10/admin/working_hours/create/"><span class="item-text"><i
                                     class="fa fa-hourglass-half"></i> Working Hours</span></a></li>
 
-                                <li class="nav-item"><a href="http://25.11.205.10/admin/appointments/?patientname=@foreach ($user as $user ){{$user->id}}{{$user->firstname}} {{$user->lastname}}@endforeach"><span class="item-text"><i
+                                <li class="nav-item"><a href="http://25.11.205.10/admin/appointments/?patientdetails=@foreach ($user as $user )?patientid={{$user->id}} ?=patientname{{$user->firstname}} {{$user->lastname}}@endforeach"><span class="item-text"><i
                                     class="fa-solid fa fa-calendar"></i> Appointments</span></a></li>
 
                                 <li class="nav-item"><a href="http://25.11.205.10/admin/employees"><span class="item-text"><i
                                                 class="fa-solid fa-user-doctor"></i> Doctors</span></a></li>
 
-                                <li><a href="#"><span class="item-text"><i class="fa-solid fa-book-medical"></i>
-                                            Reports</span></a></li>
+                                {{--  <li><a href="#"><span class="item-text"><i class="fa-solid fa-book-medical"></i>
+                                            Reports</span></a></li>  --}}
 
                                 <li><a href="{{ url('admin/patientlist')}}"><span class="item-text"><i class="fa-solid fa-head-side-mask"></i>
                                             Patients</span></a></li>
