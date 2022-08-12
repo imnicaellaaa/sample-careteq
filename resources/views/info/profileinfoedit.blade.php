@@ -132,8 +132,8 @@
                                 </div>
 
                                 {{-- BDAY --}}
-                                <div class="col-md-3 p-2"><label class="labels">Birthday</label>
-                                    <input type="text" name="bday" id="bday" class="form-control datepicker"
+                                <div class="col-md-3 p-2"><labelw class="labels">Birthday</label>
+                                    <input type="text" name="bday" id="bday" class="form-control "
                                         value="{{ Auth::user()->bday }}" readonly>
                                 </div>
 
@@ -185,28 +185,32 @@
 
                                     {{-- TITLE --}}
                                     <div class="col-md-3 p-2"><label class="labels">Title</label>
-                                        <select id="selTitle" name="title" value="{{ Auth::user()->title }}"
-                                            class="form-select  " style="background-color: white" autofocus>
-                                            <option hidden>{{ Auth::user()->title }}</option>
-                                            @foreach ($title as $titles)
+                                        <input type="text" name="title" id="title" class="form-control" class="form-select"
+                                        value="{{ Auth::user()->title }}" readonly>
+                                        {{--  <input type="text" name="title" id="title" value="{{ Auth::user()->title }}"  class="form-select" disabled>  --}}
+                                        {{--  <select  name="title" value="{{ Auth::user()->title }}"
+                                            value="{{ Auth::user()->title }}" style="background-color: white" autofocus disable>  --}}
+                                            {{--  <option hidden>{{ Auth::user()->title }}</option>  --}}
+                                            {{--  @foreach ($title as $titles)
                                                 <option class="form-select" value="{{ $titles->name }}"
                                                     {{ old('title') == $titles->name ? 'selected' : '' }}>
                                                     {{ $titles->name }}</option>
-                                            @endforeach
+                                            @endforeach  --}}
                                         </select>
 
                                     </div>
 
                                         {{-- Sex --}}
                                         <div class="col-md-3 p-2"><label class="labels">Sex</label>
-                                            <select name="gender" id="selGender" class="form-control"
-                                                style="background-color: white" autofocus>
-                                                <option hidden>{{ Auth::user()->gender }}</option>
+                                            <input type="text" name="gender" id="gender" class="form-control" value="{{ Auth::user()->gender }}" readonly>
+                                            {{--  <select name="gender" id="selGender" class="form-control"
+                                                style="background-color: white" autofocus>  --}}
+                                                {{--  <option hidden>{{ Auth::user()->gender }}</option>
                                                 @foreach ($gender as $genders)
                                                     <option value="{{ $genders->name }}"
                                                         {{ old('gender') == $genders->name ? 'selected' : '' }}>
                                                         {{ $genders->name }}</option>
-                                                @endforeach
+                                                @endforeach  --}}
                                             </select>
                                         </div>
 
@@ -321,7 +325,7 @@
                     </div>
 
                     {{-- MEMBER CATEGORY --}}
-                    <div class="col-md-2 p-2"><label class="labels"> Member Category</label>
+                    <div class="col-md-2 p-2"><label class="labels"> Philhealth Member Category</label>
                         <select name="member_category" id="selMemberCategory"
                             class="form-select form-select-md @error('member_category') is-invalid @enderror"
                             style="background-color: white" value="{{ Auth::user()->member_category }}"

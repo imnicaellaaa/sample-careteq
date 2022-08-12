@@ -28,7 +28,7 @@ class GenderSeeder extends Seeder
 
             [
                 'id'            => '3',
-                'name'          => 'Other',
+                'name'          => 'Non-Binary',
             ],
         ]);
     }
