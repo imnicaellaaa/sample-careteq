@@ -457,7 +457,7 @@
                                             {{ __('Upload ID') }}</label>
                                         <input id="upload_id" name="upload_id" type="file"
                                             class="form-control  @error('upload_id') is-invalid @enderror autofocus"
-                                            value="{{ old('upload_id') }}">
+                                            value="{{ old('upload_id') }}" accept="image/png, image/jpeg, application/pdf ">
 
                                     </div>
                                     @error('upload_id')

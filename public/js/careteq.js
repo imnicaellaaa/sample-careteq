@@ -70,8 +70,10 @@ $(document).ready(function(){
      function convertionCentimeterstoInches () {
         var centimeter = $('#centimeter').val();
         var convertedInches = parseFloat (centimeter / 2.54).toFixed(2);
+        // var roundedCentimeter = centimeter.toFixed(2);
 
         $('#inch').val(convertedInches, 'inches');
+        // $('#centimeter').val(roundedCentimeter);
     }
 
     //convertion of Inches to Centimeter
@@ -444,117 +446,13 @@ function formValidation(oEvent) {
         firstname.onkeyup = formValidation;
         }
 
-//enable button for house no and street name validation
-    function formValidation(oEvent) {
-        oEvent = oEvent || window.event;
-        var txtField = oEvent.target || oEvent.srcElement;
-
-        var houseNo_streetNametck = true;
-        var letters = /^[A-Za-z]+$/;
-        var numbers = /^[0-9]+$/;
-        var msg=" ";
-        if(document.getElementById("houseNo_streetName").value.length > 255  ){ houseNo_streetNametck=false; }
-        if(document.getElementById("houseNo_streetName").value.match(letters) ){ houseNo_streetNametck=false; }
-        if(document.getElementById("houseNo_streetName").value.match(numbers)  ){ houseNo_streetNametck=false; }
-
-
-        //alert(msg + t1ck);
-
-        if(houseNo_streetNametck){document.getElementById("btnSignUp").disabled = false;
-            msg=msg+ " <b> Submit Button is enabled </b>";
-        }
-        else{document.getElementById("btnSignUp").disabled = true;
-            msg=msg+ " <b> Submit Button is disabled </b>";
-        }// end of if checking status of t1ck variable
-        document.getElementById('my_msg').innerHTML=msg;
-        }
-
-
-        window.onload = function () {
-
-        var btnSignUp = document.getElementById("btnSignUp");
-
-        var houseNo_streetName = document.getElementById("houseNo_streetName");
-
-
-        var houseNo_streetNametck=false;
-        document.getElementById("btnSignUp").disabled = true;
-        houseNo_streetName.onkeyup = formValidation;
-        }
 
 
 
-            //enable button for zip code validation
-    function formValidation(oEvent) {
-        oEvent = oEvent || window.event;
-        var txtField = oEvent.target || oEvent.srcElement;
-
-        var numbers = /^[0-9]+$/;
-        var zip_codetck = true;
-        var msg=" ";
-        if(document.getElementById("zip_code").value.match(numbers)){ zip_codetck=false; }
-
-
-        //alert(msg + t1ck);
-
-        if(zip_codetck){document.getElementById("btnSignUp").disabled = false;
-            msg=msg+ " <b> Submit Button is enabled </b>";
-        }
-        else{document.getElementById("btnSignUp").disabled = true;
-            msg=msg+ " <b> Submit Button is disabled </b>";
-        }// end of if checking status of t1ck variable
-        document.getElementById('my_msg').innerHTML=msg;
-        }
-
-
-        window.onload = function () {
-
-        var btnSignUp = document.getElementById("btnSignUp");
-
-        var zip_code = document.getElementById("zip_code");
-
-
-        var zip_codetck=false;
-        document.getElementById("btnSignUp").disabled = true;
-        zip_code.onkeyup = formValidation;
-        }
 
 
 
-         //enable button for id_no validation
-    function formValidation(oEvent) {
-        oEvent = oEvent || window.event;
-        var txtField = oEvent.target || oEvent.srcElement;
 
-        var numbers = /^[0-9]+$/;
-        var idno_tck = true;
-        var msg=" ";
-        if(document.getElementById("id_no").value.match(numbers)){ idno_tck=true; }
-
-
-        //alert(msg + t1ck);
-
-        if(idno_tck){document.getElementById("btnSignUp").disabled = false;
-            msg=msg+ " <b> Submit Button is enabled </b>";
-        }
-        else{document.getElementById("btnSignUp").disabled = true;
-            msg=msg+ " <b> Submit Button is disabled </b>";
-        }// end of if checking status of t1ck variable
-        document.getElementById('my_msg').innerHTML=msg;
-        }
-
-
-        window.onload = function () {
-
-        var btnSignUp = document.getElementById("btnSignUp");
-
-        var id_no = document.getElementById("id_no");
-
-
-        var idno_tck=false;
-        document.getElementById("btnSignUp").disabled = true;
-        id_no.onkeyup = formValidation;
-        }
 
         $(function(){
             $("#selID_Type").change(function(){
@@ -743,4 +641,13 @@ $(document).ready(function() {
 
         });
     });
+
+    // $(document).ready(function (){
+    //     $('#centimeter').on('click', function (){
+    //         var centimeter = $('#centimeter').val();
+
+    //         $('#centimeter').val(centimeter).toFixed(2);
+    //     })
+    // })
+
 
