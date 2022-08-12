@@ -309,9 +309,13 @@
                                         <div class="mb-3">
                                             <label for="password" class="form-label"><b style="color: red">*</b>
                                                 {{ __('Password') }}</label>
+
+
+
                                             <input type="password"
                                                 class="form-control  @error('password') is-invalid @enderror" id="password"
                                                 name="password" onkeyup="return validate()">
+
 
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">

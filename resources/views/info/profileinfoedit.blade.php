@@ -110,8 +110,8 @@
                                 src="/images/uploads/avatars_userstable/{{ Auth::user()->avatar }}">
                             <div class="mt-2">
                                 {{-- Profile Image Upload --}}
-                                <input type="file" name="avatar" id="avatar" class="form-control" placeholder="{{ Auth::user()->avatar }}"  required>
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <input type="file" name="avatar" id="avatar" class="form-control" placeholder="{{ Auth::user()->avatar }}" accept="image/png, image/jpeg">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" >
                             </div>
                             {{-- Name and Email --}}
                             <span class="font-weight-bold p-2" style="font-size: 120%">{{ Auth::user()->firstname }}
