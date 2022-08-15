@@ -1,10 +1,27 @@
-@extends('layouts.guest')
+@extends('layouts.guestnavbar')
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/jquery-1.11.1.js') }}"></script>
+<script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ asset('js/careteq.js') }}"></script>
+<!-- Select2 CSS -->
+<link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
 
+<script src="{{ asset('js/jquery-3.6.0/js') }}"></script>
+<script src="{{ asset('js/jquery-3.6.0.min/js') }}"></script>
+
+<!-- Select2 JS -->
+<script src="{{ asset('js/select2.min.js') }}"></script>
+<link rel="stylesheet" href="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.css') }}">
+<link rel="stylesheet" href="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.min.css') }}">
+<script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.min.js') }}"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 @section('content')
     <!-- CSS -->
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
+<script src="{{ asset('js/careteq.js') }}"></script>
     <div class="login-page bg-light">
         <div class="container">
             <div class="row">
@@ -20,7 +37,7 @@
                                         <div class="col-12">
                                             <label>{{ __('Email Address') }}<span class="text-danger">*</span></label>
                                             <div class="input-group">
-                                               
+
                                                 <input id="email" type="email"
                                                     class="form-control @error('email') is-invalid @enderror" name="email"
                                                     value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -40,7 +57,7 @@
                                                 <input type="password" class="form-control" id="password" name="password"
                                                     required>
                                                 <button class="btn btn-outline-dark" type="button"
-                                                    id="button-addon1"><i class="fa-solid fa-eye"></i></button>
+                                                    id="showPassword" name="showPassword"><i class="fa-solid fa-eye"></i></button>
                                                 @error('password')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>

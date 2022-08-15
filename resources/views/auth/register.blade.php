@@ -44,10 +44,11 @@
                                         <div class="mb-3">
                                             <input type="hidden" name="user_role" id="user_role" value="0">
                                             <label for="firstname" class="form-label"><b style="color: red">*</b>
-                                                {{ __('First Name') }}</label>
+                                                {{ __('First Name') }} <span class="firstname-validation validation-error"></span> </label>
                                             <input id="firstname" name="firstname" type="text"
                                                 class="form-control  @error('fname') is-invalid @enderror autofocus "
-                                                value="{{ old('firstname') }}">
+                                                value="{{ old('firstname') }}" onblur="validate()">
+
                                         </div>
                                         @error('firstname')
                                             <span class="invalid-feedback" role="alert">
@@ -76,7 +77,7 @@
                                                     {{ __('Last Name') }}</label>
                                                 <input id="lastname" name="lastname" type="text"
                                                     class="form-control  @error('lastname') is-invalid @enderror autofocus"
-                                                    value="{{ old('lastname') }}">
+                                                    value="{{ old('lastname') }}" onblur="validate()">
                                             </div>
                                             @error('lastname')
                                                 <span class="invalid-feedback" role="alert">
@@ -100,7 +101,7 @@
                                             <input type="text"
                                                 class="form-control  @error('bday') is-invalid @enderror datepicker"
                                                 id="bday" name="bday" value="{{ old('bday') }}"
-                                                placeholder="mm/dd/yyy">
+                                                placeholder="mm/dd/yyy" onblur="validate()">
                                         </div>
                                         @error('bday')
                                             <span class="invalid-feedback" role="alert">
@@ -144,7 +145,7 @@
                                             <select
                                                 class="form-select form-select-md  @error('gender') is-invalid @enderror"
                                                 id="selGender" name="gender" aria-label=".form-select-lg example"
-                                                value="{{ old('$item->name') }}">
+                                                value="{{ old('$item->name') }}" onblur="validate()">
                                                 <option hidden>Choose Sex</option>
                                                 @foreach ($gender as $genders)
                                                     <option value="{{ $genders->name }}"
@@ -280,7 +281,7 @@
                                                     style="color: red">*</b> {{ __('House No. & Street') }}</label>
                                             <input id="houseNo_streetName" name="houseNo_streetName" type="text"
                                                 class="form-control  @error('houseNo_streetName') is-invalid @enderror autofocus"
-                                                value="{{ old('houseNo_streetName') }}">
+                                                value="{{ old('houseNo_streetName') }}" onblur="validate()">
                                         </div>
                                         @error('houseNo_streetName')
                                             <span class="invalid-feedback" role="alert">
@@ -317,7 +318,7 @@
                                             {{ __('E-Mail') }}</label>
                                         <input id="email" type="email"
                                             class="form-control @error('email') is-invalid @enderror" name="email"
-                                            value="{{ old('email') }}" required autocomplete="email">
+                                            value="{{ old('email') }}" required autocomplete="email" onblur="validate()">
 
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -335,8 +336,8 @@
                                         <div class="input-group mb-3">
                                             <input type="password"
                                                 class="form-control  @error('password') is-invalid @enderror"
-                                                id="password" name="password" onkeyup="return validate()">
-                                            <button class="btn btn-outline-dark" type="button" id="button-addon1"><i
+                                                id="password" name="password" onkeyup="return validatepass()">
+                                            <button class="btn btn-outline-dark" type="button" id="showPassword" name="showPassword"><i
                                                     class="fa-solid fa-eye"></i></button>
 
                                             @error('password')
@@ -366,7 +367,7 @@
                                         <div class="input-group mb-3">
                                             <input type="password" class="form-control" id="password_confirmation"
                                                 name="password_confirmation">
-                                            <button class="btn btn-outline-dark" type="button" id="button-addon1"><i
+                                            <button class="btn btn-outline-dark" type="button" id="showConfirmPassword" name="showConfirmPassword"><i
                                                     class="fa-solid fa-eye"></i></button>
                                             @error('password_confirmation')
                                                 <span class="invalid-feedback" role="alert">
@@ -377,6 +378,7 @@
                                     </div>
                                 </div>
 
+                                <div style="margin-top: 7px;" id="CheckPasswordMatch"></div>
                                 {{-- EMAIL --}}
 
                                 <div class="row">
@@ -440,8 +442,7 @@
                                                 <option value="">Select ID Type</option>
                                                 @foreach ($id_type as $id_types)
                                                     <option value="{{ $id_types->name }}"
-                                                        {{ old('id_type') == $id_types->name ? 'selected' : '' }}>
-                                                        {{ $id_types->name }} : <p id="idno_format" name="idno_format"
+                                                        {{ old('id_type') == $id_types->name ? 'selected' : '' }}>{{ $id_types->name }} : <p id="idno_format" name="idno_format"
                                                             style="display: none">{{ $id_types->idno_format }}</p>
                                                     </option>
                                                 @endforeach
@@ -456,12 +457,11 @@
 
                                     {{-- ID NUMBER AND UPLOAD ID FILE --}}
                                     <div class="col">
-                                        <div class="mb-3">
+                                        <div class="mb-2">
                                             <label for="id_no" class="form-label"><b style="color: red">*</b>
                                                 {{ __('Id Number') }}</label>
                                             <input id="id_no" name="id_no" type="text"
-                                                class="form-control  @error('id_no') is-invalid @enderror autofocus"
-                                                value="{{ old('id_no') }}">
+                                                class="form-control  @error('id_no') is-invalid @enderror autofocus" value="{{ old('id_no') }}" onblur="validate()">
                                             </ul>
                                         </div>
                                         @error('id_no')
@@ -479,7 +479,7 @@
                                         <input id="upload_id" name="upload_id" type="file"
                                             class="form-control  @error('upload_id') is-invalid @enderror autofocus"
                                             value="{{ old('upload_id') }}"
-                                            accept="image/png, image/jpeg, application/pdf ">
+                                            accept="image/png, image/jpeg, application/pdf " onblur="validate()">
 
                                     </div>
                                     @error('upload_id')
@@ -492,7 +492,7 @@
                         </div>
                         {{-- SUBMIT --}}
                         <div class="text-center d-flex items-center p-3">
-                            <button type="submit" id="btnSignUp" class="btn btn-secondary col-lg-12">Register</button>
+                            <button type="submit" id="btnSignUp" name="btnSignUp" class="btn btn-secondary col-lg-12" disabled="disabled">Register</button>
                         </div>
                     </div>
                     </form>
@@ -501,4 +501,7 @@
         </div>
     </div>
     </div>
+    <script>
+
+    </script>
 @endsection

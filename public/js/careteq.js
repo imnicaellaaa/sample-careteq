@@ -289,7 +289,7 @@ $(document).ready(function(){
 });
 
 ///password complexity reg ex
-function validate(){
+function validatepass(){
     var pass = document.getElementById('password');
     var upper = document.getElementById('upper');
     var lower = document.getElementById('lower');
@@ -369,91 +369,62 @@ function validate(){
 
 
 
+function validate() {
+
+    var valid = true;
+    valid = checkEmpty($("#firstname"));
+    valid = checkEmpty($("#lastname"));
+    valid = checkEmpty($("#bday"));
+    valid = checkEmpty($("#houseNo_streetName"));
+    valid = checkEmpty($("#id_no"));
+    valid = checkEmpty($("#upload_id"));
+    valid = valid && checkEmail($("#email"));
 
 
-//enable button for lastname validation
-function formValidation(oEvent) {
-    oEvent = oEvent || window.event;
-    var txtField = oEvent.target || oEvent.srcElement;
 
-    var lastnametck=true;
-    var letters = /^[A-Za-z]+$/;
-    var msg=" ";
-    if(document.getElementById("lastname").value.length > 255  ){ lastnametck=false; }
-    if(document.getElementById("lastname").value.match(letters)){ lastnametck=false; }
-
-
-    //alert(msg + t1ck);
-
-    if(lastnametck){document.getElementById("btnSignUp").disabled = false;
-        msg=msg+ " <b> Submit Button is enabled </b>";
+    $("#btnSignUp").attr("disabled",true);
+    if(valid) {
+        $("#btnSignUp").attr("disabled",false);
     }
-    else{document.getElementById("btnSignUp").disabled = true;
-        msg=msg+ " <b> Submit Button is disabled </b>";
-    }// end of if checking status of t1ck variable
-    document.getElementById('my_msg').innerHTML=msg;
+}
+function checkEmpty(obj) {
+    var name = $(obj).attr("name");
+    $("."+name+"-validation").html("");
+    $(obj).css("border","");
+    if($(obj).val() == "") {
+        // $(obj).css("border","#FF0000 1px solid");
+        // $("."+name+"-validation").html("Required");
+        return false;
     }
 
+    return true;
+}
+function checkEmail(obj) {
+    var result = true;
 
-    window.onload = function () {
+    var name = $(obj).attr("name");
+    $("."+name+"-validation").html("");
+    $(obj).css("border","");
 
-    var btnSignUp = document.getElementById("btnSignUp");
-    var btnReset = document.getElementById("btnReset");
+    result = checkEmpty(obj);
 
-    var lastname = document.getElementById("lastname");
-
-
-    var lastnametck=false;
-    document.getElementById("btnSignUp").disabled = true;
-    lastname.onkeyup = formValidation;
-
+    if(!result) {
+        $(obj).css("border","#FF0000 1px solid");
+        $("."+name+"-validation").html("Required");
+        return false;
     }
-//enable button for firstname validation
-    function formValidation(oEvent) {
-        oEvent = oEvent || window.event;
-        var txtField = oEvent.target || oEvent.srcElement;
 
-        var firstnametck = true;
-        var letters = /^[A-Za-z]+$/;
-        var msg=" ";
-        if(document.getElementById("firstname").value.length > 255  ){ firstnametck=false; }
-        if(document.getElementById("firstname").value.match(letters)  ){ firstnametck=false; }
+    var email_regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,3})+$/;
+    result = email_regex.test($(obj).val());
 
+    if(!result) {
+        $(obj).css("border","#FF0000 1px solid");
+        $("."+name+"-validation").html("Invalid");
+        return false;
+    }
 
-
-        //alert(msg + t1ck);
-
-        if(firstnametck){document.getElementById("btnSignUp").disabled = false;
-            msg=msg+ " <b> Submit Button is enabled </b>";
-        }
-        else{document.getElementById("btnSignUp").disabled = true;
-            msg=msg+ " <b> Submit Button is disabled </b>";
-        }// end of if checking status of t1ck variable
-        document.getElementById('my_msg').innerHTML=msg;
-        }
-
-
-        window.onload = function () {
-
-        var btnSignUp = document.getElementById("btnSignUp");
-        var btnReset = document.getElementById("btnReset");
-
-        var firstname = document.getElementById("firstname");
-
-
-        var firstnametck=false;
-        document.getElementById("btnSignUp").disabled = true;
-        firstname.onkeyup = formValidation;
-        }
-
-
-
-
-
-
-
-
-
+    return result;
+}
         $(function(){
             $("#selID_Type").change(function(){
                 var duplicate = $("#selID_Type option:selected").text();
@@ -642,6 +613,45 @@ $(document).ready(function() {
         });
     });
 
+    //validation if the password match in confirm password
+    $(document).ready(function() {
+        $("#password_confirmation").on('keyup', function() {
+          var password = $("#password").val();
+          var confirmPassword = $("#password_confirmation").val();
+          if (password != confirmPassword)
+            $("#password_confirmation").css("border","red 2px solid");
+          else
+          $("#password_confirmation").css("border","green 2px solid");
+        });
+      });
+
+      //show password
+      $(document).ready(function(){
+
+        $('#showPassword').on('click', function(){
+           var passInput=$("#password");
+           if(passInput.attr('type')==='password')
+             {
+               passInput.attr('type','text');
+           }else{
+              passInput.attr('type','password');
+           }
+       })
+     })
+
+     //show confirm password
+     $(document).ready(function(){
+
+        $('#showConfirmPassword').on('click', function(){
+           var passInput=$("#password_confirmation");
+           if(passInput.attr('type')==='password')
+             {
+               passInput.attr('type','text');
+           }else{
+              passInput.attr('type','password');
+           }
+       })
+     })
     // $(document).ready(function (){
     //     $('#centimeter').on('click', function (){
     //         var centimeter = $('#centimeter').val();
