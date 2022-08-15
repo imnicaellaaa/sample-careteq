@@ -330,12 +330,14 @@
                                 <div class="row">
                                     {{-- PASSWORD --}}
                                     <div class="col">
-                                        <div class="mb-3">
-                                            <label for="password" class="form-label"><b style="color: red">*</b>
-                                                {{ __('Password') }}</label>
+                                        <label for="password" class="form-label"><b style="color: red">*</b>
+                                            {{ __('Password') }}</label>
+                                        <div class="input-group mb-3">
                                             <input type="password"
-                                                class="form-control  @error('password') is-invalid @enderror" id="password"
-                                                name="password" onkeyup="return validate()">
+                                                class="form-control  @error('password') is-invalid @enderror"
+                                                id="password" name="password" onkeyup="return validate()">
+                                            <button class="btn btn-outline-dark" type="button" id="button-addon1"><i
+                                                    class="fa-solid fa-eye"></i></button>
 
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
@@ -476,7 +478,8 @@
                                             {{ __('Upload ID') }}</label>
                                         <input id="upload_id" name="upload_id" type="file"
                                             class="form-control  @error('upload_id') is-invalid @enderror autofocus"
-                                            value="{{ old('upload_id') }}" accept="image/png, image/jpeg, application/pdf ">
+                                            value="{{ old('upload_id') }}"
+                                            accept="image/png, image/jpeg, application/pdf ">
 
                                     </div>
                                     @error('upload_id')
