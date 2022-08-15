@@ -61,8 +61,8 @@
                                         <div class="mb-3">
                                             <div class="mb-3">
                                                 <label for="middlename" class="form-label">{{ __('Middle Name') }}</label>
-                                                <input id="middlename" name="middlename" type="text" class="form-control autofocus"
-                                                    value="{{ old('middlename') }}">
+                                                <input id="middlename" name="middlename" type="text"
+                                                    class="form-control autofocus" value="{{ old('middlename') }}">
                                             </div>
 
                                         </div>
@@ -97,8 +97,10 @@
                                         <div class="mb-3">
                                             <label for="bday" class="form-label"><b style="color: red">*</b>
                                                 {{ __('Birthday') }}</label>
-                                            <input type="text" class="form-control  @error('bday') is-invalid @enderror datepicker"
-                                                id="bday" name="bday" value="{{ old('bday') }}" placeholder="mm/dd/yyy">
+                                            <input type="text"
+                                                class="form-control  @error('bday') is-invalid @enderror datepicker"
+                                                id="bday" name="bday" value="{{ old('bday') }}"
+                                                placeholder="mm/dd/yyy">
                                         </div>
                                         @error('bday')
                                             <span class="invalid-feedback" role="alert">
@@ -111,8 +113,8 @@
                                     <div class="col">
                                         <div class="mb-3">
                                             <label for="age" class="form-label">{{ __('Age') }}</label>
-                                            <input class="form-control" type="text"
-                                            readonly id="age" name="age" value="{{ old('age') }}" autocomplete="age" >
+                                            <input class="form-control" type="text" readonly id="age"
+                                                name="age" value="{{ old('age') }}" autocomplete="age">
                                         </div>
 
                                     </div>
@@ -145,7 +147,9 @@
                                                 value="{{ old('$item->name') }}">
                                                 <option hidden>Choose Sex</option>
                                                 @foreach ($gender as $genders)
-                                                <option value="{{$genders->name}}" {{old('gender') == $genders->name ? 'selected':''}}>{{ $genders->name}}</option>
+                                                    <option value="{{ $genders->name }}"
+                                                        {{ old('gender') == $genders->name ? 'selected' : '' }}>
+                                                        {{ $genders->name }}</option>
                                                 @endforeach
                                             </select>
                                             @error('gender')
@@ -166,8 +170,10 @@
                                                 aria-label=".form-select-lg example" id="selTitle" name="title"
                                                 value="{{ old('$item->name') }}">
                                                 <option hidden>Choose Title</option>
-                                                @foreach ($title as $titles )
-                                                    <option value="{{$titles->name}}" {{old('title') == $titles->name ? 'selected':''}}>{{$titles->name}}</option>
+                                                @foreach ($title as $titles)
+                                                    <option value="{{ $titles->name }}"
+                                                        {{ old('title') == $titles->name ? 'selected' : '' }}>
+                                                        {{ $titles->name }}</option>
                                                 @endforeach
                                             </select>
                                             @error('title')
@@ -198,7 +204,9 @@
                                                 value="{{ old('$item->name') }}">
                                                 <option hidden>Choose Country</option>
                                                 @foreach ($country as $countries)
-                                                    <option value="{{$countries->country_code}}" {{old('country') == $countries->country_code ? 'selected':''}}>{{ $countries->country_name }}</option>
+                                                    <option value="{{ $countries->country_code }}"
+                                                        {{ old('country') == $countries->country_code ? 'selected' : '' }}>
+                                                        {{ $countries->country_name }}</option>
                                                 @endforeach
                                             </select>
                                             @error('country')
@@ -284,11 +292,10 @@
                                     {{-- Postal Code --}}
                                     <div class="col">
                                         <div class="mb-3">
-                                            <label for="postal_code"
-                                                class="form-label">{{ __('Postal Code') }}</label>
+                                            <label for="postal_code" class="form-label">{{ __('Postal Code') }}</label>
                                             <input id="zip_code" name="postal_code" type="text"
                                                 class="form-control  @error('postal_code') is-invalid @enderror autofocus"
-                                                value="{{ old('postal_code') }}"  readonly>
+                                                value="{{ old('postal_code') }}" readonly>
                                         </div>
                                         @error('postal_code')
                                             <span class="invalid-feedback" role="alert">
@@ -304,14 +311,35 @@
                                 <div class="mb-2 fs-4 text-center">Account Details</div>
 
                                 <div class="row">
+
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label"><b style="color: red">*</b>
+                                            {{ __('E-Mail') }}</label>
+                                        <input id="email" type="email"
+                                            class="form-control @error('email') is-invalid @enderror" name="email"
+                                            value="{{ old('email') }}" required autocomplete="email">
+
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="row">
                                     {{-- PASSWORD --}}
                                     <div class="col">
-                                        <div class="mb-3">
-                                            <label for="password" class="form-label"><b style="color: red">*</b>
-                                                {{ __('Password') }}</label>
+                                        <label for="password" class="form-label"><b style="color: red">*</b>
+                                            {{ __('Password') }}</label>
+                                        <div class="input-group mb-3">
+
                                             <input type="password"
-                                                class="form-control  @error('password') is-invalid @enderror" id="password"
-                                                name="password" onkeyup="return validate()">
+                                                class="form-control  @error('password') is-invalid @enderror"
+                                                id="password" name="password" onkeyup="return validate()">
+                                            {{-- View password button --}}
+                                            <button class="btn btn-outline-dark" type="button" id="button-addon1"><i
+                                                    class="fa-solid fa-eye"></i></button>
 
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
@@ -335,12 +363,13 @@
                                 <div class="row">
 
                                     <div class="col">
-                                        <div class="mb-3">
-                                            <label for="password_confirmation" class="form-label"><b
-                                                    style="color: red">*</b> {{ __('Password Confirm') }}</label>
+                                        <label for="password_confirmation" class="form-label"><b style="color: red">*</b>
+                                            {{ __('Password Confirm') }}</label>
+                                        <div class="input-group mb-3">
                                             <input type="password" class="form-control" id="password_confirmation"
                                                 name="password_confirmation">
-
+                                            <button class="btn btn-outline-dark" type="button" id="button-addon1"><i
+                                                    class="fa-solid fa-eye"></i></button>
                                             @error('password_confirmation')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -354,20 +383,6 @@
 
                                 <div class="row">
 
-                                    <div class="mb-3">
-                                        <label for="email" class="form-label"><b style="color: red">*</b>
-                                            {{ __('E-Mail') }}</label>
-                                        <input id="email" type="email"
-                                            class="form-control @error('email') is-invalid @enderror" name="email"
-                                            value="{{ old('email') }}" required autocomplete="email">
-
-                                        @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-
                                     {{-- NEW & EXISTING PATIENT --}}
 
                                     <div class="row mb-2">
@@ -376,13 +391,15 @@
                                             <div class="mt-3">
                                                 {{-- NEW PATIENT --}}
                                                 <input type="checkbox" class="form-check-input" type="checkbox"
-                                                    name="status" id="new_patient" value="New Patient" {{ old('status') == 'New Patient' ? 'checked' : '' }}>
+                                                    name="status" id="new_patient" value="New Patient"
+                                                    {{ old('status') == 'New Patient' ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="status">
                                                     {{ __('New Patient') }}</label>
                                                 <div class="col">
                                                     {{-- EXISTING PATIENT --}}
                                                     <input type="checkbox" class="form-check-input" type="checkbox"
-                                                        name="status" id="existing_patient" value="Existing Patient" {{ old('status') == 'Existing Patient' ? 'checked' : '' }}>
+                                                        name="status" id="existing_patient" value="Existing Patient"
+                                                        {{ old('status') == 'Existing Patient' ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="status">
                                                         {{ __('Existing Patient') }}</label>
                                                 </div>
@@ -395,9 +412,11 @@
                                         {{-- PATIENT ID --}}
                                         <div class="col">
                                             <div class="mb-3">
-                                                <label for="patient_id1"
-                                                    class="form-label" id="patient_id1" style="display: none">{{ __('Patient ID') }}</label>
-                                                <input id="patient_id" name="patient_id" type="text" class="form-control autofocus" style="display: none" value="{{ old('patient_id') }}">
+                                                <label for="patient_id1" class="form-label" id="patient_id1"
+                                                    style="display: none">{{ __('Patient ID') }}</label>
+                                                <input id="patient_id" name="patient_id" type="text"
+                                                    class="form-control autofocus" style="display: none"
+                                                    value="{{ old('patient_id') }}">
                                                 </ul>
                                             </div>
                                         </div>
@@ -419,10 +438,14 @@
                                             <select
                                                 class="form-select form-select-md  @error('id_type') is-invalid @enderror"
                                                 aria-label=".form-select-lg example" id="selID_Type" name="id_type"
-                                                value="{{ old('$item->name') }}" >
+                                                value="{{ old('$item->name') }}">
                                                 <option value="">Select ID Type</option>
                                                 @foreach ($id_type as $id_types)
-                                                <option value="{{$id_types->name}}" {{old('id_type') == $id_types->name ? 'selected':''}}>{{ $id_types->name }} : <p id="idno_format" name="idno_format" style="display: none">{{ $id_types->idno_format }}</p></option>
+                                                    <option value="{{ $id_types->name }}"
+                                                        {{ old('id_type') == $id_types->name ? 'selected' : '' }}>
+                                                        {{ $id_types->name }} : <p id="idno_format" name="idno_format"
+                                                            style="display: none">{{ $id_types->idno_format }}</p>
+                                                    </option>
                                                 @endforeach
                                             </select>
                                             @error('id_type')
@@ -440,7 +463,7 @@
                                                 {{ __('Id Number') }}</label>
                                             <input id="id_no" name="id_no" type="text"
                                                 class="form-control  @error('id_no') is-invalid @enderror autofocus"
-                                                value="{{ old('id_no') }}" >
+                                                value="{{ old('id_no') }}">
                                             </ul>
                                         </div>
                                         @error('id_no')

@@ -132,7 +132,7 @@
                                 </div>
 
                                 {{-- BDAY --}}
-                                <div class="col-md-3 p-2"><labelw class="labels">Birthday</label>
+                                <div class="col-md-3 p-2"><label class="labels">Birthday</label>
                                     <input type="text" name="bday" id="bday" class="form-control "
                                         value="{{ Auth::user()->bday }}" readonly>
                                 </div>
@@ -185,40 +185,39 @@
 
                                     {{-- TITLE --}}
                                     <div class="col-md-3 p-2"><label class="labels">Title</label>
-                                        <input type="text" name="title" id="title" class="form-control" class="form-select"
-                                        value="{{ Auth::user()->title }}" readonly>
-                                        {{--  <input type="text" name="title" id="title" value="{{ Auth::user()->title }}"  class="form-select" disabled>  --}}
-                                        {{--  <select  name="title" value="{{ Auth::user()->title }}"
-                                            value="{{ Auth::user()->title }}" style="background-color: white" autofocus disable>  --}}
-                                            {{--  <option hidden>{{ Auth::user()->title }}</option>  --}}
-                                            {{--  @foreach ($title as $titles)
+                                        <input type="text" name="title" id="title" class="form-control"
+                                            class="form-select" value="{{ Auth::user()->title }}" readonly>
+                                        {{-- <input type="text" name="title" id="title" value="{{ Auth::user()->title }}"  class="form-select" disabled> --}}
+                                        {{-- <select  name="title" value="{{ Auth::user()->title }}"
+                                            value="{{ Auth::user()->title }}" style="background-color: white" autofocus disable> --}}
+                                        {{-- <option hidden>{{ Auth::user()->title }}</option> --}}
+                                        {{-- @foreach ($title as $titles)
                                                 <option class="form-select" value="{{ $titles->name }}"
                                                     {{ old('title') == $titles->name ? 'selected' : '' }}>
                                                     {{ $titles->name }}</option>
-                                            @endforeach  --}}
+                                            @endforeach --}}
                                         </select>
 
                                     </div>
 
-                                        {{-- Sex --}}
-                                        <div class="col-md-3 p-2"><label class="labels">Sex</label>
-                                            <input type="text" name="gender" id="gender" class="form-control" value="{{ Auth::user()->gender }}" readonly>
-                                            {{--  <select name="gender" id="selGender" class="form-control"
-                                                style="background-color: white" autofocus>  --}}
-                                                {{--  <option hidden>{{ Auth::user()->gender }}</option>
+                                    {{-- Sex --}}
+                                    <div class="col-md-3 p-2"><label class="labels">Sex</label>
+                                        <input type="text" name="gender" id="gender" class="form-control"
+                                            value="{{ Auth::user()->gender }}" readonly>
+                                        {{-- <select name="gender" id="selGender" class="form-control"
+                                                style="background-color: white" autofocus> --}}
+                                        {{-- <option hidden>{{ Auth::user()->gender }}</option>
                                                 @foreach ($gender as $genders)
                                                     <option value="{{ $genders->name }}"
                                                         {{ old('gender') == $genders->name ? 'selected' : '' }}>
                                                         {{ $genders->name }}</option>
-                                                @endforeach  --}}
-                                            </select>
-                                        </div>
+                                                @endforeach --}}
+                                        </select>
+                                    </div>
 
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
 
@@ -234,33 +233,6 @@
                             value="{{ Auth::user()->houseNo_streetName }}" style="background-color: white" autofocus>
                     </div>
 
-                    {{-- BARANGAY --}}
-                    <div class="col-md-4 p-2"><label class="labels">Barangay</label>
-                        <select name="brgy" id="barangay" class="form-control form-select form-select-md"
-                            style="background-color: white" autofocus>
-                            <option hidden>{{ Auth::user()->brgy }}</option>
-                        </select>
-                    </div>
-
-                    {{-- MUNICIPALITY OR CITY --}}
-                    <div class="col-md-4 p-2"><label class="labels">Municipality / City</label>
-                        <select class="form-control" id="municipality"name="municipality"
-                            style="background-color: white" autofocus>
-                            <option hidden>{{ Auth::user()->municipality }}</option>
-                        </select>
-
-                    </div>
-                </div>
-
-                <div class="row">
-                    {{-- PROVINCE --}}
-                    <div class="col-md-4 p-2"><label class="labels">Province</label>
-                        <select class="form-control" id="province"name="province" style="background-color: white"
-                            autofocus>
-                            <option hidden>{{ Auth::user()->province }}</option>
-                        </select>
-                    </div>
-
                     {{-- COUNTRY --}}
                     <div class="col-md-4 p-2"><label class="labels">Country</label>
                         <select class="form-control" id="country"name="country" style="background-color: white"
@@ -271,6 +243,34 @@
                                     {{ old('country') == $countries->country_code ? 'selected' : '' }}>
                                     {{ $countries->country_name }}</option>
                             @endforeach
+                        </select>
+                    </div>
+
+                    {{-- PROVINCE --}}
+                    <div class="col-md-4 p-2"><label class="labels">Province</label>
+                        <select class="form-control" id="province"name="province" style="background-color: white"
+                            autofocus>
+                            <option hidden>{{ Auth::user()->province }}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    {{-- MUNICIPALITY OR CITY --}}
+                    <div class="col-md-4 p-2"><label class="labels">Municipality / City</label>
+                        <select class="form-control" id="municipality"name="municipality"
+                            style="background-color: white" autofocus>
+                            <option hidden>{{ Auth::user()->municipality }}</option>
+                        </select>
+
+                    </div>
+
+                    {{-- BARANGAY --}}
+                    <div class="col-md-4 p-2"><label class="labels">Barangay</label>
+                        <select name="brgy" id="barangay" class="form-control form-select form-select-md"
+                            style="background-color: white" autofocus>
+                            <option hidden>{{ Auth::user()->brgy }}</option>
                         </select>
                     </div>
 
@@ -300,7 +300,6 @@
                         <input type="number" name="pounds" id="lb" class="form-control"
                             value="{{ Auth::user()->pounds }}" style="background-color: white; " step=".01"
                             placeholder="lb" autofocus>
-
                     </div>
 
                     {{-- BMI --}}
@@ -339,7 +338,6 @@
                             @endforeach
                         </select>
                     </div>
-
                 </div>
 
                 <div class="row">
@@ -379,10 +377,8 @@
                             </span>
                         @enderror
                     </div>
-
                 </div>
             </form>
         </div>
-
     </div>
 @endsection

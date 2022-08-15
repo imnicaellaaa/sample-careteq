@@ -29,10 +29,10 @@
                         src="/images/uploads/avatars_userstable/{{ Auth::user()->avatar }}">
                     <span class="font-weight-bold">{{ Auth::user()->firstname }} {{ Auth::user()->middlename }}
                         {{ Auth::user()->lastname }}</span></span><span>{{ Auth::user()->email }}</span>
-                       
-                            <a href="{{ route('info.profileinfoedit') }}"><button class="btn btn-primary round mt-2 ">Edit
-                                    Profile </button></a>
-                    
+
+                    <a href="{{ route('info.profileinfoedit') }}"><button class="btn btn-primary round mt-2 ">Edit
+                            Profile </button></a>
+
                 </div>
             </div>
 
@@ -47,7 +47,7 @@
                             <label class="labels ">Full Name</label>
                             <input type="text" class="form-control fs-5"
                                 value="{{ Auth::user()->firstname }} {{ Auth::user()->middlename }} {{ Auth::user()->lastname }} {{ Auth::user()->suffix }}"
-                                disabled>
+                               readonly >
                         </div>
                         {{-- Birthday --}}
                         <div class="col-md-3 p-2"><label class="labels">Birthday</label>
@@ -108,7 +108,7 @@
 
                     </div>
 
-                  
+
                 </div>
             </div>
         </div>
@@ -126,24 +126,14 @@
                     value="{{ Auth::user()->houseNo_streetName }}" disabled>
             </div>
 
-            {{-- BARANGAY --}}
-            <div class="col-md-4 p-2"><label class="labels">Barangay</label>
-                <select name="brgy" id="barangay" class="form-control" disabled>
-                    <option hidden>{{ Auth::user()->brgy }}</option>
+
+            {{-- COUNTRY --}}
+            <div class="col-md-4 p-2"><label class="labels">Country</label>
+                <select class="form-control" id="country"name="country" disabled>
+                    <option hidden>{{ Auth::user()->country }}</option>
 
                 </select>
             </div>
-
-            {{-- Municipality OR CITY --}}
-            <div class="col-md-4 p-2"><label class="labels">Municipality / City</label>
-                <select class="form-control" id="municipality"name="municipality" disabled>
-                    <option hidden>{{ Auth::user()->municipality }}</option>
-
-                </select>
-            </div>
-        </div>
-
-        <div class="row d-flex py-2 align-items-center">
 
             {{-- PROVINCE --}}
             <div class="col-md-4 p-2"><label class="labels">Province</label>
@@ -152,11 +142,24 @@
 
                 </select>
             </div>
+        </div>
 
-            {{-- COUNTRY --}}
-            <div class="col-md-4 p-2"><label class="labels">Country</label>
-                <select class="form-control" id="country"name="country" disabled>
-                    <option hidden>{{ Auth::user()->country }}</option>
+        <div class="row d-flex py-2 align-items-center">
+
+
+            {{-- Municipality OR CITY --}}
+            <div class="col-md-4 p-2"><label class="labels">Municipality / City</label>
+                <select class="form-control" id="municipality"name="municipality" disabled>
+                    <option hidden>{{ Auth::user()->municipality }}</option>
+
+                </select>
+            </div>
+
+
+            {{-- BARANGAY --}}
+            <div class="col-md-4 p-2"><label class="labels">Barangay</label>
+                <select name="brgy" id="barangay" class="form-control" disabled>
+                    <option hidden>{{ Auth::user()->brgy }}</option>
 
                 </select>
             </div>

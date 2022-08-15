@@ -20,7 +20,7 @@
                                         <div class="col-12">
                                             <label>{{ __('Email Address') }}<span class="text-danger">*</span></label>
                                             <div class="input-group">
-                                                <div class="input-group-text"><i class="fa fa-user"></i></div>
+                                               
                                                 <input id="email" type="email"
                                                     class="form-control @error('email') is-invalid @enderror" name="email"
                                                     value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -37,9 +37,10 @@
                                         <div class="col-12">
                                             <label>{{ __('Password') }}<span class="text-danger">*</span></label>
                                             <div class="input-group">
-                                                <div class="input-group-text"><i class="fa fa-unlock-alt"></i></div>
-                                                <input type="password" class="form-control" id="password" name="password" required>
-
+                                                <input type="password" class="form-control" id="password" name="password"
+                                                    required>
+                                                <button class="btn btn-outline-dark" type="button"
+                                                    id="button-addon1"><i class="fa-solid fa-eye"></i></button>
                                                 @error('password')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -50,8 +51,10 @@
 
                                         <div class="col-sm-6">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox"  id="remember" id="exampleCheck1" name="remember">
-                                                <label class="form-check-label" for="exampleCheck1">{{ __('Remember Me') }}</label>
+                                                <input class="form-check-input" type="checkbox" id="remember"
+                                                    id="exampleCheck1" name="remember">
+                                                <label class="form-check-label"
+                                                    for="exampleCheck1">{{ __('Remember Me') }}</label>
                                             </div>
                                         </div>
 
@@ -89,8 +92,7 @@
     </div>
 
 
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script> 
-    
+    </script>
 @endsection
