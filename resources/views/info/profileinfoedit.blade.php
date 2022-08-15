@@ -29,6 +29,17 @@
             text-align: right;
             border-radius: 50px;
         }
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
     </style>
 
     <div class="contianer rounded bg-white ">
@@ -99,8 +110,8 @@
                                 src="/images/uploads/avatars_userstable/{{ Auth::user()->avatar }}">
                             <div class="mt-2">
                                 {{-- Profile Image Upload --}}
-                                <input type="file" name="avatar" id="avatar" class="form-control" required>
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <input type="file" name="avatar" id="avatar" class="form-control" placeholder="{{ Auth::user()->avatar }}" accept="image/png, image/jpeg">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" >
                             </div>
                             {{-- Name and Email --}}
                             <span class="font-weight-bold p-2" style="font-size: 120%">{{ Auth::user()->firstname }}
@@ -170,16 +181,16 @@
                                     {{-- HEIGHT IN CENTIMETER --}}
                                     <div class="col-md-3 p-2"><label class="labels">Height in Centimeter</label>
                                         <input type="number" name="centimeter" id="centimeter" class="form-control"
-                                            style="background-color: white; " value="{{ Auth::user()->centimeter }}"
-                                            step=".01" placeholder="cm" autofocus>
+                                           value="{{ Auth::user()->centimeter }}"
+                                            step=".01" placeholder="cm" readonly>
 
                                     </div>
 
                                     {{-- HEIGHT IN INCHES --}}
                                     <div class="col-md-3 p-2"><label class="labels">Height in Inches</label>
                                         <input type="number" name="inches" id="inch" class="form-control"
-                                            value="{{ Auth::user()->inches }}" style="background-color: white;"
-                                            step=".01" placeholder="inches" autofocus>
+                                            value="{{ Auth::user()->inches }}"
+                                            step=".01" placeholder="inches" readonly>
 
                                     </div>
 
@@ -313,7 +324,7 @@
                         <input type="number" name="philhealth_no" id="philhealth_no"
                             class="form-control @error('philhealth_no') is-invalid @enderror" :value="old('philhealth_no')"
                             value="{{ Auth::user()->philhealth_no }}" style="background-color: white"
-                            placeholder="12-345678910-1" autofocus>
+                            placeholder="##-#########-#" autofocus>
 
 
                         @error('philhealth_no')
