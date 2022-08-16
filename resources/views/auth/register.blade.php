@@ -205,8 +205,8 @@
                                                 value="{{ old('$item->name') }}">
                                                 <option hidden>Choose Country</option>
                                                 @foreach ($country as $countries)
-                                                    <option value="{{ $countries->country_code }}"
-                                                        {{ old('country') == $countries->country_code ? 'selected' : '' }}>
+                                                    <option value="{{ $countries->country_name }}"
+                                                        {{ old('country') == $countries->country_name ? 'selected' : '' }}>
                                                         {{ $countries->country_name }}</option>
                                                 @endforeach
                                             </select>

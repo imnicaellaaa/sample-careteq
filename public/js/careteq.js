@@ -441,9 +441,9 @@ $(document).ready(function() {
     {
        var country = $(this).val();
        if(country) {
-              //alert(country); return false;
+            //   alert(country); return false;
               var url = window.location.origin+'/getprovinces/'+country;
-              //alert(url); return false;
+            //   alert(url); return false;
               $.ajaxSetup
               ({
                   headers: {
@@ -453,9 +453,10 @@ $(document).ready(function() {
                 $.ajax({
                     url: url,
                     method: 'get',
-                    data: { 'country_code': country }, // prefer use serialize method
+                    data: { 'country_name': country }, // prefer use serialize method
                     success:function(data)
                     {
+                        // alert(data); return false;
                         //alert (data); return false;
                       if(data){
                          //alert (data); return false;

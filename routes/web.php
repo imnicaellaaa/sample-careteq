@@ -41,7 +41,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware(
 Route::get('/profileinfo', [profileinfoController::class, 'index'])->name('info.profileinfo');
 Route::get('/profileinfoedit',[ProfileInfoEditController::class,'index'])->name('info.profileinfoedit');
 Route::post('/profileinfoUpdate',[ProfileInfoEditController::class,'create'])->name('info.update');
-Route::get('/getprovinces/{id}', [ProfileInfoEditController::class,'getProvince']);
+
+Route::get('/getprovinces', [ProfileInfoEditController::class,'getProvince'])->name('getprovinces');
 Route::get('/getmunicipality/{id}', [ProfileInfoEditController::class,'getMunicipality']);
 Route::get('/getbarangays/{id}', [ProfileInfoEditController::class,'getBarangays']);
 Route::get('/getzipcode/{id}', [ProfileInfoEditController::class,'getZipCode']);
