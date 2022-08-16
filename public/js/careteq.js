@@ -619,9 +619,10 @@ $(document).ready(function() {
           var password = $("#password").val();
           var confirmPassword = $("#password_confirmation").val();
           if (password != confirmPassword)
-            $("#password_confirmation").css("border","red 2px solid");
+            // $("#password_confirmation").css("border","red 2px solid");
+            $("#CheckPasswordMatch").html("Password does not match").css("color","red");
           else
-          $("#password_confirmation").css("border","green 2px solid");
+            $("#CheckPasswordMatch").html("Password match").css("color","green");
         });
       });
 
