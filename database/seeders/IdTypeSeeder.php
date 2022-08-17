@@ -19,73 +19,85 @@ class IdTypeSeeder extends Seeder
             [
                 'id'            => '1',
                 'name'          => "Voter's ID",
-                'idno_format'   => "1234-5678B-C9101ESA100000"
+                'idno_format'   => "####-####X-X####XXX######"
             ],
 
             [
                 'id'            => '2',
                 'name'          => 'Passport',
-                'idno_format'   => "P0000000A"
+                'idno_format'   => "X#######X"
             ],
 
             [
                 'id'            => '3',
                 'name'          => "Drivers License",
-                'idno_format'   => "NO3-12-123456"
+                'idno_format'   => "XX#-##-######"
             ],
 
             [
                 'id'            => '4',
                 'name'          => "Postal ID",
-                'idno_format'   => "PRN 123456789101 P"
+                'idno_format'   => "XXX ############ X"
             ],
 
             [
                 'id'            => '5',
-                'name'          => "SSS/GSIS",
-                'idno_format'   => "33-3333333-3 / 1234-1234567-1"
+                'name'          => "SSS",
+                'idno_format'   => "##-#######-# "
             ],
 
             [
                 'id'            => '6',
-                'name'          => "Tax Identification Number (TIN) Card",
-                'idno_format'   => "012-345-567-0000"
+                'name'          => "GSIS",
+                'idno_format'   => "####-#######-#"
             ],
 
             [
                 'id'            => '7',
-                'name'          => "Senior/PWDID",
-                'idno_format'   => "1234 / 123-4567"
+                'name'          => "Tax Identification Number (TIN) Card",
+                'idno_format'   => "###-###-###-####"
             ],
 
             [
                 'id'            => '8',
-                'name'          => "PRC",
-                'idno_format'   => "0012345"
+                'name'          => "Senior",
+                'idno_format'   => "####"
             ],
 
             [
                 'id'            => '9',
-                'name'          => "NBI",
-                'idno_format'   => "HGUR87H38D-U47204A873"
+                'name'          => "PWD ID",
+                'idno_format'   => "###-####"
             ],
 
             [
                 'id'            => '10',
-                'name'          => "School ID",
-                'idno_format'   => "YYYY-12345"
+                'name'          => "PRC",
+                'idno_format'   => "#######"
             ],
 
             [
                 'id'            => '11',
                 'name'          => "Birth Certificate",
-                'idno_format'   => "YYYY-1234"
+                'idno_format'   => " "
             ],
 
             [
                 'id'            => '12',
-                'name'          => "(Saint vincent)Employee ID",
-                'idno_format'   => "YYYY-0313"
+                'name'          => "Unified Multi-Purpose Identification Card (UMID)",
+                'idno_format'   => "####-#######-#"
+            ],
+
+            [
+                'id'            => '13',
+                'name'          => "School ID",
+                'idno_format'   => " "
+            ],
+
+            [
+                'id'            => '14',
+                'name'          => "Overseas Workers Welfare Administration (OWWA)",
+                'idno_format'   => "###########"
             ],
         ]);
     }
