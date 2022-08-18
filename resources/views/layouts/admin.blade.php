@@ -97,14 +97,14 @@
                 <div class="container">
                     {{-- Mobile menu toggle button --}}
 
-                    <div class="navbar-brand">
-                        <span>Careteq</span>
-                    </div>
-
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+
+                    {{-- <div class="navbar-brand">
+                        <span>CareTeQ</span>
+                    </div> --}}
 
                     {{-- Menu List --}}
                     <div class="bg-light offcanvas offcanvas-start shadow" tabindex="-1" id="offcanvasNavbar"

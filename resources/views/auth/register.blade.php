@@ -44,7 +44,8 @@
                                         <div class="mb-3">
                                             <input type="hidden" name="user_role" id="user_role" value="0">
                                             <label for="firstname" class="form-label"><b style="color: red">*</b>
-                                                {{ __('First Name') }} <span class="firstname-validation validation-error"></span> </label>
+                                                {{ __('First Name') }} <span
+                                                    class="firstname-validation validation-error"></span> </label>
                                             <input id="firstname" name="firstname" type="text"
                                                 class="form-control  @error('fname') is-invalid @enderror autofocus "
                                                 value="{{ old('firstname') }}" onblur="validate()">
@@ -318,7 +319,8 @@
                                             {{ __('E-Mail') }}</label>
                                         <input id="email" type="email"
                                             class="form-control @error('email') is-invalid @enderror" name="email"
-                                            value="{{ old('email') }}" required autocomplete="email" onblur="validate()">
+                                            value="{{ old('email') }}" required autocomplete="email"
+                                            onblur="validate()">
 
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -337,8 +339,8 @@
                                             <input type="password"
                                                 class="form-control  @error('password') is-invalid @enderror"
                                                 id="password" name="password" onkeyup="return validatepass()">
-                                            <button class="btn btn-outline-dark" type="button" id="showPassword" name="showPassword"><i
-                                                    class="fa-solid fa-eye"></i></button>
+                                            <button class="btn btn-outline-dark" type="button" id="showPassword"
+                                                name="showPassword"><i class="fa-solid fa-eye"></i></button>
 
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
@@ -367,8 +369,8 @@
                                         <div class="input-group mb-3">
                                             <input type="password" class="form-control" id="password_confirmation"
                                                 name="password_confirmation">
-                                            <button class="btn btn-outline-dark" type="button" id="showConfirmPassword" name="showConfirmPassword"><i
-                                                    class="fa-solid fa-eye"></i></button>
+                                            <button class="btn btn-outline-dark" type="button" id="showConfirmPassword"
+                                                name="showConfirmPassword"><i class="fa-solid fa-eye"></i></button>
                                             @error('password_confirmation')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -442,7 +444,8 @@
                                                 <option value="">Select ID Type</option>
                                                 @foreach ($id_type as $id_types)
                                                     <option value="{{ $id_types->name }}"
-                                                        {{ old('id_type') == $id_types->name ? 'selected' : '' }}>{{ $id_types->name }} : <p id="idno_format" name="idno_format"
+                                                        {{ old('id_type') == $id_types->name ? 'selected' : '' }}>
+                                                        {{ $id_types->name }} : <p id="idno_format" name="idno_format"
                                                             style="display: none">{{ $id_types->idno_format }}</p>
                                                     </option>
                                                 @endforeach
@@ -461,7 +464,8 @@
                                             <label for="id_no" class="form-label"><b style="color: red">*</b>
                                                 {{ __('Id Number') }}</label>
                                             <input id="id_no" name="id_no" type="text"
-                                                class="form-control  @error('id_no') is-invalid @enderror autofocus" value="{{ old('id_no') }}" onblur="validate()">
+                                                class="form-control  @error('id_no') is-invalid @enderror autofocus"
+                                                value="{{ old('id_no') }}" onblur="validate()">
                                             </ul>
                                         </div>
                                         @error('id_no')
@@ -492,7 +496,8 @@
                         </div>
                         {{-- SUBMIT --}}
                         <div class="text-center d-flex items-center p-3">
-                            <button type="submit" id="btnSignUp" name="btnSignUp" class="btn btn-secondary col-lg-12" disabled="disabled">Register</button>
+                            <button type="submit" id="btnSignUp" name="btnSignUp" class="btn btn-secondary col-lg-12"
+                                disabled="disabled">Register</button>
                         </div>
                     </div>
                     </form>
@@ -501,7 +506,5 @@
         </div>
     </div>
     </div>
-    <script>
-
-    </script>
+    <script></script>
 @endsection
