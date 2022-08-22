@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use Symfony\Component\HttpFoundation\Request;
 class RegisterController extends Controller
 {
     /*
@@ -41,6 +41,18 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function validateuseremail(Request $request)
+   {
+    $user = User::where('email', $request->email)->first('email');
+       if($user){
+         $return =  false;
+        }
+        else{
+         $return= true;
+        }
+        echo json_encode($return);
+        exit;
+   }
     /**
      * Get a validator for an incoming registration request.
      *

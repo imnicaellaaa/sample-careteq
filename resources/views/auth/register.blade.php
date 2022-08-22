@@ -20,6 +20,14 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.extensions.min.js"></script>
 {{--  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>  --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+<style>
+    <style>
+        form .error {
+            color: #ff0000;
+          }
+     </style>
+</style>
 @section('content')
 
     <div class="container">
@@ -36,7 +44,7 @@
                             {{-- insert logo image here --}}
 
                             {{-- REGISTER FORM --}}
-                            <form method="POST" class="py-2" action="{{ route('register') }}">
+                            <form method="POST" class="py-2" action="{{ route('register') }}" id="register_form">
                                 @csrf
                                 <div id='result'></div>
                                 {{-- FIRST NAME, LAST NAME, MIDDLE NAME --}}
@@ -322,14 +330,9 @@
                                         <label for="email" class="form-label"><b style="color: red">*</b>
                                             {{ __('E-Mail') }}</label>
                                         <input id="email" type="email"
-                                            class="form-control @error('email') is-invalid @enderror" name="email"
-                                            value="{{ old('email') }}" required autocomplete="email" onblur="validate()">
+                                            class="form-control error" name="email"
+                                            value="{{ old('email') }}" required autocomplete="email">
 
-                                        @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
                                     </div>
                                 </div>
 
@@ -507,6 +510,42 @@
     </div>
 
     <script>
+        $('#register_form').validate({
+            errorClass: 'errors',
+       // Specify validation rules
+       rules: {
+         firstname: {
+           required: true,
+          },
+          email: {
+           required: true,
+           email: true,
 
+           remote:'/validate-email'
+           },
+           password: {
+           required: true,
+            minlength: 8
+           },
+        },
+
+        // Specify validation Error messages
+       messages: {
+         firstname: {
+           required: "Please enter your name",
+         },
+         email: {
+           required: "Please enter your email" ,
+           remote:"Email already exist",
+         },
+         password: {
+           required: "Please enter password",
+         },
+        },
+
+       submitHandler: function(form) {
+         form.submit();
+       }
+     });
     </script>
 @endsection
