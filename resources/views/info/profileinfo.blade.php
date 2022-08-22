@@ -42,12 +42,13 @@
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h4 class="text-right">Profile</h4>
                         </div>
+
                         <div class="col-md-6 p-2 ">
                             {{-- Full Name --}}
                             <label class="labels ">Full Name</label>
                             <input type="text" class="form-control fs-5"
                                 value="{{ Auth::user()->firstname }} {{ Auth::user()->middlename }} {{ Auth::user()->lastname }} {{ Auth::user()->suffix }}"
-                               readonly >
+                                readonly>
                         </div>
                         {{-- Birthday --}}
                         <div class="col-md-3 p-2"><label class="labels">Birthday</label>
@@ -61,6 +62,7 @@
                             <label class="labels fs-6">Age</label><input type="text" name="age" id="age"
                                 class="form-control fs-5" value="{{ Auth::user()->age }}" disabled>
                         </div>
+
                     </div>
                     <div class="row mt-2">
 
@@ -126,26 +128,13 @@
                     value="{{ Auth::user()->houseNo_streetName }}" disabled>
             </div>
 
-
-            {{-- COUNTRY --}}
-            <div class="col-md-4 p-2"><label class="labels">Country</label>
-                <select class="form-control" id="country"name="country" disabled>
-                    <option hidden>{{ Auth::user()->country }}</option>
-
-                </select>
-            </div>
-
-            {{-- PROVINCE --}}
-            <div class="col-md-4 p-2"><label class="labels">Province</label>
-                <select class="form-control" id="province"name="province" disabled>
-                    <option hidden>{{ Auth::user()->province }}</option>
+            {{-- BARANGAY --}}
+            <div class="col-md-4 p-2"><label class="labels">Barangay</label>
+                <select name="brgy" id="barangay" class="form-control" disabled>
+                    <option hidden>{{ Auth::user()->brgy }}</option>
 
                 </select>
             </div>
-        </div>
-
-        <div class="row d-flex py-2 align-items-center">
-
 
             {{-- Municipality OR CITY --}}
             <div class="col-md-4 p-2"><label class="labels">Municipality / City</label>
@@ -156,14 +145,25 @@
             </div>
 
 
-            {{-- BARANGAY --}}
-            <div class="col-md-4 p-2"><label class="labels">Barangay</label>
-                <select name="brgy" id="barangay" class="form-control" disabled>
-                    <option hidden>{{ Auth::user()->brgy }}</option>
+        </div>
+
+        <div class="row d-flex py-2 align-items-center">
+
+            {{-- PROVINCE --}}
+            <div class="col-md-4 p-2"><label class="labels">Province</label>
+                <select class="form-control" id="province"name="province" disabled>
+                    <option hidden>{{ Auth::user()->province }}</option>
 
                 </select>
             </div>
 
+            {{-- COUNTRY --}}
+            <div class="col-md-4 p-2"><label class="labels">Country</label>
+                <select class="form-control" id="country"name="country" disabled>
+                    <option hidden>{{ Auth::user()->country }}</option>
+
+                </select>
+            </div>
 
             {{-- POSTAL CODE --}}
             <div class="col-md-4 p-2"><label class="labels">Postal Code</label>
