@@ -488,7 +488,7 @@ $(document).ready(function() {
        if(country) {
             //   alert(country); return false;
               var url = window.location.origin+'/getprovinces/'+country;
-            //   alert(url); return false;
+              //alert(url); return false;
               $.ajaxSetup
               ({
                   headers: {
@@ -646,6 +646,137 @@ $(document).ready(function() {
      });
 
 
+
+
+     //province start - profile edit page
+$(document).ready(function() {
+    $('#countryname').on('change', function()
+    {
+       var countryname = $(this).val();
+       if(countryname) {
+            //   alert(country); return false;
+              var url = window.location.origin+'/getprovinces/'+country;
+              //alert(url); return false;
+              $.ajaxSetup
+              ({
+                  headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+              });
+                $.ajax({
+                    url: url,
+                    method: 'get',
+                    data: { 'country_name': countryname }, // prefer use serialize method
+                    success:function(data)
+                    {
+                        // alert(data); return false;
+                        //alert (data); return false;
+                      if(data){
+                         //alert (data); return false;
+                         $("#provincename").empty();
+                         $("#provincename").append('<option value=" ">Select Province</option>');
+                        for(var n=0; n<data.length; n++) {
+                           $("#provincename").append('<option>'+data[n]['province']+'</option>');
+                        }
+                        $("#municipality").empty();
+                        $("#barangay").empty();
+                        $("#zip_code").val('');
+                      }
+
+                        else
+                        {
+                          $('#provincename').empty();
+                        }
+                      }
+              });
+            }
+    });
+    //province end - profile edit page
+
+
+    // municipality start - profile edit page
+    $('#provincename').on('change', function()
+    {
+       var provincename = $(this).val();
+       //alert(province); return false;
+       if(provincename) {
+              //alert(province); return false;
+              var url = window.location.origin+'/getmunicipality/'+provincename;
+              //alert(url); return false;
+              $.ajaxSetup
+              ({
+                  headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+              });
+                $.ajax({
+                    url: url,
+                    method: 'get',
+                    data: { 'province': provincename }, // prefer use serialize method
+                    success:function(data)
+                    {
+                        //alert (data); return false;
+                      if(data){
+                         //alert (data); return false;
+                         $("#municipalityname").append('<option value=" ">Select Municipality</option>');
+                        for(var n=0; n<data.length; n++) {
+                           $("#municipalityname").append('<option>'+data[n]['municipality']+'</option>');
+                        }
+                      }
+
+                        else
+                        {
+                          $('#municipalityname').empty();
+                        }
+                      }
+              });
+            }
+    });
+    //municipality end - profile edit page
+
+     // barangay start - profile edit page
+     $('#municipalityname').on('change', function()
+     {
+        var municipalityname = $(this).val();
+        //alert(province); return false;
+        if(municipalityname) {
+               //alert(province); return false;
+               var url = window.location.origin+'/getbarangays/'+municipality;
+               //alert(url); return false;
+               $.ajaxSetup
+               ({
+                   headers: {
+                       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               }
+               });
+                 $.ajax({
+                     url: url,
+                     method: 'get',
+                     data: { 'municipality': municipalityname }, // prefer use serialize method
+                     success:function(data)
+                     {
+                         //alert (data); return false;
+                       if(data){
+                          //alert (data); return false;
+                          $("#brgyname").append('<option value=" ">Select Barangay</option>');
+                         for(var n=0; n<data.length; n++) {
+                            $("#brgyname").append('<option>'+data[n]['barangay']+'</option>');
+
+                         }
+                       }
+
+                         else
+                         {
+                           $('#brgyname').empty();
+                         }
+                       }
+               });
+             }
+     });
+
+
+     //barangay end - profile edit page
+
     })
     //DATE PICKER
     $(document).ready(function () {
@@ -708,3 +839,5 @@ $(document).ready(function() {
     // })
 
 
+    }
+)

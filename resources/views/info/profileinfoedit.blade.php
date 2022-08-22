@@ -251,12 +251,12 @@
 
                     {{-- COUNTRY --}}
                     <div class="col-md-4 p-2"><label class="labels">Country</label>
-                        <select class="form-control" id="country"name="country" style="background-color: white"
+                        <select class="form-control" id="country"name="countryname" style="background-color: white"
                             autofocus>
                             <option hidden>{{ Auth::user()->country }}</option>
                             @foreach ($country as $countries)
-                                <option value="{{ $countries->country_code }}"
-                                    {{ old('country') == $countries->country_code ? 'selected' : '' }}>
+                                <option value="{{ $countries->country_name }}"
+                                    {{ old('country') == $countries->country_name ? 'selected' : '' }}>
                                     {{ $countries->country_name }}</option>
                             @endforeach
                         </select>
@@ -264,7 +264,7 @@
 
                     {{-- PROVINCE --}}
                     <div class="col-md-4 p-2"><label class="labels">Province</label>
-                        <select class="form-control" id="province"name="province" style="background-color: white"
+                        <select class="form-control" id="province"name="provincename" style="background-color: white"
                             autofocus>
                             <option hidden>{{ Auth::user()->province }}</option>
                         </select>
@@ -275,7 +275,7 @@
 
                     {{-- MUNICIPALITY OR CITY --}}
                     <div class="col-md-4 p-2"><label class="labels">Municipality / City</label>
-                        <select class="form-control" id="municipality"name="municipality"
+                        <select class="form-control" id="municipality"name="municipalityname"
                             style="background-color: white" autofocus>
                             <option hidden>{{ Auth::user()->municipality }}</option>
                         </select>
@@ -284,7 +284,7 @@
 
                     {{-- BARANGAY --}}
                     <div class="col-md-4 p-2"><label class="labels">Barangay</label>
-                        <select name="brgy" id="barangay" class="form-control form-select form-select-md"
+                        <select name="brgyname" id="barangay" class="form-control form-select form-select-md"
                             style="background-color: white" autofocus>
                             <option hidden>{{ Auth::user()->brgy }}</option>
                         </select>
@@ -292,7 +292,7 @@
 
                     {{-- POSTAL CODE --}}
                     <div class="col-md-4 p-2"><label class="labels">Postal Code</label>
-                        <input type="text" name="postal_code" id="zip_code" class="form-control"
+                        <input type="text" name="postal_codee" id="zip_code" class="form-control"
                             value="{{ Auth::user()->postal_code }}" disabled>
                     </div>
                 </div>
