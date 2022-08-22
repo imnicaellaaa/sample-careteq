@@ -24,6 +24,11 @@
     <link rel="stylesheet" href="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.min.css') }}">
     <script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.min.js') }}"></script>
+
+    {{--  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>  --}}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.extensions.min.js"></script>
+
     <style>
         .btn-text-right {
             text-align: right;
@@ -274,7 +279,7 @@
 
                         {{-- BARANGAY --}}
                         <div class="col-md-4 p-2"><label class="labels">Barangay</label>
-                            <select name="brgy" id="barangay" class="form-control form-select form-select-md"
+                            <select name="brgyname" id="barangay" class="form-control form-select form-select-md"
                                 style="background-color: white" autofocus>
                                 <option hidden>{{ Auth::user()->brgy }}</option>
                             </select>
@@ -289,7 +294,7 @@
                         {{-- POSTAL CODE --}}
                         <div class="col-md-4 p-2"><label class="labels">Postal Code</label>
                             <input type="text" name="postal_codee" id="zip_code" class="form-control"
-                                value="{{ Auth::user()->postal_code }}" disabled>
+                                value="{{ Auth::user()->postal_code }}" readonly>
                         </div>
                     </div>
 
@@ -321,11 +326,11 @@
                         </div>
 
                         {{-- PHILHEALTH NUMBER --}}
-                        <div class="col-md-2 p-2"><label class="labels"> PhilHealth Number</label>
+                        <div class="col-md-2 p-2"><label class="labels" for="philhealth_no"> PhilHealth Number</label>
                             <input type="number" name="philhealth_no" id="philhealth_no"
                                 class="form-control @error('philhealth_no') is-invalid @enderror"
                                 :value="old('philhealth_no')" value="{{ Auth::user()->philhealth_no }}"
-                                style="background-color: white" placeholder="##-#########-#" autofocus>
+                                style="background-color: white" autofocus>
 
 
                             @error('philhealth_no')
@@ -400,4 +405,12 @@
             </form>
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+        $(function () {
+            var inputmask = new Inputmask("##-#########-#");
+            inputmask.mask($('[id*=philhealth_no]'));
+        })
+    });
+    </script>
 @endsection
