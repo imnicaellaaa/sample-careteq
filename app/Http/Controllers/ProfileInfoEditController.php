@@ -42,13 +42,13 @@ class ProfileInfoEditController extends Controller
 
     public function getProvince(Request $request)
     {
-        $id = $request->country_code;
+        $id = $request->country_name;
         //     //     return $id;
         // // return var_dump($request);
         // // $country_id = DB::table('provinces')->select("")
         $province = DB::table('provinces')
                     ->select("province")
-                    ->where('country_code',$id)
+                    ->where('country_name',$id)
                     ->groupBy('province')
                     ->get();
         // return var_dump($province);
