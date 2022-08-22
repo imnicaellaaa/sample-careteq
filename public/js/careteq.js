@@ -198,6 +198,22 @@ $(document).ready(function(){
     });
   });
 
+  //Search in a dropdown Country
+  $(document).ready(function(){
+
+    // Initialize select2
+    $("#hmo").select2();
+
+    // Read selected option
+    $('#but_read').click(function(){
+      var title = $('#hmo option:selected').text();
+      var id = $('#hmo').val();
+
+      $('#result').html("id : " + id + ", name : " + name);
+
+    });
+  });
+
   //Search in a dropdown Province
   $(document).ready(function(){
 

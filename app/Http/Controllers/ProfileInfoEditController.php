@@ -7,6 +7,7 @@ use App\Models\Barangay;
 use App\Models\Title;
 use App\Models\Gender;
 use App\Models\Country;
+use App\Models\HealthInsurance;
 use App\Models\Province;
 use App\Models\Municipality;
 use App\Models\MemberCategory;
@@ -29,6 +30,7 @@ class ProfileInfoEditController extends Controller
              $gender = Gender::all();
              $country = Country::all();
              $member_category = MemberCategory::all();
+             $hmo = HealthInsurance::all();
 
 
         return view('info.profileinfoedit',[
@@ -36,7 +38,8 @@ class ProfileInfoEditController extends Controller
                  'gender' => $gender,
                  'country' => $country,
                  'member_category' => $member_category,
-                 'user' => Auth::user()
+                 'user' => Auth::user(),
+                 'hmo' => $hmo,
         ]);
     }
 
@@ -138,11 +141,11 @@ class ProfileInfoEditController extends Controller
             'suffix' => ['string', 'max:255'],
             'title' => ['string', 'max:255'],
             'houseNo_streetName' => ['string','max:255'],
-            'postal_code' => ['integer'],
-            'brgy' => ['string', 'max:255'],
-            'municipality' => ['string','max:255'],
-            'province' => ['string', 'max:255'],
-            'country' => ['string','max:255'],
+            'postal_codee' => ['integer'],
+            'brgyname' => ['string', 'max:255'],
+            'municipalityname' => ['string','max:255'],
+            'provincename' => ['string', 'max:255'],
+            'countryname' => ['string','max:255'],
             'centimeter' => ['float'],
             'inches' => ['float'],
             'kilogram' => ['float'],
@@ -150,7 +153,7 @@ class ProfileInfoEditController extends Controller
             'bmi' => ['float'],
             'philhealth_no' => ['integer'],
             'member_category' =>['string', 'max:255'],
-            'health_insurance' => ['integer'],
+            'hmo' => ['integer'],
             'membership_no' => ['integer'],
             'plan_name' =>['string', 'max:255'],
             'avatar' => ['required|image|mimes:jpeg,png,jpg,gif,svg|max:2048']
@@ -197,7 +200,7 @@ class ProfileInfoEditController extends Controller
                         'bmi' =>$request->bmi,
                         'philhealth_no' =>$request->philhealth_no,
                         'member_category' =>$request->member_category,
-                        'health_insurance' =>$request->health_insurance,
+                        'health_insurance' =>$request->hmo,
                         'membership_no' =>$request->membership_no,
                         'plan_name' => $request->plan_name,
                         'edited_by' => $request->user_id,
@@ -230,7 +233,7 @@ class ProfileInfoEditController extends Controller
                         'bmi' =>$request->bmi,
                         'philhealth_no' =>$request->philhealth_no,
                         'member_category' =>$request->member_category,
-                        'health_insurance' =>$request->health_insurance,
+                        'health_insurance' =>$request->hmo,
                         'membership_no' =>$request->membership_no,
                         'plan_name' => $request->plan_name,
                         // 'avatar' => request()->file('avatar')->getClientOriginalName(),

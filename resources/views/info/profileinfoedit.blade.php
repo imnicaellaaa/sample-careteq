@@ -148,7 +148,7 @@
 
                                 {{-- BDAY --}}
                                 <div class="col-md-3 p-2"><label class="labels">Birthday</label>
-                                    <input type="text" name="bday" id="bday" class="form-control fs-5 "
+                                    <input type="date" name="bday" id="bday" class="form-control fs-5 "
                                         value="{{ Auth::user()->bday }}" readonly>
                                 </div>
 
@@ -189,14 +189,14 @@
                                 {{-- HEIGHT IN CENTIMETER --}}
                                 <div class="col-md-3 p-2"><label class="labels">Height in Centimeter</label>
                                     <input type="number" name="centimeter" id="centimeter" class="form-control"
-                                        value="{{ Auth::user()->centimeter }}" step=".01" placeholder="cm" readonly>
+                                        value="{{ Auth::user()->centimeter }}" step=".01" min="145" max="192.5" placeholder="cm" >
 
                                 </div>
 
                                 {{-- HEIGHT IN INCHES --}}
                                 <div class="col-md-3 p-2"><label class="labels">Height in Inches</label>
                                     <input type="number" name="inches" id="inch" class="form-control"
-                                        value="{{ Auth::user()->inches }}" step=".01" placeholder="inches" readonly>
+                                        value="{{ Auth::user()->inches }}" step=".01" placeholder="inches" >
 
                                 </div>
 
@@ -330,7 +330,7 @@
                             <input type="number" name="philhealth_no" id="philhealth_no"
                                 class="form-control @error('philhealth_no') is-invalid @enderror"
                                 :value="old('philhealth_no')" value="{{ Auth::user()->philhealth_no }}"
-                                style="background-color: white" autofocus>
+                                style="background-color: white" placeholder="##-#########-#" autofocus>
 
 
                             @error('philhealth_no')
@@ -359,16 +359,16 @@
 
                     <div class="row">
                         {{-- HEALTH INSURANCE --}}
-                        <div class="col-md-4 p-2"><label class="labels"> Health Insurance</label>
-                            <input type="number" name="health_insurance" id="health_insurance"
-                                class="form-control @error('health_insurance') is-invalid @enderror"
-                                :value="old('health_insurance')" value="{{ Auth::user()->health_insurance }}"
-                                style="background-color: white" autofocus>
-                            @error('health_insurance')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                        <div class="col-md-4 p-2"><label class="labels">Health Insurance</label>
+                            <select class="form-control" id="hmo"name="hmo" style="background-color: white"
+                                autofocus>
+                                <option hidden>{{ Auth::user()->health_insurance }}</option>
+                                @foreach ($hmo as $hmo)
+                                    <option value="{{ $hmo->HMO_NAME }}"
+                                        {{ old('hmo') == $hmo->HMO_NAME ? 'selected' : '' }}>
+                                        {{ $hmo->HMO_NAME }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         {{-- MEMBERSHIP NUMBER --}}
