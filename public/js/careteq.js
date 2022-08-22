@@ -425,7 +425,43 @@ function checkEmail(obj) {
 
     return result;
 }
+$('#register_form').validate({
+    errorClass: 'errors',
+// Specify validation rules
+rules: {
+ firstname: {
+   required: true,
+  },
+  email: {
+   required: true,
+   email: true,
 
+   remote:'/validate-email'
+   },
+   password: {
+   required: true,
+    minlength: 8
+   },
+},
+
+// Specify validation Error messages
+messages: {
+ firstname: {
+   required: "Please enter your name",
+ },
+ email: {
+   required: "Please enter your email" ,
+   remote:"Email already exist",
+ },
+ password: {
+   required: "Please enter password",
+ },
+},
+
+submitHandler: function(form) {
+ form.submit();
+}
+});
 $(document).ready(function() {
     $("#selID_Type").change(function(){
         var id_type = $(this).val();
