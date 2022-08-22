@@ -425,15 +425,60 @@ function checkEmail(obj) {
 
     return result;
 }
-        $(function(){
-            $("#selID_Type").change(function(){
-                var duplicate = $("#selID_Type option:selected").text();
 
-                // $("#selID_Type1").val(duplicate);
-                $("#id_no").attr('placeholder', duplicate);
+$(document).ready(function() {
+    $("#selID_Type").change(function(){
+        var id_type = $(this).val();
 
-            })
-        });
+        if(id_type) {
+
+              var url = window.location.origin+'/getIDTypes/'+ id_type;
+                //alert(url); return false;
+              $.ajaxSetup
+              ({
+                  headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+              });
+              $.ajax({
+                url: url,
+                method: 'get',
+                data: { 'idtypes': id_type }, // prefer use serialize method
+                success:function(data)
+                // alert(data); return false;
+                {
+                    //alert(data); return false;
+                    if(data){
+                        //alert (data[0]['idno_format']); return false;
+                        var inputmask = new Inputmask(data[0]['id_typeformat']);
+                        inputmask.mask($('[id*=id_no]'));
+                     }
+                       else
+                       {
+                        $("#id_no").attr('placeholder', data['idno_format']);
+                       }
+                    }
+              })
+            }
+        })
+    });
+        // $(function(){
+        //     $("#selID_Type").change(function(){
+        //         var duplicate = $("#selID_Type option:selected").text();
+
+        //         if (duplicate == $("#selID_Type option:selected").text()){
+        //             var inputmask = new Inputmask("####-#####-##############");
+        //             inputmask.mask($('[id*=id_no]'));
+        //         }
+        //         else {
+        //             $("#id_no").attr('placeholder', duplicate);
+        //         }
+        //         // $("#selID_Type1").val(duplicate);
+        //         // $("#id_no").attr('placeholder', duplicate);
+
+
+        //     })
+        // });
 
         //province start
 $(document).ready(function() {

@@ -1,29 +1,34 @@
 @extends('layouts.app')
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/jquery-1.11.1.js') }}"></script>
+<script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ asset('js/careteq.js') }}"></script>
+
+<!-- Select2 CSS -->
+<link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
+
+<script src="{{ asset('js/jquery-3.6.0/js') }}"></script>
+<script src="{{ asset('js/jquery-3.6.0.min/js') }}"></script>
+
+<!-- Select2 JS -->
+<script src="{{ asset('js/select2.min.js') }}"></script>
+<link rel="stylesheet" href="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.css') }}">
+<link rel="stylesheet" href="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.min.css') }}">
+<script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.min.js') }}"></script>
+
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"/>
+
+{{--  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>  --}}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.extensions.min.js"></script>
+
+<!-- Font Awesome -->
+<script type="text/javascript" src="https://kit.fontawesome.com/83a0cd4555.js" crossorigin="anonymous"></script>
 
 @section('content')
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/jquery-1.11.1.js') }}"></script>
-    <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
-    <script src="{{ asset('js/careteq.js') }}"></script>
-    <!-- Select2 CSS -->
-    <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
-    <script src="{{ asset('js/jquery-3.6.0/js') }}"></script>
-    <script src="{{ asset('js/jquery-3.6.0.min/js') }}"></script>
-
-    {{-- Font Awesome --}}
-    <script src="https://kit.fontawesome.com/83a0cd4555.js" crossorigin="anonymous"></script>
-
-    <!-- Select2 JS -->
-    <script src="{{ asset('js/select2.min.js') }}"></script>
-
-    <link rel="stylesheet" href="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.css') }}">
-    <link rel="stylesheet" href="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.min.css') }}">
-    <script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.min.js') }}"></script>
     <style>
         .btn-text-right {
             text-align: right;
@@ -324,7 +329,7 @@
                         <input type="number" name="philhealth_no" id="philhealth_no"
                             class="form-control @error('philhealth_no') is-invalid @enderror" :value="old('philhealth_no')"
                             value="{{ Auth::user()->philhealth_no }}" style="background-color: white"
-                            placeholder="##-#########-#" autofocus>
+                             autofocus>
 
 
                         @error('philhealth_no')
@@ -392,4 +397,10 @@
             </form>
         </div>
     </div>
+    <script type="text/javascript">
+        $(function () {
+            var inputmask = new Inputmask("##-#########-#");
+            inputmask.mask($('[id*=philhealth_no]'));
+        });
+    </script>
 @endsection

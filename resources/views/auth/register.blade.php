@@ -3,6 +3,7 @@
 <script src="{{ asset('js/jquery-1.11.1.js') }}"></script>
 <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
 <script src="{{ asset('js/careteq.js') }}"></script>
+
 <!-- Select2 CSS -->
 <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
 
@@ -16,7 +17,11 @@
 <script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.min.js') }}"></script>
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.extensions.min.js"></script>
+{{--  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>  --}}
 @section('content')
+
     <div class="container">
         <div class="container mt-5">
             <div class="row">
@@ -442,8 +447,7 @@
                                                 <option value="">Select ID Type</option>
                                                 @foreach ($id_type as $id_types)
                                                     <option value="{{ $id_types->name }}"
-                                                        {{ old('id_type') == $id_types->name ? 'selected' : '' }}>{{ $id_types->name }} : <p id="idno_format" name="idno_format"
-                                                            style="display: none">{{ $id_types->idno_format }}</p>
+                                                        {{ old('id_type') == $id_types->name ? 'selected' : '' }}>{{ $id_types->name }}
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -501,6 +505,7 @@
         </div>
     </div>
     </div>
+
     <script>
 
     </script>
