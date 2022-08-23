@@ -854,6 +854,12 @@ $(document).ready(function() {
     //     })
     // })
 
+    $('#centimeter').on('change', function () {
+        $(this).val(Math.min('272', Math.max('55', $(this).val()).toFixed(2)));
+      })
 
+      $('#inch').on('change', function () {
+        $(this).val(Math.min('107.09', Math.max('21.65', $(this).val()).toFixed(2)));
+      });
     }
 )
