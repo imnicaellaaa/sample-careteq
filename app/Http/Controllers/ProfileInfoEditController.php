@@ -156,7 +156,7 @@ class ProfileInfoEditController extends Controller
             'hmo' => ['integer'],
             'membership_no' => ['integer'],
             'plan_name' =>['string', 'max:255'],
-            'avatar' => ['required|image|mimes:jpeg,png,jpg,gif,svg|max:2048']
+            'avatar' => ['required|image|mimes:jpeg,png,jpg,gif,svg|max:1024']
         ]);
 
     }

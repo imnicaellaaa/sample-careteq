@@ -38,6 +38,20 @@ $(document).ready(function(){
      $('#sucessBtnOkay').click(function(){
         sucessBtnOkay();
      });
+     $('#btnAttachment').click(function(){
+        openAttachment();
+     });
+     $('#avatar').change(function(){
+        fileSelected(this);
+     });
+
+     function openAttachment() {
+        document.getElementById('avatar').click();
+      }
+
+      function fileSelected(input){
+        document.getElementById('btnAttachment').value = "File: " + input.files[0].name
+      }
 
       //Close Success Dialog by clicking the okay button
       function sucessBtnOkay(){
@@ -856,6 +870,9 @@ $(document).ready(function() {
       //maximum and minimum input of the height in inches with round off
       $('#inch').on('change', function () {
         $(this).val(Math.min('107.09', Math.max('21.65', $(this).val()).toFixed(2)));
-      });
+      })
+
+
+
     }
 )

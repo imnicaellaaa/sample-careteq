@@ -112,13 +112,14 @@
                     <div class="col-md-4">
                         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                             {{-- Profile Image --}}
-                            <img class="rounded-circle mt-5" width="200px" height="200px"
+                            <img class="rounded-circle mt-5" width="200px" height="200px" style="object-fit: cover" id="preview-image"
                                 src="/images/uploads/avatars_userstable/{{ Auth::user()->avatar }}">
                             <div class="mt-2">
                                 {{-- Profile Image Upload --}}
-                                <input type="file" name="avatar" id="avatar" class="form-control"
+                                <input type="file" name="avatar" id="avatar" style="display: none" onchange="fileSelected(this)" class="form-control"
                                     placeholder="{{ Auth::user()->avatar }}" accept="image/png, image/jpeg">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <input type="button" class="btn btn-primary" id="btnAttachment" onclick="openAttachment()" value="Select a Photo"/>
                             </div>
                             {{-- Name and Email --}}
                             <span class="font-weight-bold p-2" style="font-size: 120%">{{ Auth::user()->firstname }}
@@ -405,12 +406,23 @@
             </form>
         </div>
     </div>
-    <script type="text/javascript">
+    {{--  <script type="text/javascript">
         $(document).ready(function() {
         $(function () {
             var inputmask = new Inputmask("##-#########-#");
             inputmask.mask($('[id*=philhealth_no]'));
         })
     });
+    </script>  --}}
+    <script>
+        $('#avatar').change(function(){
+
+            let reader = new FileReader();
+            reader.onload = (e) => {
+              $('#preview-image').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+
+           });
     </script>
 @endsection
