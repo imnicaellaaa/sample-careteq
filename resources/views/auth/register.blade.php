@@ -485,9 +485,11 @@
                                             {{ __('Upload ID') }}</label>
                                         <input id="upload_id" name="upload_id" type="file"
                                             class="form-control  @error('upload_id') is-invalid @enderror autofocus"
-                                            value="{{ old('upload_id') }}"
-                                            accept="image/png, image/jpeg, application/pdf " onblur="validate()">
-
+                                            value="{{ old('upload_id') }}" accept="image/png, image/jpeg, application/pdf "
+                                            onblur="validate()" onchange="return filevalidate()" style="display: none" >
+                                            <input type="button" class="btn btn-primary form-control" class="demoInputBox" name="btnUploadID" id="btnUploadID" onclick="openUploadID()" value="Select a File or Photo"/>
+                                            <br><span id="file_error"></span>
+                                            <br><span id="extension_error"></span>
                                     </div>
                                     @error('upload_id')
                                         <span class="invalid-feedback" role="alert">
@@ -547,5 +549,9 @@
          form.submit();
         }
         });
+    </script>
+
+    <script>
+
     </script>
 @endsection

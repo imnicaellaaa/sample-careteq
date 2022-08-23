@@ -75,6 +75,7 @@ class RegisterController extends Controller
             'id_type' => ['required', 'string', 'max:255'],
             'id_no' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users','indisposable'],
+            'btnUploadID' => ['required|image|mimes:jpeg,png,jpg,gif,svg|max:1024'],
             'password' => $this->passwordRules(),
         ]);
     }

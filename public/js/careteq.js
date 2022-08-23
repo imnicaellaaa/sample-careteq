@@ -44,13 +44,46 @@ $(document).ready(function(){
      $('#avatar').change(function(){
         fileSelected(this);
      });
+     $('#btnUploadID').click(function(){
+        openUploadID();
+     });
+     $('#upload_id').change(function(){
+        photoSelected(this);
+     });
+     $('#upload_id').change(function () {
+        filevalidate();
+     });
 
+     function filevalidate() {
+        $("#file_error").html("");
+        $(".demoInputBox").css("border-color","#F0F0F0");
+        var file_size = $('#upload_id')[0].files[0].size;
+            if(file_size>20728650) {
+                $("#file_error").html("File size is greater than 20MB");
+                $("#file_error").css("color","#FF0000");
+                return false;
+            }
+
+         return true;
+
+}
+
+     //open file by calling id of the input
      function openAttachment() {
         document.getElementById('avatar').click();
       }
 
+      //select a photo with displaying filename
       function fileSelected(input){
         document.getElementById('btnAttachment').value = "File: " + input.files[0].name
+      }
+
+      function openUploadID() {
+        document.getElementById('upload_id').click();
+      }
+
+      function photoSelected(input){
+        document.getElementById('btnUploadID').value = "File: " + input.files[0].name
       }
 
       //Close Success Dialog by clicking the okay button
@@ -407,7 +440,7 @@ function validate() {
     valid = checkEmpty($("#bday"));
     valid = checkEmpty($("#houseNo_streetName"));
     valid = checkEmpty($("#id_no"));
-    valid = checkEmpty($("#upload_id"));
+    valid = checkEmpty($("#btnUploadID"));
     valid = valid && checkEmail($("#email"));
 
 
