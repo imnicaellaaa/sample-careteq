@@ -846,18 +846,14 @@ $(document).ready(function() {
            }
        })
      })
-    // $(document).ready(function (){
-    //     $('#centimeter').on('click', function (){
-    //         var centimeter = $('#centimeter').val();
 
-    //         $('#centimeter').val(centimeter).toFixed(2);
-    //     })
-    // })
 
+     //maximum and minimum input of the height in centimeter with round off
     $('#centimeter').on('change', function () {
         $(this).val(Math.min('272', Math.max('55', $(this).val()).toFixed(2)));
       })
 
+      //maximum and minimum input of the height in inches with round off
       $('#inch').on('change', function () {
         $(this).val(Math.min('107.09', Math.max('21.65', $(this).val()).toFixed(2)));
       });
