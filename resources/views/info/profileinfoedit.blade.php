@@ -8,14 +8,14 @@
     <!-- Select2 CSS -->
     <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
     <script src="{{ asset('js/jquery-3.6.0/js') }}"></script>
     <script src="{{ asset('js/jquery-3.6.0.min/js') }}"></script>
 
     {{-- Font Awesome --}}
-    <script src="https://kit.fontawesome.com/83a0cd4555.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/font.js') }}" crossorigin="anonymous"></script>
 
     <!-- Select2 JS -->
     <script src="{{ asset('js/select2.min.js') }}"></script>
@@ -26,8 +26,9 @@
     <script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.min.js') }}"></script>
 
     {{--  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>  --}}
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.extensions.min.js"></script>
+    <script src="{{ asset('js/inputmask.min.js') }}"></script>
+    <script src="{{ asset('js/inputmask.extensions.min.js') }}"></script>
+
 
     <style>
         .btn-text-right {
@@ -116,10 +117,12 @@
                                 src="/images/uploads/avatars_userstable/{{ Auth::user()->avatar }}">
                             <div class="mt-2">
                                 {{-- Profile Image Upload --}}
-                                <input type="file" name="avatar" id="avatar" style="display: none" onchange="fileSelected(this)" class="form-control"
+                                <input type="file" name="avatar" id="avatar" style="display: none" onchange="return filevalidate()" class="form-control"
                                     placeholder="{{ Auth::user()->avatar }}" accept="image/png, image/jpeg">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <input type="button" class="btn btn-primary" id="btnAttachment" onclick="openAttachment()" value="Select a Photo"/>
+                                <input type="button" class="btn btn-primary" id="btnAttachment" onclick="openAttachment()"
+                                 onchange="return profileValidate()" value="Select a Photo" style="word-wrap: break-word; white-space: normal;" class="demoInputBox"/>
+                                 <br><span id="profile_error"></span>
                             </div>
                             {{-- Name and Email --}}
                             <span class="font-weight-bold p-2" style="font-size: 120%">{{ Auth::user()->firstname }}
@@ -190,14 +193,16 @@
                                 {{-- HEIGHT IN CENTIMETER --}}
                                 <div class="col-md-3 p-2"><label class="labels">Height in Centimeter</label>
                                     <input type="number" name="centimeter" id="centimeter" class="form-control"
-                                        value="{{ Auth::user()->centimeter }}" step=".01" min="145" max="192.5" placeholder="cm" >
+                                        value="{{ Auth::user()->centimeter }}" step=".01" min="145" max="192.5"
+                                        style="background-color: white;" placeholder="cm" >
 
                                 </div>
 
                                 {{-- HEIGHT IN INCHES --}}
                                 <div class="col-md-3 p-2"><label class="labels">Height in Inches</label>
                                     <input type="number" name="inches" id="inch" class="form-control"
-                                        value="{{ Auth::user()->inches }}" step=".01" placeholder="inches" >
+                                        value="{{ Auth::user()->inches }}" step=".01"
+                                        style="background-color: white;" placeholder="inches" >
 
                                 </div>
 

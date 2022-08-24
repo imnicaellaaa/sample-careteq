@@ -172,8 +172,35 @@ class ProfileInfoEditController extends Controller
         // $imagePath2 = $avatar;
 
         if(!empty($imagePath)){
+            $query = DB::table('users')
+                ->where('id', $request->user_id)
+                ->update([
+                        'patient_id'=>$request->patient_id,
+                        'suffix'=>$request->suffix,
+                        'telno' =>$request->telno,
+                        'mobile_no'=>$request->mobile_no,
+                        'title' => $request->title,
+                        'gender' =>$request->gender,
+                        'houseNo_streetName'=>$request->houseNo_streetName,
+                        'brgy' => $request->brgyname,
+                        'postal_code'=>$request->postal_codee,
+                        'municipality'=>$request->municipalityname,
+                        'province' =>$request->provincename,
+                        'country'=>$request->countryname,
+                        'centimeter'=>$request->centimeter,
+                        'inches' =>$request->inches,
+                        'kilogram' => $request->kilogram,
+                        'pounds' =>$request->pounds,
+                        'bmi' =>$request->bmi,
+                        'philhealth_no' =>$request->philhealth_no,
+                        'member_category' =>$request->member_category,
+                        'health_insurance' =>$request->hmo,
+                        'membership_no' =>$request->membership_no,
+                        'plan_name' => $request->plan_name,
+                        // 'avatar' => request()->file('avatar')->getClientOriginalName(),
 
-        }
+                ]);
+    }
 
         //saving all the inputed data to the profile_information database
         if($query2 = DB::table('profileinfo')

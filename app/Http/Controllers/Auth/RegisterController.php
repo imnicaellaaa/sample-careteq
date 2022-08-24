@@ -46,6 +46,7 @@ class RegisterController extends Controller
     $user = User::where('email', $request->email)->first('email');
        if($user){
          $return =  false;
+
         }
         else{
          $return= true;

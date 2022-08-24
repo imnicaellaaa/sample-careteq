@@ -53,13 +53,30 @@ $(document).ready(function(){
      $('#upload_id').change(function () {
         filevalidate();
      });
+     $('#avatar').change(function () {
+        photoValidate();
+     });
+
+     function photoValidate() {
+        $("#profile_error").html("");
+        $(".demoInputBox").css("border-color","#F0F0F0");
+        var file_size = $('#avatar')[0].files[0].size;
+            if(file_size>1000000) {
+                $("#profile_error").html("File size is greater than 1MB");
+                $("#profile_error").css("color","#FF0000");
+                return false;
+            }
+
+         return true;
+
+}
 
      function filevalidate() {
         $("#file_error").html("");
         $(".demoInputBox").css("border-color","#F0F0F0");
         var file_size = $('#upload_id')[0].files[0].size;
-            if(file_size>20728650) {
-                $("#file_error").html("File size is greater than 20MB");
+            if(file_size>1000000) {
+                $("#file_error").html("File size is greater than 1MB");
                 $("#file_error").css("color","#FF0000");
                 return false;
             }

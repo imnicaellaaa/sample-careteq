@@ -20,11 +20,12 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.extensions.min.js"></script>
 {{--  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>  --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
 <style>
     <style>
-        form .error {
+         .error {
             color: #ff0000;
+            background-color: #acf;
           }
      </style>
 </style>
@@ -44,7 +45,7 @@
                             {{-- insert logo image here --}}
 
                             {{-- REGISTER FORM --}}
-                            <form method="POST" class="py-2" action="{{ route('register') }}" id="register_form">
+                            <form method="POST" class="py-2" action="{{ route('register') }}" id="register_form" name="register_form">
                                 @csrf
                                 <div id='result'></div>
                                 {{-- FIRST NAME, LAST NAME, MIDDLE NAME --}}
@@ -332,7 +333,7 @@
                                         <input id="email" type="email"
                                             class="form-control error" name="email"
                                             value="{{ old('email') }}" required autocomplete="email">
-
+                                            <span style="color: #ff0000" id="emailError"></span>
                                     </div>
                                 </div>
 
@@ -513,42 +514,28 @@
 
     <script>
         $('#register_form').validate({
-            errorClass: 'errors',
-        // Specify validation rules
-        rules: {
-         firstname: {
-           required: true,
-          },
-          email: {
-           required: true,
-           email: true,
+            errorClass: "error",
+            rules: {
 
-           remote:'/validate-email'
-           },
-           password: {
-           required: true,
-            minlength: 8
-           },
-        },
+                email: {
+                required: true,
+                email: true,
+                remote:'/validate-email'
+                },
+             },
 
-        // Specify validation Error messages
-        messages: {
-         firstname: {
-           required: "Please enter your name",
-         },
-         email: {
-           required: "Please enter your email" ,
-           remote:"Email already exist",
-         },
-         password: {
-           required: "Please enter password",
-         },
-        },
+             // Specify validation Error messages
+            messages: {
 
-        submitHandler: function(form) {
-         form.submit();
-        }
-        });
+                email: {
+                required: "Please enter your email" ,
+                remote:"Email already exist"
+                },
+             },
+               submitHandler: function(form) {
+              form.submit();
+            }
+          });
     </script>
 
     <script>
