@@ -113,10 +113,12 @@
                     <div class="col-md-4">
                         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                             {{-- Profile Image --}}
+                            @foreach($profileinfo as $profileinfo)
                             <img class="rounded-circle mt-5" width="200px" height="200px" style="object-fit: cover" id="preview-image"
-                                src="/images/uploads/avatars_userstable/{{ Auth::user()->avatar }}">
+                                src="/images/uploads/avatars_userstable/{{$profileinfo->avatar}}">
+                                @endforeach
                             <div class="mt-2">
-                                <input type="text" style="display: none" name="hiddenavatar" id="hiddenavatar" value="{{ Auth::user()->avatar }}"  class="form-control"
+                                <input type="text" style="display: none" name="hiddenavatar" id="hiddenavatar" value="{{ $profileinfo->avatar }}"  class="form-control"
                                     placeholder="{{ Auth::user()->avatar }}" >
                                 {{-- Profile Image Upload --}}
                                 <input type="file" name="avatar" id="avatar" style="display: none" onchange="return filevalidate()" class="form-control"
@@ -128,8 +130,8 @@
                                  <br><span id="profile_error"></span>
                             </div>
                             {{-- Name and Email --}}
-                            <span class="font-weight-bold p-2" style="font-size: 120%">{{ Auth::user()->firstname }}
-                                {{ Auth::user()->middlename }} {{ Auth::user()->lastname }}</span>
+                            <span class="font-weight-bold p-2" style="font-size: 120%">{{ $profileinfo->firstname }}
+                                {{ $profileinfo->middlename }} {{ $profileinfo->lastname }}</span>
                             <span class="text-black-50">{{ Auth::user()->email }}</span>
 
                             <div class="col-md-8 mt-2">
@@ -149,20 +151,20 @@
                                     {{-- Full Name --}}
                                     <label class="labels ">Full Name</label>
                                     <input type="text" class="form-control fs-5 "
-                                        value="{{ Auth::user()->firstname }} {{ Auth::user()->middlename }} {{ Auth::user()->lastname }} {{ Auth::user()->suffix }}"
+                                        value="{{ $profileinfo->firstname }} {{ $profileinfo->middlename }} {{ $profileinfo->lastname }} {{ $profileinfo->suffix }}"
                                         name="patient_fullname" id="patient_fullname" readonly>
                                 </div>
 
                                 {{-- BDAY --}}
                                 <div class="col-md-3 p-2"><label class="labels">Birthday</label>
                                     <input type="date" name="bday" id="bday" class="form-control fs-5 "
-                                        value="{{ Auth::user()->bday }}" readonly>
+                                        value="{{ $profileinfo->bday }}" readonly>
                                 </div>
 
                                 {{-- AGE --}}
                                 <div class="col-md-3 p-2"><label class="labels">Age</label>
                                     <input type="text" name="age" id="age" class="form-control fs-5"
-                                        value="{{ Auth::user()->age }}" readonly>
+                                        value="{{ $profileinfo->age }}" readonly>
                                 </div>
 
                             </div>
@@ -172,14 +174,14 @@
                                 {{-- USER ID (HIDDEN) --}}
                                 <div class="center mt-2">
                                     <input type="text" name="user_id" id="user_id" class="d-none form-control"
-                                        value="{{ Auth::user()->id }}">
+                                        value="{{ $profileinfo->id }}">
                                 </div>
 
                                 {{-- TELEPHONE NUMBER --}}
 
                                 <div class="col-md-6 p-2"><label class="labels">Telephone No. (Home)</label>
                                     <input type="text" name="telno" id="telno" class="form-control fs-5"
-                                        value="{{ Auth::user()->telno }}" style="background-color: white "
+                                        value="{{ $profileinfo->telno }}" style="background-color: white "
                                         width="100%" autofocus>
                                 </div>
 
@@ -187,7 +189,7 @@
                                 {{-- MOBILE NUMBER --}}
                                 <div class="col-md-6 p-2"><label class="labels">Mobile No.</label>
                                     <input type="text" name="mobile_no" id="mobile_no" class="form-control fs-5"
-                                        :value="old('mobile_no')" value="{{ Auth::user()->mobile_no }}"
+                                        :value="old('mobile_no')" value="{{ $profileinfo->mobile_no }}"
                                         style="background-color: white" autofocus>
                                 </div>
                             </div>
@@ -196,7 +198,7 @@
                                 {{-- HEIGHT IN CENTIMETER --}}
                                 <div class="col-md-3 p-2"><label class="labels">Height in Centimeter</label>
                                     <input type="number" name="centimeter" id="centimeter" class="form-control"
-                                        value="{{ Auth::user()->centimeter }}" step=".01" min="145" max="192.5"
+                                        value="{{ $profileinfo->centimeter }}" step=".01" min="145" max="192.5"
                                         style="background-color: white;" placeholder="cm" >
 
                                 </div>
@@ -204,7 +206,7 @@
                                 {{-- HEIGHT IN INCHES --}}
                                 <div class="col-md-3 p-2"><label class="labels">Height in Inches</label>
                                     <input type="number" name="inches" id="inch" class="form-control"
-                                        value="{{ Auth::user()->inches }}" step=".01"
+                                        value="{{ $profileinfo->inches }}" step=".01"
                                         style="background-color: white;" placeholder="inches" >
 
                                 </div>
@@ -212,7 +214,7 @@
                                 {{-- TITLE --}}
                                 <div class="col-md-3 p-2"><label class="labels">Title</label>
                                     <input type="text" name="title" id="title" class="form-control"
-                                        class="form-select" value="{{ Auth::user()->title }}" readonly>
+                                        class="form-select" value="{{ $profileinfo->title }}" readonly>
                                     {{-- <input type="text" name="title" id="title" value="{{ Auth::user()->title }}"  class="form-select" disabled> --}}
                                     {{-- <select  name="title" value="{{ Auth::user()->title }}"
         value="{{ Auth::user()->title }}" style="background-color: white" autofocus disable> --}}
@@ -229,7 +231,7 @@
                                 {{-- Sex --}}
                                 <div class="col-md-3 p-2"><label class="labels">Sex</label>
                                     <input type="text" name="gender" id="gender" class="form-control"
-                                        value="{{ Auth::user()->gender }}" readonly>
+                                        value="{{ $profileinfo->gender }}" readonly>
                                     {{-- <select name="gender" id="selGender" class="form-control"
             style="background-color: white" autofocus> --}}
                                     {{-- <option hidden>{{ Auth::user()->gender }}</option>
@@ -255,7 +257,7 @@
                         <div class="col-md-4 p-2"><label class="labels">Country</label>
                             <select class="form-control" id="country"name="countryname" style="background-color: white"
                                 autofocus>
-                                <option hidden>{{ Auth::user()->country }}</option>
+                                <option hidden>{{ $profileinfo->country }}</option>
                                 @foreach ($country as $countries)
                                     <option value="{{ $countries->country_name }}"
                                         {{ old('country') == $countries->country_name ? 'selected' : '' }}>
@@ -268,7 +270,7 @@
                         <div class="col-md-4 p-2"><label class="labels">Province</label>
                             <select class="form-control" id="province"name="provincename" style="background-color: white"
                                 autofocus>
-                                <option hidden>{{ Auth::user()->province }}</option>
+                                <option hidden>{{ $profileinfo->province }}</option>
                             </select>
                         </div>
 
@@ -276,7 +278,7 @@
                         <div class="col-md-4 p-2"><label class="labels">Municipality / City</label>
                             <select class="form-control" id="municipality"name="municipalityname"
                                 style="background-color: white" autofocus>
-                                <option hidden>{{ Auth::user()->municipality }}</option>
+                                <option hidden>{{ $profileinfo->municipality }}</option>
                             </select>
 
                         </div>
@@ -290,20 +292,20 @@
                         <div class="col-md-4 p-2"><label class="labels">Barangay</label>
                             <select name="brgyname" id="barangay" class="form-control form-select form-select-md"
                                 style="background-color: white" autofocus>
-                                <option hidden>{{ Auth::user()->brgy }}</option>
+                                <option hidden>{{ $profileinfo->brgy }}</option>
                             </select>
                         </div>
 
                         {{-- STREET --}}
                         <div class="col-md-4 p-2"><label class="labels">Street</label>
                             <input type="text" name="houseNo_streetName" id="houseNo_streetName" class="form-control"
-                                value="{{ Auth::user()->houseNo_streetName }}" style="background-color: white" autofocus>
+                                value="{{ $profileinfo->houseNo_streetName }}" style="background-color: white" autofocus>
                         </div>
 
                         {{-- POSTAL CODE --}}
                         <div class="col-md-4 p-2"><label class="labels">Postal Code</label>
                             <input type="text" name="postal_codee" id="zip_code" class="form-control"
-                                value="{{ Auth::user()->postal_code }}" readonly>
+                                value="{{ $profileinfo->postal_code }}" readonly>
                         </div>
                     </div>
 
@@ -316,7 +318,7 @@
                         {{-- WEIGHT IN KILOGRAMS --}}
                         <div class="col-md-2 p-2"><label class="labels">Weight in Kilograms</label>
                             <input type="number" name="kilogram" id="kg" class="form-control"
-                                value="{{ Auth::user()->kilogram }}" style="background-color: white;" step=".01"
+                                value="{{ $profileinfo->kilogram }}" style="background-color: white;" step=".01"
                                 placeholder="kg" autofocus>
 
                         </div>
@@ -324,21 +326,21 @@
                         {{-- WEIGHT IN POUNDS --}}
                         <div class="col-md-2 p-2"><label class="labels">Weight in Pounds</label>
                             <input type="number" name="pounds" id="lb" class="form-control"
-                                value="{{ Auth::user()->pounds }}" style="background-color: white; " step=".01"
+                                value="{{ $profileinfo->pounds }}" style="background-color: white; " step=".01"
                                 placeholder="lb" autofocus>
                         </div>
 
                         {{-- BMI --}}
                         <div class="col-md-4 p-2"><label class="labels">BMI</label>
                             <input type="number" name="bmi" id="bmi" class="form-control" style=" "
-                                value="{{ Auth::user()->bmi }}" readonly autofocus>
+                                value="{{ $profileinfo->bmi }}" readonly autofocus>
                         </div>
 
                         {{-- PHILHEALTH NUMBER --}}
                         <div class="col-md-2 p-2"><label class="labels" for="philhealth_no"> PhilHealth Number</label>
                             <input type="number" name="philhealth_no" id="philhealth_no"
                                 class="form-control @error('philhealth_no') is-invalid @enderror"
-                                :value="old('philhealth_no')" value="{{ Auth::user()->philhealth_no }}"
+                                :value="old('philhealth_no')" value="{{ $profileinfo->philhealth_no }}"
                                 style="background-color: white" placeholder="##-#########-#" autofocus>
 
 
@@ -353,10 +355,10 @@
                         <div class="col-md-2 p-2"><label class="labels"> Philhealth Member Category</label>
                             <select name="member_category" id="selMemberCategory"
                                 class="form-select form-select-md @error('member_category') is-invalid @enderror"
-                                style="background-color: white" value="{{ Auth::user()->member_category }}"
+                                style="background-color: white" value="{{ $profileinfo->member_category }}"
                                 :value="old('member_category')" autofocus>
 
-                                <option hidden>{{ Auth::user()->member_category }}</option>
+                                <option hidden>{{ $profileinfo->member_category }}</option>
                                 @foreach ($member_category as $membercategory)
                                     <option value="{{ $membercategory->membercategory_desc }}"
                                         {{ old('member_category') == $membercategory->membercategory_desc ? 'selected' : '' }}>
@@ -371,7 +373,7 @@
                         <div class="col-md-4 p-2"><label class="labels">Health Insurance</label>
                             <select class="form-control" id="hmo"name="hmo" style="background-color: white"
                                 autofocus>
-                                <option hidden>{{ Auth::user()->health_insurance }}</option>
+                                <option hidden>{{ $profileinfo->health_insurance }}</option>
                                 @foreach ($hmo as $hmo)
                                     <option value="{{ $hmo->HMO_NAME }}"
                                         {{ old('hmo') == $hmo->HMO_NAME ? 'selected' : '' }}>
@@ -385,7 +387,7 @@
                             <input type="number" name="membership_no" id="membership_no"
                                 class="form-control @error('membership_no') is-invalid @enderror"
                                 :value="old('membership_no')" style="background-color: white"
-                                value="{{ Auth::user()->membership_no }}" autofocus>
+                                value="{{ $profileinfo->membership_no }}" autofocus>
                             @error('membership_no')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -397,7 +399,7 @@
                         <div class="col-md-4 p-2"><label class="labels"> Plan Name</label>
                             <input type="text" name="plan_name" id="plan_name"
                                 class="form-control @error('plan_name') is-invalid @enderror" :value="old('plan_name')"
-                                style="background-color: white" value="{{ Auth::user()->plan_name }}" autofocus>
+                                style="background-color: white" value="{{ $profileinfo->plan_name }}" autofocus>
                             @error('plan_name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

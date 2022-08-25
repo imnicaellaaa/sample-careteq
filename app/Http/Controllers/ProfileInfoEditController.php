@@ -11,6 +11,7 @@ use App\Models\HealthInsurance;
 use App\Models\Province;
 use App\Models\Municipality;
 use App\Models\MemberCategory;
+use App\Models\ProfileInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -32,6 +33,7 @@ class ProfileInfoEditController extends Controller
              $country = Country::all();
              $member_category = MemberCategory::all();
              $hmo = HealthInsurance::all();
+             $profileinfo = ProfileInfo::all();
 
 
         return view('info.profileinfoedit',[
@@ -41,6 +43,7 @@ class ProfileInfoEditController extends Controller
                  'member_category' => $member_category,
                  'user' => Auth::user(),
                  'hmo' => $hmo,
+                 'profileinfo' => $profileinfo,
         ]);
     }
 

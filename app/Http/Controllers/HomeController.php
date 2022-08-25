@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ProfileInfo;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('info.profileinfo');
+        $profileinfo = ProfileInfo::all();
+
+        return view('info.profileinfo',[
+                 'profileinfo' => $profileinfo]);
     }
 }

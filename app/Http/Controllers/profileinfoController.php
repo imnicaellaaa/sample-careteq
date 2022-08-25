@@ -2,14 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProfileInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class profileinfoController extends Controller
 {
     public function index(){
-        // $query = User::all();
-        return view("info.profileinfo", array('user' => Auth::user()));
+
+
+        $profileinfo = ProfileInfo::all();
+
+        return view('info.profileinfo',[
+                 'profileinfo' => $profileinfo]);
     }
 
 

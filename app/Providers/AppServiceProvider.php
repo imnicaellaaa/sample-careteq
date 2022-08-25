@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Doctor;
+use App\Models\ProfileInfo;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer(
+            // $doctors = DB::table('doctors')->select('firstname')->get();
+            'app.blade.php',
+            function ($view) {
+                $view->with('profileinfo' , ProfileInfo::all());
+            }
+        );
     }
 }
