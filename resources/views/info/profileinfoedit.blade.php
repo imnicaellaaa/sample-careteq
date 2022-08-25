@@ -114,9 +114,10 @@
                         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                             {{-- Profile Image --}}
                             @foreach($profileinfo as $profileinfo)
+                            @endforeach
                             <img class="rounded-circle mt-5" width="200px" height="200px" style="object-fit: cover" id="preview-image"
                                 src="/images/uploads/avatars_userstable/{{$profileinfo->avatar}}">
-                                @endforeach
+
                             <div class="mt-2">
                                 <input type="text" style="display: none" name="hiddenavatar" id="hiddenavatar" value="{{ $profileinfo->avatar }}"  class="form-control"
                                     placeholder="{{ Auth::user()->avatar }}" >

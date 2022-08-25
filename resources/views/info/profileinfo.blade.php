@@ -16,21 +16,22 @@
     <script src="{{ asset('js/jquery-3.6.0/js') }}"></script>
     <script src="{{ asset('js/jquery-3.6.0.min/js') }}"></script>
 
+
     <!-- Select2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
     <div class="container rounded bg-white mt-5 ">
         <div class="row py-2">
 
+            @foreach($profileinfo as $profileinfo)
             {{-- PROFILE ROW --}}
             <div class="col-md-4 ">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                    @foreach($profileinfo as $profileinfo)
                     <img class="rounded-circle mt-5" width="200px" height="200px" style="object-fit: cover"
                         src="/images/uploads/avatars_userstable/{{ $profileinfo->avatar }}">
                         @endforeach
                     <span class="font-weight-bold">
-                        {{ $profileinfo->firstname }} {{ $profileinfo->middlename }}{{ $profileinfo->lastname }}
+                        {{ $profileinfo->firstname }} {{ $profileinfo->middlename }} {{ $profileinfo->lastname }}
                     </span></span><span>{{ Auth::user()->email }}</span>
 
                     <a href="{{ route('info.profileinfoedit') }}"><button class="btn btn-primary round mt-2 ">Edit

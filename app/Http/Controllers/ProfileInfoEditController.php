@@ -33,7 +33,7 @@ class ProfileInfoEditController extends Controller
              $country = Country::all();
              $member_category = MemberCategory::all();
              $hmo = HealthInsurance::all();
-             $profileinfo = ProfileInfo::all();
+             $profileinfo = DB::table('profile_infos')->where('id', Auth::user()->id)->get();
 
 
         return view('info.profileinfoedit',[

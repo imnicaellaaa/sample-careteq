@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ProfileInfo;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -24,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $profileinfo = ProfileInfo::all();
+        $profileinfo = DB::table('profile_infos')->where('id', Auth::user()->id)->get();
 
         return view('info.profileinfo',[
                  'profileinfo' => $profileinfo]);
