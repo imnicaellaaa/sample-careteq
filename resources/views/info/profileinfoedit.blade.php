@@ -114,11 +114,14 @@
                         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                             {{-- Profile Image --}}
                             <img class="rounded-circle mt-5" width="200px" height="200px" style="object-fit: cover" id="preview-image"
-                                src="/images/uploads/avatars_userstable/{{ Auth::user()->avatar }}">
+                                src="public/images/uploads/avatars_userstable/{{ Auth::user()->avatar }}">
                             <div class="mt-2">
+                                <input type="text" style="display: none" name="hiddenavatar" id="hiddenavatar" value="{{ Auth::user()->avatar }}"  class="form-control"
+                                    placeholder="{{ Auth::user()->avatar }}" >
                                 {{-- Profile Image Upload --}}
                                 <input type="file" name="avatar" id="avatar" style="display: none" onchange="return filevalidate()" class="form-control"
                                     placeholder="{{ Auth::user()->avatar }}" accept="image/png, image/jpeg">
+
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <input type="button" class="btn btn-primary" id="btnAttachment" onclick="openAttachment()"
                                  onchange="return profileValidate()" value="Select a Photo" style="word-wrap: break-word; white-space: normal;" class="demoInputBox"/>

@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Carbon\Carbon;
+use Symfony\Component\HttpFoundation\File\File;
 use Intervention\Image\Facades\Image;
 
 
@@ -156,132 +157,74 @@ class ProfileInfoEditController extends Controller
             'hmo' => ['integer'],
             'membership_no' => ['integer'],
             'plan_name' =>['string', 'max:255'],
-            'avatar' => ['required|image|mimes:jpeg,png,jpg,gif,svg|max:1024']
+            'avatar' => ['nullable','image|mimes:jpeg,png,jpg,gif,svg|max:1024']
         ]);
 
     }
 
     public function create(Request $request)
     {
-        $avatars = request()->file('avatar')->getClientOriginalName();
-        request()->file('avatar')->move('images/uploads/avatars_userstable', $avatars);
-        $imagePath = $avatars;
+        {
+            $est =DB::table('users')->where('id','=',$request->user_id)->get();
+          $oldimage=$est[0]->avatar;
+          $fileNameToStore=$oldimage;
 
-        // $avatar = request()->file('avatar')->getClientOriginalName();
-        // request()->file('avatar')->move('images/uploads/avatars_profileinfotable', $avatar);
-        // $imagePath2 = $avatar;
+        //   dd($request->hasFile('avatar'));
+          if($request->hasFile('avatar')){
+             $this->validate($request,['avatar'=>'image|nullable|max:1999']);
 
-        if(!empty($imagePath)){
-            $query = DB::table('users')
-                ->where('id', $request->user_id)
-                ->update([
-                        'patient_id'=>$request->patient_id,
-                        'suffix'=>$request->suffix,
-                        'telno' =>$request->telno,
-                        'mobile_no'=>$request->mobile_no,
-                        'title' => $request->title,
-                        'gender' =>$request->gender,
-                        'houseNo_streetName'=>$request->houseNo_streetName,
-                        'brgy' => $request->brgyname,
-                        'postal_code'=>$request->postal_codee,
-                        'municipality'=>$request->municipalityname,
-                        'province' =>$request->provincename,
-                        'country'=>$request->countryname,
-                        'centimeter'=>$request->centimeter,
-                        'inches' =>$request->inches,
-                        'kilogram' => $request->kilogram,
-                        'pounds' =>$request->pounds,
-                        'bmi' =>$request->bmi,
-                        'philhealth_no' =>$request->philhealth_no,
-                        'member_category' =>$request->member_category,
-                        'health_insurance' =>$request->hmo,
-                        'membership_no' =>$request->membership_no,
-                        'plan_name' => $request->plan_name,
-                        // 'avatar' => request()->file('avatar')->getClientOriginalName(),
+             //get file name with extension
+             $filenameWithExt=$request->file('avatar')->getClientOriginalName();
+            //  dd($filenameWithExt);
+             //getjust file name
+             $fileName=pathinfo($filenameWithExt, PATHINFO_FILENAME);
+             //get jsut ext
+             $extension=$request->file('avatar')->getClientOriginalExtension();
+             //file name to store
+             $fileNameToStore=$fileName.'_'.time().'.'.$extension;
+             // echo $fileNameToStore;die();
+             //upload images
+             $path=$request->file('avatar')->storeAs('public/images/uploads/avatars_userstable',$fileNameToStore);
+             $newimage=$fileNameToStore;
+         }
 
-                ]);
+      $data = ['patient_id'=>$request->patient_id,
+                'suffix'=>$request->suffix,
+                'telno' =>$request->telno,
+                'mobile_no'=>$request->mobile_no,
+                'title' => $request->title,
+                'gender' =>$request->gender,
+                'houseNo_streetName'=>$request->houseNo_streetName,
+                'brgy' => $request->brgyname,
+                'postal_code'=>$request->postal_codee,
+                'municipality'=>$request->municipalityname,
+                'province' =>$request->provincename,
+                'country'=>$request->countryname,
+                'centimeter'=>$request->centimeter,
+                'inches' =>$request->inches,
+                'kilogram' => $request->kilogram,
+                'pounds' =>$request->pounds,
+                'bmi' =>$request->bmi,
+                'philhealth_no' =>$request->philhealth_no,
+                'member_category' =>$request->member_category,
+                'health_insurance' =>$request->hmo,
+                'membership_no' =>$request->membership_no,
+                'plan_name' => $request->plan_name,
+                'avatar' => $fileNameToStore];
+                // dd(DB::table('users')->where('id', $request->user_id)->where('avatar', $fileNameToStore)->exists());
+            if (DB::table('users')->where('id', $request->user_id)->where('avatar', $fileNameToStore)->exists()) {
+                DB::table('users')->where('id', $request->user_id)
+                                ->update(['avatar' => $fileNameToStore]);
+                                // dd(DB::table('users')->where('id', $request->user_id)->where('avatar', $fileNameToStore)
+                                // ->update(['avatar' => $fileNameToStore]));
+            }
+
+         DB::table('users')->where('id', $request->user_id)
+             ->update($data);
+             return redirect('profileinfoedit')->with('message', 'Profile Information updated');
     }
 
-        //saving all the inputed data to the profile_information database
-        if($query2 = DB::table('profileinfo')
-                     ->where('id', $request->user_id)
-                     ->insert(['patient_fullname' => $request->patient_fullname,
-                        'bday' => $request->bday,
-                        'age' => $request->age,
-                        'patient_id'=>$request->patient_id,
-                        'suffix'=>$request->suffix,
-                        'telno' =>$request->telno,
-                        'mobile_no'=>$request->mobile_no,
-                        'title' => $request->title,
-                        'gender' =>$request->gender,
-                        'houseNo_streetName'=>$request->houseNo_streetName,
-                        'brgy' => $request->brgyname,
-                        'postal_code'=>$request->postal_codee,
-                        'municipality'=>$request->municipalityname,
-                        'province' =>$request->provincename,
-                        'country'=>$request->countryname,
-                        'centimeter'=>$request->centimeter,
-                        'inches' =>$request->inches,
-                        'kilogram' => $request->kilogram,
-                        'pounds' =>$request->pounds,
-                        'bmi' =>$request->bmi,
-                        'philhealth_no' =>$request->philhealth_no,
-                        'member_category' =>$request->member_category,
-                        'health_insurance' =>$request->hmo,
-                        'membership_no' =>$request->membership_no,
-                        'plan_name' => $request->plan_name,
-                        'edited_by' => $request->user_id,
-                        'user_role' => $request->user_role,
-                        'updated_at' => Carbon::now(),
-                        'avatar' => $imagePath,
-
-        ]))
-
-        //update users table
-       if( $query = DB::table('users')
-                ->where('id', $request->user_id)
-                ->update([
-                        'patient_id'=>$request->patient_id,
-                        'suffix'=>$request->suffix,
-                        'telno' =>$request->telno,
-                        'mobile_no'=>$request->mobile_no,
-                        'title' => $request->title,
-                        'gender' =>$request->gender,
-                        'houseNo_streetName'=>$request->houseNo_streetName,
-                        'brgy' => $request->brgyname,
-                        'postal_code'=>$request->postal_codee,
-                        'municipality'=>$request->municipalityname,
-                        'province' =>$request->provincename,
-                        'country'=>$request->countryname,
-                        'centimeter'=>$request->centimeter,
-                        'inches' =>$request->inches,
-                        'kilogram' => $request->kilogram,
-                        'pounds' =>$request->pounds,
-                        'bmi' =>$request->bmi,
-                        'philhealth_no' =>$request->philhealth_no,
-                        'member_category' =>$request->member_category,
-                        'health_insurance' =>$request->hmo,
-                        'membership_no' =>$request->membership_no,
-                        'plan_name' => $request->plan_name,
-                        // 'avatar' => request()->file('avatar')->getClientOriginalName(),
-                        'avatar' => $imagePath,
-
-
-        ]))
-
-         {
-            // return $request->avatar->request()->file('avatar')->getClientOriginalName();
-
-            return redirect()->back()->with('message', 'Profile Information updated');
-        }
-        else{
-            return redirect()->back()->with('error', 'Profile Information has not been update succesfuly');
-        }
-
-
-
     }
-
     public function uploadProfilePhoto(Request $request)
     {
         $avatars = request()->file('avatar')->getClientOriginalName();
