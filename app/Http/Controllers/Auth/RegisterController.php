@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\ProfileInfo;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -89,35 +90,38 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
         $user =  User::create([
-            'firstname' => $data['firstname'],
-            'middlename' => $data['middlename'],
-            'lastname' => $data['lastname'],
-            'bday' => date('Y-m-d',strtotime($data['bday'])),
-            'age' => $data['age'],
-            'suffix' => $data['suffix'],
-            'gender' => $data['gender'],
-            'title' => $data['title'],
-            'country' =>$data['country'],
-            'province' => $data['province'],
-            'municipality' => $data['municipality'],
-            'brgy' => $data['brgy'],
-            'houseNo_streetName' => $data['houseNo_streetName'],
-            'postal_code' => $data['postal_code'],
-            'status' => $data['status'],
-            'patient_id' =>$data['patient_id'],
-            'id_type' => $data['id_type'],
-            'id_no' => $data['id_no'],
-            'upload_id' => $data['upload_id'],
             'user_role' => $data['user_role'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+
+            ProfileInfo::create([
+                'firstname' => $data['firstname'],
+                'middlename' => $data['middlename'],
+                'lastname' => $data['lastname'],
+                'bday' => date('Y-m-d',strtotime($data['bday'])),
+                'age' => $data['age'],
+                'suffix' => $data['suffix'],
+                'gender' => $data['gender'],
+                'title' => $data['title'],
+                'country' => $data['country'],
+                'province' => $data['province'],
+                'municipality' => $data['municipality'],
+                'brgy' => $data['brgy'],
+                'houseNo_streetName' => $data['houseNo_streetName'],
+                'postal_code' => $data['postal_code'],
+                'status' => $data['status'],
+                'id_type' => $data['id_type'],
+                'id_no' => $data['id_no'],
+                'upload_id' => request()->file('upload_id')->getClientOriginalName(),
+            ]),
         ]);
-        if ($name = request()->hasFile( key: 'upload_id')) {
-            $upload_id = request()->file( key: 'upload_id')->getClientOriginalName();
-            request()->file( key: 'upload_id')->move('images/upload_id', $upload_id);
-            $user->update(['upload_id' => $upload_id]);
-        }
+
+
+
+
+
         return $user;
     }
 }

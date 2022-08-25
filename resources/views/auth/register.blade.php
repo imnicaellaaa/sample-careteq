@@ -45,7 +45,7 @@
                             {{-- insert logo image here --}}
 
                             {{-- REGISTER FORM --}}
-                            <form method="POST" class="py-2" action="{{ route('register') }}" id="register_form" name="register_form">
+                            <form method="POST" class="py-2" action="{{ route('register') }}" id="register_form" name="register_form" enctype="multipart/form-data">
                                 @csrf
                                 <div id='result'></div>
                                 {{-- FIRST NAME, LAST NAME, MIDDLE NAME --}}

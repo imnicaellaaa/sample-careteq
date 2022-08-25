@@ -489,7 +489,7 @@ function checkEmail(obj) {
     result = checkEmpty(obj);
 
     if(!result) {
-        $(obj).css("border","#FF0000 1px solid");
+        // $(obj).css("border","#FF0000 1px solid");
         $("."+name+"-validation").html("Required");
         return false;
     }
