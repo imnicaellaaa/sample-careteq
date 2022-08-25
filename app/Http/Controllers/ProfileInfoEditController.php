@@ -164,67 +164,239 @@ class ProfileInfoEditController extends Controller
 
     public function create(Request $request)
     {
+
+
+        // $avatar = request()->file('avatar')->getClientOriginalName();
+        // request()->file('avatar')->move('images/uploads/avatars_profileinfotable', $avatar);
+        // $imagePath2 = $avatar;
+
+        // $avatars = request()->file('avatar')->getClientOriginalName();
+        // request()->file('avatar')->move('images/uploads/avatars_userstable', $avatars);
+        // $imagePath = $avatars;
+
+        if($request->avatar == ""){
+            $query = DB::table('users')
+                ->where('id', $request->user_id)
+                ->update([
+                        'patient_id'=>$request->patient_id,
+                        'suffix'=>$request->suffix,
+                        'telno' =>$request->telno,
+                        'mobile_no'=>$request->mobile_no,
+                        'title' => $request->title,
+                        'gender' =>$request->gender,
+                        'houseNo_streetName'=>$request->houseNo_streetName,
+                        'brgy' => $request->brgyname,
+                        'postal_code'=>$request->postal_codee,
+                        'municipality'=>$request->municipalityname,
+                        'province' =>$request->provincename,
+                        'country'=>$request->countryname,
+                        'centimeter'=>$request->centimeter,
+                        'inches' =>$request->inches,
+                        'kilogram' => $request->kilogram,
+                        'pounds' =>$request->pounds,
+                        'bmi' =>$request->bmi,
+                        'philhealth_no' =>$request->philhealth_no,
+                        'member_category' =>$request->member_category,
+                        'health_insurance' =>$request->hmo,
+                        'membership_no' =>$request->membership_no,
+                        'plan_name' => $request->plan_name,
+                        'avatar'=> $request->hiddenavatar]);
+
+                        // 'avatar' => $request->hiddenavatar,
+                        $query2 = DB::table('profileinfo')
+                                     ->where('id', $request->user_id)
+                                     ->insert(['patient_fullname' => $request->patient_fullname,
+                                        'bday' => $request->bday,
+                                        'age' => $request->age,
+                                        'patient_id'=>$request->patient_id,
+                                        'suffix'=>$request->suffix,
+                                        'telno' =>$request->telno,
+                                        'mobile_no'=>$request->mobile_no,
+                                        'title' => $request->title,
+                                        'gender' =>$request->gender,
+                                        'houseNo_streetName'=>$request->houseNo_streetName,
+                                        'brgy' => $request->brgyname,
+                                        'postal_code'=>$request->postal_codee,
+                                        'municipality'=>$request->municipalityname,
+                                        'province' =>$request->provincename,
+                                        'country'=>$request->countryname,
+                                        'centimeter'=>$request->centimeter,
+                                        'inches' =>$request->inches,
+                                        'kilogram' => $request->kilogram,
+                                        'pounds' =>$request->pounds,
+                                        'bmi' =>$request->bmi,
+                                        'philhealth_no' =>$request->philhealth_no,
+                                        'member_category' =>$request->member_category,
+                                        'health_insurance' =>$request->hmo,
+                                        'membership_no' =>$request->membership_no,
+                                        'plan_name' => $request->plan_name,
+                                        'edited_by' => $request->user_id,
+                                        'user_role' => $request->user_role,
+                                        'updated_at' => Carbon::now(),
+                                        'avatar'=> $request->hiddenavatar
+                ]);
+                return redirect()->back()->with('message', 'Profile Information updated');
+        }
+
+        $avatars = request()->file('avatar')->getClientOriginalName();
+        request()->file('avatar')->move('images/uploads/avatars_userstable', $avatars);
+        $imagePath = $avatars;
+        // dd($avatars);
+        // dd($imagePath);
+            //saving all the inputed data to the profile_information database
+            if($query2 = DB::table('profileinfo')
+                        ->where('id', $request->user_id)
+                        ->insert(['patient_fullname' => $request->patient_fullname,
+                            'bday' => $request->bday,
+                            'age' => $request->age,
+                            'patient_id'=>$request->patient_id,
+                            'suffix'=>$request->suffix,
+                            'telno' =>$request->telno,
+                            'mobile_no'=>$request->mobile_no,
+                            'title' => $request->title,
+                            'gender' =>$request->gender,
+                            'houseNo_streetName'=>$request->houseNo_streetName,
+                            'brgy' => $request->brgyname,
+                            'postal_code'=>$request->postal_codee,
+                            'municipality'=>$request->municipalityname,
+                            'province' =>$request->provincename,
+                            'country'=>$request->countryname,
+                            'centimeter'=>$request->centimeter,
+                            'inches' =>$request->inches,
+                            'kilogram' => $request->kilogram,
+                            'pounds' =>$request->pounds,
+                            'bmi' =>$request->bmi,
+                            'philhealth_no' =>$request->philhealth_no,
+                            'member_category' =>$request->member_category,
+                            'health_insurance' =>$request->hmo,
+                            'membership_no' =>$request->membership_no,
+                            'plan_name' => $request->plan_name,
+                            'edited_by' => $request->user_id,
+                            'user_role' => $request->user_role,
+                            'updated_at' => Carbon::now(),
+                            'avatar' => $imagePath,
+
+        ]))
+
+        //update users table
+        if( $query = DB::table('users')
+                    ->where('id', $request->user_id)
+                    ->update([
+                            'patient_id'=>$request->patient_id,
+                            'suffix'=>$request->suffix,
+                            'telno' =>$request->telno,
+                            'mobile_no'=>$request->mobile_no,
+                            'title' => $request->title,
+                            'gender' =>$request->gender,
+                            'houseNo_streetName'=>$request->houseNo_streetName,
+                            'brgy' => $request->brgyname,
+                            'postal_code'=>$request->postal_codee,
+                            'municipality'=>$request->municipalityname,
+                            'province' =>$request->provincename,
+                            'country'=>$request->countryname,
+                            'centimeter'=>$request->centimeter,
+                            'inches' =>$request->inches,
+                            'kilogram' => $request->kilogram,
+                            'pounds' =>$request->pounds,
+                            'bmi' =>$request->bmi,
+                            'philhealth_no' =>$request->philhealth_no,
+                            'member_category' =>$request->member_category,
+                            'health_insurance' =>$request->hmo,
+                            'membership_no' =>$request->membership_no,
+                            'plan_name' => $request->plan_name,
+                            // 'avatar' => request()->file('avatar')->getClientOriginalName(),
+                            'avatar' => $imagePath,
+
+
+        ]))
+
         {
-            $est =DB::table('users')->where('id','=',$request->user_id)->get();
-          $oldimage=$est[0]->avatar;
-          $fileNameToStore=$oldimage;
+// return $request->avatar->request()->file('avatar')->getClientOriginalName();
 
-        //   dd($request->hasFile('avatar'));
-          if($request->hasFile('avatar')){
-             $this->validate($request,['avatar'=>'image|nullable|max:1999']);
+                    return redirect()->back()->with('message', 'Profile Information updated');
+                    }
+                    else{
+                    return redirect()->back()->with('error', 'Profile Information has not been update succesfuly');
+                    }
+       }
 
-             //get file name with extension
-             $filenameWithExt=$request->file('avatar')->getClientOriginalName();
-            //  dd($filenameWithExt);
-             //getjust file name
-             $fileName=pathinfo($filenameWithExt, PATHINFO_FILENAME);
-             //get jsut ext
-             $extension=$request->file('avatar')->getClientOriginalExtension();
-             //file name to store
-             $fileNameToStore=$fileName.'_'.time().'.'.$extension;
-             // echo $fileNameToStore;die();
-             //upload images
-             $path=$request->file('avatar')->storeAs('public/images/uploads/avatars_userstable',$fileNameToStore);
-             $newimage=$fileNameToStore;
-         }
+        //saving all the inputed data to the profile_information database
+        // if($query2 = DB::table('profileinfo')
+        //              ->where('id', $request->user_id)
+        //              ->insert(['patient_fullname' => $request->patient_fullname,
+        //                 'bday' => $request->bday,
+        //                 'age' => $request->age,
+        //                 'patient_id'=>$request->patient_id,
+        //                 'suffix'=>$request->suffix,
+        //                 'telno' =>$request->telno,
+        //                 'mobile_no'=>$request->mobile_no,
+        //                 'title' => $request->title,
+        //                 'gender' =>$request->gender,
+        //                 'houseNo_streetName'=>$request->houseNo_streetName,
+        //                 'brgy' => $request->brgyname,
+        //                 'postal_code'=>$request->postal_codee,
+        //                 'municipality'=>$request->municipalityname,
+        //                 'province' =>$request->provincename,
+        //                 'country'=>$request->countryname,
+        //                 'centimeter'=>$request->centimeter,
+        //                 'inches' =>$request->inches,
+        //                 'kilogram' => $request->kilogram,
+        //                 'pounds' =>$request->pounds,
+        //                 'bmi' =>$request->bmi,
+        //                 'philhealth_no' =>$request->philhealth_no,
+        //                 'member_category' =>$request->member_category,
+        //                 'health_insurance' =>$request->hmo,
+        //                 'membership_no' =>$request->membership_no,
+        //                 'plan_name' => $request->plan_name,
+        //                 'edited_by' => $request->user_id,
+        //                 'user_role' => $request->user_role,
+        //                 'updated_at' => Carbon::now(),
+        //                 'avatar' => $imagePath,
 
-      $data = ['patient_id'=>$request->patient_id,
-                'suffix'=>$request->suffix,
-                'telno' =>$request->telno,
-                'mobile_no'=>$request->mobile_no,
-                'title' => $request->title,
-                'gender' =>$request->gender,
-                'houseNo_streetName'=>$request->houseNo_streetName,
-                'brgy' => $request->brgyname,
-                'postal_code'=>$request->postal_codee,
-                'municipality'=>$request->municipalityname,
-                'province' =>$request->provincename,
-                'country'=>$request->countryname,
-                'centimeter'=>$request->centimeter,
-                'inches' =>$request->inches,
-                'kilogram' => $request->kilogram,
-                'pounds' =>$request->pounds,
-                'bmi' =>$request->bmi,
-                'philhealth_no' =>$request->philhealth_no,
-                'member_category' =>$request->member_category,
-                'health_insurance' =>$request->hmo,
-                'membership_no' =>$request->membership_no,
-                'plan_name' => $request->plan_name,
-                'avatar' => $fileNameToStore];
-                // dd(DB::table('users')->where('id', $request->user_id)->where('avatar', $fileNameToStore)->exists());
-            if (DB::table('users')->where('id', $request->user_id)->where('avatar', $fileNameToStore)->exists()) {
-                DB::table('users')->where('id', $request->user_id)
-                                ->update(['avatar' => $fileNameToStore]);
-                                // dd(DB::table('users')->where('id', $request->user_id)->where('avatar', $fileNameToStore)
-                                // ->update(['avatar' => $fileNameToStore]));
-            }
+        // ]))
 
-         DB::table('users')->where('id', $request->user_id)
-             ->update($data);
-             return redirect('profileinfoedit')->with('message', 'Profile Information updated');
-    }
+        //update users table
+    //    if( $query = DB::table('users')
+    //             ->where('id', $request->user_id)
+    //             ->update([
+    //                     'patient_id'=>$request->patient_id,
+    //                     'suffix'=>$request->suffix,
+    //                     'telno' =>$request->telno,
+    //                     'mobile_no'=>$request->mobile_no,
+    //                     'title' => $request->title,
+    //                     'gender' =>$request->gender,
+    //                     'houseNo_streetName'=>$request->houseNo_streetName,
+    //                     'brgy' => $request->brgyname,
+    //                     'postal_code'=>$request->postal_codee,
+    //                     'municipality'=>$request->municipalityname,
+    //                     'province' =>$request->provincename,
+    //                     'country'=>$request->countryname,
+    //                     'centimeter'=>$request->centimeter,
+    //                     'inches' =>$request->inches,
+    //                     'kilogram' => $request->kilogram,
+    //                     'pounds' =>$request->pounds,
+    //                     'bmi' =>$request->bmi,
+    //                     'philhealth_no' =>$request->philhealth_no,
+    //                     'member_category' =>$request->member_category,
+    //                     'health_insurance' =>$request->hmo,
+    //                     'membership_no' =>$request->membership_no,
+    //                     'plan_name' => $request->plan_name,
+    //                     // 'avatar' => request()->file('avatar')->getClientOriginalName(),
+    //                     'avatar' => $imagePath,
 
-    }
+
+    //     ]))
+
+
+        // else{
+        //     return redirect()->back()->with('error', 'Profile Information has not been update succesfuly');
+        // }
+
+
+
+
+
+
     public function uploadProfilePhoto(Request $request)
     {
         $avatars = request()->file('avatar')->getClientOriginalName();

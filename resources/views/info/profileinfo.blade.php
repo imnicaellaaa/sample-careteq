@@ -26,7 +26,7 @@
             <div class="col-md-4 ">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                     <img class="rounded-circle mt-5" width="200px" height="200px" style="object-fit: cover"
-                        src="public/images/uploads/avatars_userstable/{{ Auth::user()->avatar }}">
+                        src=" /images/uploads/avatars_userstable/{{ Auth::user()->avatar }}">
                     <span class="font-weight-bold">{{ Auth::user()->firstname }} {{ Auth::user()->middlename }}
                         {{ Auth::user()->lastname }}</span></span><span>{{ Auth::user()->email }}</span>
 
