@@ -46,7 +46,7 @@
                             {{-- REMEMBER ME --}}
                             <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" type="checkbox" name="remember"
-                                    id="remember" id="exampleCheck1">
+                                    id="remember" id="exampleCheck1" value="1">
                                 <label class="form-check-label" for="exampleCheck1"> {{ __('Remember Me') }}</label>
                             </div>
 
