@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use App\Models\ProfileInfo;
 use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
@@ -26,5 +27,12 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         //
+        view()->composer(
+            // $doctors = DB::table('doctors')->select('firstname')->get();
+            'app.blade.php',
+            function ($view) {
+                $view->with('profileinfo' , ProfileInfo::all());
+            }
+        );
     }
 }

@@ -71,8 +71,8 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 
-                                     {{ Auth::user()->firstname }}
-                                    {{ Auth::user()->middlename }} {{ Auth::user()->lastname }}
+                                     {{ $profileinfo->firstname }}
+                                    {{ $profileinfo->middlename }} {{ $profileinfo->lastname }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
