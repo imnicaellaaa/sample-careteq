@@ -178,7 +178,7 @@ class ProfileInfoEditController extends Controller
         // $imagePath = $avatars;
 
         if($request->avatar == ""){
-            $query = DB::table('users')
+            $query = DB::table('profile_infos')
                 ->where('id', $request->user_id)
                 ->update([
                         'patient_id'=>$request->patient_id,
@@ -203,10 +203,11 @@ class ProfileInfoEditController extends Controller
                         'health_insurance' =>$request->hmo,
                         'membership_no' =>$request->membership_no,
                         'plan_name' => $request->plan_name,
+                        'updated_at' => Carbon::now(),
                         'avatar'=> $request->hiddenavatar]);
 
                         // 'avatar' => $request->hiddenavatar,
-                        $query2 = DB::table('profileinfo')
+                        $query2 = DB::table('profileinfo_audit_trail')
                                      ->where('id', $request->user_id)
                                      ->insert(['patient_fullname' => $request->patient_fullname,
                                         'bday' => $request->bday,
@@ -242,12 +243,12 @@ class ProfileInfoEditController extends Controller
         }
 
         $avatars = request()->file('avatar')->getClientOriginalName();
-        request()->file('avatar')->move('images/uploads/avatars_userstable', $avatars);
+        request()->file('avatar')->move('images/uploads/avatars_profileinfotable', $avatars);
         $imagePath = $avatars;
         // dd($avatars);
         // dd($imagePath);
             //saving all the inputed data to the profile_information database
-            if($query2 = DB::table('profileinfo')
+            if($query2 = DB::table('profileinfo_audit_trail')
                         ->where('id', $request->user_id)
                         ->insert(['patient_fullname' => $request->patient_fullname,
                             'bday' => $request->bday,
@@ -282,7 +283,7 @@ class ProfileInfoEditController extends Controller
         ]))
 
         //update users table
-        if( $query = DB::table('users')
+        if( $query = DB::table('profile_infos')
                     ->where('id', $request->user_id)
                     ->update([
                             'patient_id'=>$request->patient_id,
@@ -309,6 +310,7 @@ class ProfileInfoEditController extends Controller
                             'plan_name' => $request->plan_name,
                             // 'avatar' => request()->file('avatar')->getClientOriginalName(),
                             'avatar' => $imagePath,
+                            'updated_at' => Carbon::now(),
 
 
         ]))
