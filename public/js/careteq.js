@@ -106,7 +106,7 @@ $(document).ready(function(){
       //Close Success Dialog by clicking the okay button
       function sucessBtnOkay(){
         $('#successDialog').hide();
-        window.location.href = "/profileinfo";
+        window.location.href = "/home";
       }
 
      //Close Error Dialog by clicking the okay button

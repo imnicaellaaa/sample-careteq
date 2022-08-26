@@ -29,7 +29,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/profileinfo') }}">
+                <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'Hello world') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -43,7 +43,7 @@
 
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/profileinfo') }}">Profile Info</a>
+                            <a class="nav-link" href="{{ url('/home') }}">Profile Info</a>
                         </li>
 
                         <li class="nav-item">
@@ -77,7 +77,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-                                    <a href="{{ url('/profileinfo') }}" class="dropdown-item">
+                                    <a href="{{ url('/home') }}" class="dropdown-item">
                                         Profile
                                     </a>
 
