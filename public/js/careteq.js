@@ -133,18 +133,33 @@ $(document).ready(function(){
      //convertion of Centimeter to Inches
      function convertionCentimeterstoInches () {
         var centimeter = $('#centimeter').val();
-        var convertedInches = parseFloat (centimeter / 2.54).toFixed(2);
-        // var roundedCentimeter = centimeter.toFixed(2);
 
+        if(centimeter >= 272){
+            var convertedInches = parseFloat (272 / 2.54).toFixed(2);
+        }
+        if (centimeter <=272){
+            var convertedInches = parseFloat (centimeter / 2.54).toFixed(2);
+        }
+        if(centimeter <=55){
+            var convertedInches = parseFloat (55 / 2.54).toFixed(2);
+        }
         $('#inch').val(convertedInches, 'inches');
-        // $('#centimeter').val(roundedCentimeter);
+
     }
 
     //convertion of Inches to Centimeter
     function convertionInchestoCentimeter () {
         var inch = $('#inch').val();
-        var convertedcm = parseFloat (inch * 2.54 ).toFixed(2);
 
+        if(inch >= 107.09){
+            var convertedcm = parseFloat (107.09 * 2.54 ).toFixed(2);
+        }
+        if(inch <= 107.09){
+            var convertedcm = parseFloat (inch * 2.54 ).toFixed(2);
+        }
+        if(inch <= 21.65){
+            var convertedcm = parseFloat (21.65 * 2.54 ).toFixed(2);
+        }
         $('#centimeter').val(convertedcm);
     }
 
