@@ -52,7 +52,7 @@
                             <label class="labels ">Full Name</label>
                             <input type="text" class="form-control fs-5"
                                 value="{{ $profileinfo->firstname }} {{ $profileinfo->middlename }} {{ $profileinfo->lastname }} {{ $profileinfo->suffix }}"
-                                readonly>
+                                disabled>
                         </div>
                         {{-- Birthday --}}
                         <div class="col-md-3 p-2"><label class="labels">Birthday</label>
