@@ -1,11 +1,19 @@
 @extends('layouts.app')
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ asset('js/careteq.js') }}"></script>
+
+<!-- Select2 JS -->
+<script src="{{ asset('js/select2.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.min.js') }}"></script>
+
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-              
+
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('password.update') }}">
@@ -31,22 +39,36 @@
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
+                                <input type="password"
+                                                class="form-control  @error('password') is-invalid @enderror"
+                                                id="pass" name="password" onkeyup="return validatepassword()">
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                <br>
+                                <div class="errors">
+                                    <ul>
+                                        <li id="upper"> At least one uppercase</li>
+                                        <li id="lower"> At least one lowercase</li>
+                                        <li id="special_char"> At least one special character or symbol</li>
+                                        <li id="number"> At least one number</li>
+                                        <li id="length"> At least 8 characters</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="row mb-2">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input type="password" class="form-control" id="passwordConfirm"
+                                                name="password_confirmation">
+                                                <div style="margin-top: 7px;" id="PasswordMatchCheck"></div>
                             </div>
+
                         </div>
 
                         <div class="row mb-0">

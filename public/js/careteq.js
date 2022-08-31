@@ -941,3 +941,94 @@ $(document).ready(function() {
 
     }
 )
+
+///password complexity reg ex
+function validatepassword(){
+    var pass = document.getElementById('pass');
+    var upper = document.getElementById('upper');
+    var lower = document.getElementById('lower');
+    var special_charater = document.getElementById('special_char');
+    var num = document.getElementById('number');
+    var len = document.getElementById('length');
+    var passtck = true;
+
+
+    //check if pass value contain a uppercase letter
+    if (pass.value.match(/[A-Z]/)) {  //match the function which matches a regular expressions
+        //password contain A to Z
+        upper.style.color = 'green'
+        // $("#btnSignUp").attr("disabled", false);
+
+    }
+    else {
+        //otherwise
+        upper.style.color = 'red'
+        // $("#btnSignUp").attr("disabled", true);
+    }
+
+     //check if pass value contain a lowercase letter
+     if (pass.value.match(/[a-z]/)) {  //match the function which matches a regular expressions
+        //password contain a to z
+        lower.style.color = 'green'
+        // $("#btnSignUp").attr("disabled", false);
+
+    }
+    else {
+        //otherwise
+        lower.style.color = 'red'
+        // $("#btnSignUp").attr("disabled", true);
+    }
+
+     //check if pass value contain a special character or symbol
+     if (pass.value.match(/[!\@\$\%\^\&\*\(\)\_\-\?\=\+\<\>\.\,]/)) {  //match the function which matches a regular expressions
+        //type all special character which you want to validate
+        special_charater.style.color = 'green'
+        // $("#btnSignUp").attr("disabled", false);
+
+    }
+    else {
+        //otherwise
+        special_charater.style.color = 'red'
+        // $("#btnSignUp").attr("disabled", true);
+    }
+
+    //check if pass value contain a number
+    if (pass.value.match(/[0-9]/)) {  //match the function which matches a regular expressions
+        //password contain 0 to 9 number then
+        num.style.color = 'green'
+        // $("#btnSignUp").attr("disabled", false);
+
+    }
+    else {
+        //otherwise
+        num.style.color = 'red'
+        // $("#btnSignUp").attr("disabled", true);
+    }
+
+    //check if the lenght is greater than equal to 8
+    if (pass.value.length < 8 ){
+        //if the password is less than 8
+        len.style.color = 'red'
+        // $("#btnSignUp").attr("disabled", true);
+
+    }
+    else {
+        //if the password is greater than or equal to 8
+        len.style.color = 'green'
+        // $("#btnSignUp").attr("disabled", false);
+
+    }
+}
+
+ //validation if the password match in confirm password
+ $(document).ready(function() {
+    $("#passwordConfirm").on('keyup', function() {
+      var password = $("#pass").val();
+      var confirmPassword = $("#passwordConfirm").val();
+      if (password != confirmPassword)
+        // $("#password_confirmation").css("border","red 2px solid");
+        $("#PasswordMatchCheck").html("Password does not match").css("color","red");
+      else
+        $("#PasswordMatchCheck").html("Password match").css("color","green");
+    });
+  });
