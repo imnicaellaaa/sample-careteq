@@ -601,18 +601,30 @@ $(document).ready(function() {
                       if(data){
                          //alert (data); return false;
                          $("#province").empty();
+                         if (data.length == 0){
+                            $("#province").append('<option value=" ">--</option>');
+                        //     $("#municipality").append('<option value=" ">--</option>');
+                        //     $("#barangay").append('<option value=" ">--</option>');
+                          }
+                          if($('#province').val() == "--"){
+                            $("#municipality").append('<option value=" ">--</option>');
+                          }
+                          else{
                          $("#province").append('<option value=" ">Select Province</option>');
+                          }
                         for(var n=0; n<data.length; n++) {
                            $("#province").append('<option>'+data[n]['province']+'</option>');
                         }
-                        $("#municipality").empty();
+                        // $("#municipality").empty();
                         $("#barangay").empty();
+                        $("#municipality").append('<option value=" ">--</option>');
+                        $("#barangay").append('<option value=" ">--</option>');
                         $("#zip_code").val('');
                       }
-
                         else
                         {
                           $('#province').empty();
+                          $("#barangay").append('<option value=" ">--</option>');
                         }
                       }
               });
