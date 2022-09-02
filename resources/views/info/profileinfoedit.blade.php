@@ -272,6 +272,7 @@
                             <select class="form-control" id="province"name="provincename" style="background-color: white"
                                 autofocus>
                                 <option hidden>{{ $profileinfo->province }}</option>
+
                             </select>
                         </div>
 
