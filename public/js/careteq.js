@@ -543,6 +543,9 @@ $(document).ready(function() {
                 // alert(data); return false;
                 {
                     //alert(data); return false;
+                    if (data == "Others"){
+                        $("#id_no").attr('type', text);
+                    }
                     if(data){
                         //alert (data[0]['idno_format']); return false;
                         var inputmask = new Inputmask(data[0]['id_typeformat']);
@@ -603,28 +606,21 @@ $(document).ready(function() {
                          $("#province").empty();
                          if (data.length == 0){
                             $("#province").append('<option value=" ">--</option>');
-                        //     $("#municipality").append('<option value=" ">--</option>');
-                        //     $("#barangay").append('<option value=" ">--</option>');
-                          }
-                          if($('#province').val() == "--"){
                             $("#municipality").append('<option value=" ">--</option>');
+                            $("#barangay").append('<option value=" ">--</option>');
                           }
                           else{
-                         $("#province").append('<option value=" ">Select Province</option>');
+                            $("#province").append('<option value=" ">Select Province</option>');
                           }
+
                         for(var n=0; n<data.length; n++) {
                            $("#province").append('<option>'+data[n]['province']+'</option>');
                         }
-                        // $("#municipality").empty();
-                        $("#barangay").empty();
-                        $("#municipality").append('<option value=" ">--</option>');
-                        $("#barangay").append('<option value=" ">--</option>');
                         $("#zip_code").val('');
                       }
                         else
                         {
                           $('#province').empty();
-                          $("#barangay").append('<option value=" ">--</option>');
                         }
                       }
               });
@@ -639,6 +635,7 @@ $(document).ready(function() {
        //alert(province); return false;
        if(province) {
               //alert(province); return false;
+              $('#municipality').empty();
               var url = window.location.origin+'/getmunicipality/'+province;
               //alert(url); return false;
               $.ajaxSetup
@@ -680,6 +677,7 @@ $(document).ready(function() {
         //alert(province); return false;
         if(municipality) {
                //alert(province); return false;
+               $('#barangay').empty();
                var url = window.location.origin+'/getbarangays/'+province;
                //alert(url); return false;
                $.ajaxSetup
@@ -785,8 +783,8 @@ $(document).ready(function() {
                         for(var n=0; n<data.length; n++) {
                            $("#provincename").append('<option>'+data[n]['province']+'</option>');
                         }
-                        $("#municipality").empty();
-                        $("#barangay").empty();
+                        $("#municipalityname").empty();
+                        $("#brgyname").empty();
                         $("#zip_code").val('');
                       }
 

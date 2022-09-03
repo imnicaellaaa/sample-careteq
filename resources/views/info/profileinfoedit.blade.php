@@ -256,7 +256,7 @@
 
                         {{-- COUNTRY --}}
                         <div class="col-md-4 p-2"><label class="labels">Country</label>
-                            <select class="form-control" id="country"name="countryname" style="background-color: white"
+                            <select class="form-control" id="country" name="countryname" style="background-color: white"
                                 autofocus>
                                 <option hidden>{{ $profileinfo->country }}</option>
                                 @foreach ($country as $countries)
