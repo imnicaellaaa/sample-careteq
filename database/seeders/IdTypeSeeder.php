@@ -78,26 +78,25 @@ class IdTypeSeeder extends Seeder
 
             [
                 'id'            => '11',
-                'name'          => "Birth Certificate",
-                'idno_format'   => " "
-            ],
-
-            [
-                'id'            => '12',
                 'name'          => "Unified Multi-Purpose Identification Card (UMID)",
                 'idno_format'   => "####-#######-#"
             ],
 
             [
+                'id'            => '12',
+                'name'          => "Overseas Workers Welfare Administration (OWWA)",
+                'idno_format'   => "###########"
+            ],
+            [
                 'id'            => '13',
-                'name'          => "School ID",
+                'name'          => "Birth Certificate",
                 'idno_format'   => " "
             ],
 
             [
                 'id'            => '14',
-                'name'          => "Overseas Workers Welfare Administration (OWWA)",
-                'idno_format'   => "###########"
+                'name'          => "School ID",
+                'idno_format'   => " "
             ],
         ]);
     }
