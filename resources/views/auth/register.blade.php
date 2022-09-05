@@ -17,8 +17,10 @@
 <script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.min.js') }}"></script>
 
-<script type="text/javascript" src="{{ asset('js/inputmask.min.js')}}"></script>
-<script type="text/javascript" src="{{ asset('js/inputmask.extensions.min.js')}}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+{{--  <script type="text/javascript" src="{{ asset('js/inputmask.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('js/inputmask.extensions.min.js')}}"></script>  --}}
 {{--  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>  --}}
       <script src="{{ asset('js/jquery.validate.js')}}"></script>
 <style>

@@ -528,7 +528,7 @@ $(document).ready(function() {
         if(id_type) {
 
               var url = window.location.origin+'/getIDTypes/'+ id_type;
-                //alert(url); return false;
+                // alert(url); return false;
               $.ajaxSetup
               ({
                   headers: {
@@ -542,12 +542,10 @@ $(document).ready(function() {
                 success:function(data)
                 // alert(data); return false;
                 {
-                    //alert(data); return false;
-                    if (data == "Others"){
-                        $("#id_no").attr('type', text);
-                    }
+                    // alert(data); return false;
+                    // alert(data == data["Others"]); return false;
                     if(data){
-                        //alert (data[0]['idno_format']); return false;
+                        // alert (data[0]['id_typeformat']); return false;
                         var inputmask = new Inputmask(data[0]['id_typeformat']);
                         inputmask.mask($('[id*=id_no]'));
                      }
