@@ -1,27 +1,10 @@
 @extends('layouts.guestnavbar')
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/jquery-1.11.1.js') }}"></script>
-<script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
-<script src="{{ asset('js/careteq.js') }}"></script>
-<!-- Select2 CSS -->
-<link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
 
-<script src="{{ asset('js/jquery-3.6.0/js') }}"></script>
-<script src="{{ asset('js/jquery-3.6.0.min/js') }}"></script>
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-<!-- Select2 JS -->
-<script src="{{ asset('js/select2.min.js') }}"></script>
-<link rel="stylesheet" href="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.css') }}">
-<link rel="stylesheet" href="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.min.css') }}">
-<script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.js') }}"></script>
-<script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.min.js') }}"></script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 @section('content')
-    <!-- CSS -->
-
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-<script src="{{ asset('js/careteq.js') }}"></script>
     <div class="login-page bg-light">
         <div class="container">
             <div class="row">
@@ -31,7 +14,7 @@
                         <div class="row">
                             <div class="col-md-7 pe-0">
                                 <div class="form-left h-100 py-5 px-5">
-                                    <form action="{{ route('login') }}" method="POST" class="row g-4">
+                                    <form action="{{ route('login') }}" method="POST" class="row g-4" onkeydown="return event.key != 'Enter';">
                                         @csrf
                                         {{-- Email --}}
                                         <div class="col-12">

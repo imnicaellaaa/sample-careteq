@@ -7,8 +7,11 @@
 <!-- Select2 CSS -->
 <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
 
-<script src="{{ asset('js/jquery-3.6.0/js') }}"></script>
-<script src="{{ asset('js/jquery-3.6.0.min/js') }}"></script>
+{{--  <script src="{{ asset('js/jquery-3.6.0/js') }}"></script>
+<script src="{{ asset('js/jquery-3.6.0.min/js') }}"></script>  --}}
+
+{{-- Font Awesome --}}
+<script src="{{ asset('js/font.js') }}" crossorigin="anonymous"></script>
 
 <!-- Select2 JS -->
 <script src="{{ asset('js/select2.min.js') }}"></script>
@@ -62,8 +65,8 @@
                                             <label for="firstname" class="form-label"><b style="color: red">*</b>
                                                 {{ __('First Name') }} <span class="firstname-validation validation-error"></span> </label>
                                             <input id="firstname" name="firstname" type="text"
-                                                class="form-control  @error('fname') is-invalid @enderror autofocus "
-                                                value="{{ old('firstname') }}" onblur="validate()">
+                                                class="form-control  @error('fname') is-invalid @enderror  "
+                                                value="{{ old('firstname') }}" onblur="validate()" autofocus required>
 
                                         </div>
                                         @error('firstname')
@@ -93,7 +96,7 @@
                                                     {{ __('Last Name') }}</label>
                                                 <input id="lastname" name="lastname" type="text"
                                                     class="form-control  @error('lastname') is-invalid @enderror autofocus"
-                                                    value="{{ old('lastname') }}" onblur="validate()">
+                                                    value="{{ old('lastname') }}" onblur="validate()" required>
                                             </div>
                                             @error('lastname')
                                                 <span class="invalid-feedback" role="alert">
@@ -117,7 +120,7 @@
                                             <input type="text"
                                                 class="form-control  @error('bday') is-invalid @enderror datepicker"
                                                 id="bday" name="bday" value="{{ old('bday') }}"
-                                                placeholder="mm/dd/yyy" onblur="validate()">
+                                                placeholder="mm/dd/yyy" onblur="validate()" required>
                                         </div>
                                         @error('bday')
                                             <span class="invalid-feedback" role="alert">
@@ -161,7 +164,7 @@
                                             <select
                                                 class="form-select form-select-md  @error('gender') is-invalid @enderror"
                                                 id="selGender" name="gender" aria-label=".form-select-lg example"
-                                                value="{{ old('$item->name') }}" onblur="validate()">
+                                                value="{{ old('$item->name') }}" onblur="validate()" required>
                                                 <option hidden>Choose Sex</option>
                                                 @foreach ($gender as $genders)
                                                     <option value="{{ $genders->name }}"
@@ -185,7 +188,7 @@
                                                 {{ __('Title') }}</label>
                                             <select class="form-select form-select-md @error('title') is-invalid @enderror"
                                                 aria-label=".form-select-lg example" id="selTitle" name="title"
-                                                value="{{ old('$item->name') }}">
+                                                value="{{ old('$item->name') }}" required>
                                                 <option hidden>Choose Title</option>
                                                 @foreach ($title as $titles)
                                                     <option value="{{ $titles->name }}"
@@ -218,7 +221,7 @@
                                             <select
                                                 class="form-select form-select-md @error('country') is-invalid @enderror"
                                                 aria-label=".form-select-lg example" id="country" name="country"
-                                                value="{{ old('$item->name') }}">
+                                                value="{{ old('$item->name') }}" required>
                                                 <option hidden>Choose Country</option>
                                                 @foreach ($country as $countries)
                                                     <option value="{{ $countries->country_name }}"
@@ -242,7 +245,7 @@
                                             <select
                                                 class="form-select form-select-md  @error('province') is-invalid @enderror"
                                                 aria-label=".form-select-lg example" id="province" name="province"
-                                                value="{{ old('$item->name') }}">
+                                                value="{{ old('$item->name') }}" required>
                                             </select>
 
                                             @error('province')
@@ -261,7 +264,7 @@
                                             <select
                                                 class="form-select form-select-md  @error('municipality') is-invalid @enderror"
                                                 aria-label=".form-select-lg example" id="municipality"
-                                                name="municipality" value="{{ old('$item->name') }}">
+                                                name="municipality" value="{{ old('$item->name') }}" required>
                                             </select>
                                             @error('municipality')
                                                 <span class="invalid-feedback" role="alert">
@@ -278,7 +281,7 @@
                                                 {{ __('Barangay') }}</label>
                                             <select class="form-select form-select-md  @error('brgy') is-invalid @enderror"
                                                 aria-label=".form-select-lg example" id="barangay" name="brgy"
-                                                value="{{ old('brgy') }}">
+                                                value="{{ old('brgy') }}" required>
                                             </select>
                                         </div>
                                         @error('brgy')
@@ -297,7 +300,7 @@
                                                     style="color: red">*</b> {{ __('House No. & Street') }}</label>
                                             <input id="houseNo_streetName" name="houseNo_streetName" type="text"
                                                 class="form-control  @error('houseNo_streetName') is-invalid @enderror autofocus"
-                                                value="{{ old('houseNo_streetName') }}" onblur="validate()">
+                                                value="{{ old('houseNo_streetName') }}" onblur="validate()" required>
                                         </div>
                                         @error('houseNo_streetName')
                                             <span class="invalid-feedback" role="alert">
@@ -334,7 +337,7 @@
                                             {{ __('E-Mail') }}</label>
                                         <input id="email" type="email"
                                             class="form-control error" name="email"
-                                            value="{{ old('email') }}" required autocomplete="email">
+                                            value="{{ old('email') }}" required autocomplete="email" required>
                                             <span style="color: #ff0000" id="emailError"></span>
                                     </div>
                                 </div>
@@ -347,7 +350,7 @@
                                         <div class="input-group mb-3">
                                             <input type="password"
                                                 class="form-control  @error('password') is-invalid @enderror"
-                                                id="password" name="password" onkeyup="return validatepass()">
+                                                id="password" name="password" onkeyup="return validatepass()" required>
                                             <button class="btn btn-outline-dark" type="button" id="showPassword" name="showPassword"><i
                                                     class="fa-solid fa-eye"></i></button>
 
@@ -377,7 +380,7 @@
                                             {{ __('Password Confirm') }}</label>
                                         <div class="input-group mb-3">
                                             <input type="password" class="form-control" id="password_confirmation"
-                                                name="password_confirmation">
+                                                name="password_confirmation" required>
                                             <button class="btn btn-outline-dark" type="button" id="showConfirmPassword" name="showConfirmPassword"><i
                                                     class="fa-solid fa-eye"></i></button>
                                             @error('password_confirmation')
@@ -427,7 +430,7 @@
                                                     style="display: none">{{ __('Patient ID') }}</label>
                                                 <input id="patient_id" name="patient_id" type="text"
                                                     class="form-control autofocus" style="display: none"
-                                                    value="{{ old('patient_id') }}">
+                                                    value="{{ old('patient_id') }}" required>
                                                 </ul>
                                             </div>
                                         </div>
@@ -449,7 +452,7 @@
                                             <select
                                                 class="form-select form-select-md  @error('id_type') is-invalid @enderror"
                                                 aria-label=".form-select-lg example" id="selID_Type" name="id_type"
-                                                value="{{ old('$item->name') }}">
+                                                value="{{ old('$item->name') }}" required>
                                                 <option value="">Select ID Type</option>
                                                 @foreach ($id_type as $id_types)
                                                     <option value="{{ $id_types->name }}"
@@ -471,7 +474,7 @@
                                             <label for="id_no" class="form-label"><b style="color: red">*</b>
                                                 {{ __('Id Number') }}</label>
                                             <input id="id_no" name="id_no" type="text"
-                                                class="form-control  @error('id_no') is-invalid @enderror autofocus" value="{{ old('id_no') }}" onblur="validate()">
+                                                class="form-control  @error('id_no') is-invalid @enderror autofocus" value="{{ old('id_no') }}" onblur="validate()" required>
                                             </ul>
                                         </div>
                                         @error('id_no')

@@ -8,11 +8,10 @@
     <!-- Select2 CSS -->
     <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
     <!-- CSS only -->
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"
-    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
-    <script src="{{ asset('js/jquery-3.6.0/js') }}"></script>
-    <script src="{{ asset('js/jquery-3.6.0.min/js') }}"></script>
+    {{--  <script src="{{ asset('js/jquery-3.6.0/js') }}"></script>
+    <script src="{{ asset('js/jquery-3.6.0.min/js') }}"></script>  --}}
 
     {{-- Font Awesome --}}
     <script src="{{ asset('js/font.js') }}" crossorigin="anonymous"></script>
@@ -26,8 +25,8 @@
     <script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.min.js') }}"></script>
 
     {{--  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>  --}}
-    <script src="{{ asset('js/inputmask.min.js') }}"></script>
-    <script src="{{ asset('js/inputmask.extensions.min.js') }}"></script>
+    {{--  <script src="{{ asset('js/inputmask.min.js') }}"></script>
+    <script src="{{ asset('js/inputmask.extensions.min.js') }}"></script>  --}}
 
 
     <style>
