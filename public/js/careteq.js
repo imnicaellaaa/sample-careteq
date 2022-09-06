@@ -945,6 +945,80 @@ $(document).ready(function() {
         $(this).val(Math.min('107.09', Math.max('21.65', $(this).val()).toFixed(2)));
       })
 
+      $('#kg').on('change', function (){
+        // alert($('#age').val()); return false;
+        // alert($('#age').val() === '0 years old'); return false;
+        // alert($('#gender').val() == 'Female'); return false;
+        if($('#gender').val() == "Female"){
+            // $(this).val(Math.min('92.5', Math.max('28.5', $(this).val()).toFixed(2)));
+            if($('#age').val() == '0 years old'){
+                $(this).val(Math.min('3.4', Math.max('1.5', $(this).val()).toFixed(2)));
+            }
+            if($('#age').val >= '1 years old' && $('#age').val() <= "12 years old"){
+                $(this).val(Math.min('40', Math.max('10', $(this).val()).toFixed(2)));
+            }
+            if ($('#age').val() >= '13 years old' && $('#age').val() <= '20 years old'){
+                $(this).val(Math.min('58', Math.max('43', $(this).val()).toFixed(2)));
+            }
+            else {
+                $(this).val(Math.min('92.5', Math.max('28.5', $(this).val()).toFixed(2)));
+            }
+        }
+
+        if($('#gender').val() == "Male"){
+            if($('#age').val() == "0 years old"){
+                $(this).val(Math.min('3.4', Math.max('1.5', $(this).val()).toFixed(2)));
+            }
+            if ($('#age').val >= '1 years old' && $('#age').val() <= "12 years old"){
+                $(this).val(Math.min('40', Math.max('10', $(this).val()).toFixed(2)));
+            }
+            if ($('#age').val() >= "13 years old" && $('#age').val() <= "20 years old"){
+                $(this).val(Math.min('72', Math.max('38', $(this).val()).toFixed(2)));
+            }
+            else{
+                $(this).val(Math.min('103.8', Math.max('28.5', $(this).val()).toFixed(2)));
+            }
+        }
+
+      })
+
+      $('#lb').on('change', function (){
+        // alert($('#age').val()); return false;
+        // alert($('#age').val() === '0 years old'); return false;
+        // alert($('#gender').val() == 'Female'); return false;
+        if($('#gender').val() == "Female"){
+            // $(this).val(Math.min('92.5', Math.max('28.5', $(this).val()).toFixed(2)));
+            if($('#age').val() == '0 years old'){
+                $(this).val(Math.min('7.6', Math.max('3.3', $(this).val()).toFixed(2)));
+            }
+            if($('#age').val >= '1 years old' && $('#age').val() <= "12 years old"){
+                $(this).val(Math.min('88', Math.max('22', $(this).val()).toFixed(2)));
+            }
+            if ($('#age').val() >= '13 years old' && $('#age').val() <= '20 years old'){
+                $(this).val(Math.min('130', Math.max('95', $(this).val()).toFixed(2)));
+            }
+            else {
+                $(this).val(Math.min('204', Math.max('77', $(this).val()).toFixed(2)));
+            }
+        }
+
+        if($('#gender').val() == "Male"){
+            if($('#age').val() == "0 years old"){
+                $(this).val(Math.min('3.4', Math.max('1.5', $(this).val()).toFixed(2)));
+            }
+            if ($('#age').val >= '1 years old' && $('#age').val() <= "12 years old"){
+                $(this).val(Math.min('88', Math.max('22', $(this).val()).toFixed(2)));
+            }
+            if ($('#age').val() >= "13 years old" && $('#age').val() <= "20 years old"){
+                $(this).val(Math.min('160', Math.max('85', $(this).val()).toFixed(2)));
+            }
+            else{
+                $(this).val(Math.min('229', Math.max('77', $(this).val()).toFixed(2)));
+            }
+        }
+
+      })
+
 
 
     }

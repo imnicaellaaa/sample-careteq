@@ -57,7 +57,7 @@
                                                 <input type="password" class="form-control" id="password" name="password"
                                                     required>
                                                 <button class="btn btn-outline-dark" type="button"
-                                                    id="showPassword" name="showPassword"><i class="fa-solid fa-eye"></i></button>
+                                                    id="showloginPassword" name="showloginPassword"><i class="fa-solid fa-eye"></i></button>
                                                 @error('password')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -111,5 +111,19 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function(){
+
+            $('#showloginPassword').on('click', function(){
+               var passInput=$("#password");
+               if(passInput.attr('type')==='password')
+                 {
+                   passInput.attr('type','text');
+               }else{
+                  passInput.attr('type','password');
+               }
+           })
+         })
     </script>
 @endsection
