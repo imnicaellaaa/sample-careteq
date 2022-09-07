@@ -194,14 +194,14 @@
             </div>
 
             {{-- BMI --}}
-            <div class="col-md-3 p-2"><label class="labels">BMI</label>
+            <div class="col-md-4 p-2"><label class="labels">BMI</label>
                 <input type="number" name="bmi" id="bmi" class="form-control"
                     value="{{ Auth::user()->bmi }}" disabled disabled>
             </div>
 
 
             {{-- PHILHEALTH NUMBER --}}
-            <div class="col-md-3 p-2"><label class="labels"><b style="color: red">*</b>
+            <div class="col-md-2 p-2"><label class="labels"><b style="color: red">*</b>
                     PhilHealth Number</label>
                 <input type="number" name="philhealth_no" id="philhealth_no"
                     class="form-control @error('philhealth_no') is-invalid @enderror"
@@ -215,8 +215,8 @@
                 @enderror
             </div>
 
-            {{-- MEMBER CATEGORY --}}
-            <div class="col-md-2 p-2"><label class="labels"><b style="color: red">*</b> Member
+            {{-- PHILHEALTH CATEGORY --}}
+            <div class="col-md-2 p-2"><label class="labels"><b style="color: red">*</b> Philhealth
                     Category</label>
                 <select name="member_category" id="selMemberCategory"
                     class="form-select form-select-md @error('member_category') is-invalid @enderror" disabled>
@@ -249,8 +249,8 @@
 
 
 
-            {{-- MEMBER Number --}}
-            <div class="col-md-3 p-2"><label class="labels"><b style="color: red">*</b>
+            {{-- MEMBERSHIP Number --}}
+            <div class="col-md-4 p-2"><label class="labels"><b style="color: red">*</b>
                     Membership Number</label>
                 <input type="number" name="membership_no" id="membership_no"
                     class="form-control @error('membership_no') is-invalid @enderror"
@@ -263,7 +263,7 @@
             </div>
 
             {{-- PLAN NAME --}}
-            <div class="col-md-3 p-2"><label class="labels"><b style="color: red">*</b> Plan
+            <div class="col-md-4 p-2"><label class="labels"><b style="color: red">*</b> Plan
                     Name</label>
                 <input type="text" name="plan_name" id="plan_name"
                     class="form-control @error('plan_name') is-invalid @enderror" value="{{ Auth::user()->plan_name }}"

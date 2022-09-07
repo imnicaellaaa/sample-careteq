@@ -11,6 +11,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="/style.css">
+
     <script src="{{ asset('js/jquery-3.6.0/js') }}"></script>
     <script src="{{ asset('js/jquery-3.6.0.min/js') }}"></script>
 
@@ -24,6 +26,7 @@
     <link rel="stylesheet" href="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.min.css') }}">
     <script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/jquery-ui-1.13.1.custom/jquery-ui.min.js') }}"></script>
+
     <style>
         .btn-text-right {
             text-align: right;
@@ -238,7 +241,7 @@
                         </div>
 
                         {{-- COUNTRY --}}
-                        <div class="col-md-4 p-2"><label class="labels">Country</label>
+                        <div class="col-md-4 p-2 form-group has-feedback"><label class="labels">Country</label>
                             <select class="form-control" id="country"name="country" style="background-color: white"
                                 autofocus>
                                 <option hidden>{{ Auth::user()->country }}</option>
@@ -246,8 +249,9 @@
                                     <option value="{{ $countries->country_code }}"
                                         {{ old('country') == $countries->country_code ? 'selected' : '' }}>
                                         {{ $countries->country_name }}</option>
-                                @endforeach
+                                @endforeach                             
                             </select>
+                          
                         </div>
 
                         {{-- PROVINCE --}}
@@ -282,8 +286,9 @@
 
                         {{-- STREET --}}
                         <div class="col-md-4 p-2"><label class="labels">Street</label>
-                            <input type="text" name="houseNo_streetName" id="houseNo_streetName" class="form-control"
-                                value="{{ Auth::user()->houseNo_streetName }}" style="background-color: white" autofocus>
+                            <input type="text" name="houseNo_streetName" id="houseNo_streetName"
+                                class="form-control" value="{{ Auth::user()->houseNo_streetName }}"
+                                style="background-color: white" autofocus>
                         </div>
 
                         {{-- POSTAL CODE --}}
@@ -293,10 +298,13 @@
                         </div>
                     </div>
 
+                 
+                    <div class="py-1"></div>
+
                     {{-- MEIDCAL ROW --}}
-                    <div class="row">
+                    <div class="row ">
                         <div class="d-flex justify-content-between align-items-center ">
-                            <h4 class="text-right ">Medical Information</h4>
+                            <h4 class="text-right  ">Medical Information</h4>
                         </div>
 
                         {{-- WEIGHT IN KILOGRAMS --}}
@@ -336,7 +344,7 @@
                         </div>
 
                         {{-- MEMBER CATEGORY --}}
-                        <div class="col-md-2 p-2"><label class="labels"> Philhealth Member Category</label>
+                        <div class="col-md-2 p-2"><label class="labels"> Philhealth Category</label>
                             <select name="member_category" id="selMemberCategory"
                                 class="form-select form-select-md @error('member_category') is-invalid @enderror"
                                 style="background-color: white" value="{{ Auth::user()->member_category }}"
