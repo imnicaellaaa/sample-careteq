@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Admin;
 use App\Models\Doctor;
+use App\Models\ProfileInfo;
 use App\Models\User;
 
 class dashboardController extends Controller
@@ -27,7 +28,7 @@ class dashboardController extends Controller
     public function index()
     {
         $admin_id = Admin::all();
-        $user = User::all();
+        $profileinfo = ProfileInfo::all();
         $doctor = Doctor::all();
         $admin = DB::table('admins')
             ->where('id', 1)
@@ -35,7 +36,7 @@ class dashboardController extends Controller
         return view('admin.dashboard',[
             'admin' => $admin,
             'admin_id' =>$admin_id,
-            'user' => $user,
+            'profileinfo' => $profileinfo,
             'doctor' => $doctor,
         ]);
     }

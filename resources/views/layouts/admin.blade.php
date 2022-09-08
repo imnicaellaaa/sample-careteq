@@ -119,10 +119,11 @@
                                 {{-- Profile Image --}}
                                 <li>
                                     <div class="d-flex-inline">
-                                        <img src="https://img.freepik.com/free-vector/man-shows-gesture-great-idea_10045-637.jpg?t=st=1656308571~exp=1656309171~hmac=510871e32c37c4408d415532e7a4da173d7a32297f2fb62f9d14bd36be08f67b&w=826"
+                                        @foreach ($admin as $admins )
+                                        <img src="/images/uploads/admin_avatars/{{ $admins->adminprofile_photo }}"
                                             class="rounded mx-auto d-block" style="width:150px; height:150px;">
 
-                                        @foreach ($admin as $admins )
+
                                         <p class="text-center fs-6 text-black fw-bold mt-2">{{$admins->name}}
                                         @endforeach</p>
                                         <a class="text-center fs-6 mt-2" href="">
@@ -146,7 +147,7 @@
                                 <li class="nav-item"><a href="http://25.11.205.10/admin/working_hours/create/"><span class="item-text"><i
                                     class="fa fa-hourglass-half"></i> Working Hours</span></a></li>
 
-                                <li class="nav-item"><a href="http://25.11.205.10/admin/appointments/create/?patientdetails=@foreach ($user as $user )?patientid={{$user->id}} ?=patientname{{$user->firstname}} {{$user->lastname}}@endforeach"><span class="item-text"><i
+                                <li class="nav-item"><a href="http://25.11.205.10/admin/appointments/create/?patientdetails=?patientid={{$value->id}} ?=patientname{{$value->firstname}} {{$value->lastname}}"><span class="item-text"><i
                                     class="fa-solid fa fa-calendar"></i> Appointments</span></a></li>
 
                                 <li class="nav-item"><a href="http://25.11.205.10/admin/employees"><span class="item-text"><i

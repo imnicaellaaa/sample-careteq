@@ -3,8 +3,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use App\Models\Doctor;
+use App\Models\ProfileInfo;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Http\Request;
+
 class AdminHomeController extends Controller
 {
     /**
@@ -21,18 +24,22 @@ class AdminHomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $admin_id = Admin::all();
-        $user = User::all();
+       $profileinfo = ProfileInfo::all();
         $doctor = Doctor::all();
         $admin = DB::table('admins')
-            ->where('id', 1)
+            ->where('id', 1 )
             ->get();
+            foreach ($profileinfo as $profileinfos){
+                $value = $profileinfos;
+            }
+            // dd($value['firstname']);
         return view('auth.admin.dashboard',[
             'admin' => $admin,
             'admin_id' =>$admin_id,
-            'user' => $user,
+            'value' => $value,
             'doctor' => $doctor,
         ]);
     }

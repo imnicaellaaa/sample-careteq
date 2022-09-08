@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use App\Models\Doctor;
 use App\Models\Prescriptions;
+use App\Models\ProfileInfo;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,12 +19,19 @@ class PrescriptionListControler extends Controller
     {
         $prescription = Prescriptions::all();
         $doctor = Doctor::all();
-        $user = User::all();
+        $profileinfo = ProfileInfo::all();
         $admin = Admin::all();
+
+
+        foreach ($profileinfo as $profileinfos){
+            $value = $profileinfos;
+        }
+
         return view("auth.admin.prescriptionlist",[
                     'prescription' => $prescription,
                     'doctor' => $doctor,
-                    'user' => $user,
+                    'profileinfo' => $profileinfo,
+                    'value' => $value,
                     'admin' => $admin,
         ]);
     }
