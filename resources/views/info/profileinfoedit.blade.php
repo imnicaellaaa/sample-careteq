@@ -412,8 +412,10 @@
                     <div class="d-flex justify-content-end py-4">
                         <button type="submit " class="btn btn-primary" id="btnEdit" class="btn btn-primary btn-lg">
                             {{ __('Update Changes') }}
-                        </button>
+                        </button> &nbsp;
+                        <a href="/home" class="btn btn-primary">Back</a>
                     </div>
+
             </form>
         </div>
     </div>
