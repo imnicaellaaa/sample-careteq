@@ -121,8 +121,6 @@
                                                 class="form-control  @error('bday') is-invalid @enderror datepicker"
                                                 id="bday" name="bday" value="{{ old('bday') }}"
                                                 placeholder="mm/dd/yyy" onblur="validate()" required>
-                                                <span id = "message" style="color:red"> </span> <br><br>
-                                                {{--  <h3 style="color:32A80F" id="result" align="center"></h3>  --}}
                                         </div>
                                         @error('bday')
                                             <span class="invalid-feedback" role="alert">
