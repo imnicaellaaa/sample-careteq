@@ -201,6 +201,7 @@ $('#bday').change(function () {
     // alert(now);
     if (dob > now) {
         alert('Entered Date is Greater than Current Date');
+        document.getElementById("bday").value ="";
         return false;
     }
      else {
