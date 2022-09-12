@@ -106,7 +106,7 @@
         {{-- Start of Edit Form --}}
         <div class="container">
             <form name="profileinfoedit" method="POST" action="{{ route('info.update') }}" enctype="multipart/form-data"
-                class="py-2">
+                class="py-2" onkeydown="return event.key != 'Enter';">
                 @csrf
                 <div class="row">
                     <div class="col-md-4">
@@ -438,4 +438,5 @@
 
            });
     </script>
+
 @endsection
