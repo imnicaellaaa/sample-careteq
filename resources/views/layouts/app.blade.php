@@ -71,7 +71,7 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 
-                                     {{ $profileinfo->firstname }}
+                                    {{ $profileinfo->title }} {{ $profileinfo->firstname }}
                                     {{ $profileinfo->middlename }} {{ $profileinfo->lastname }}
                                 </a>
 
