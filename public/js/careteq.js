@@ -195,16 +195,33 @@ $(document).ready(function(){
 
     //age calculation thru birthday
 $('#bday').change(function () {
-    var now = new Date();   //Current Date
-    var past = new Date($('#bday').val());  //Date of Birth
-    if (past > now) {
+    var userinput = document.getElementById("bday").value;
+    var dob = new Date(userinput);
+    var now = new Date();
+    // alert(now);
+    if (dob > now) {
         alert('Entered Date is Greater than Current Date');
         return false;
     }
-    var nowYear = now.getFullYear();  //Get current year
-    var pastYear = past.getFullYear();//Get Date of Birth year
-    var age = nowYear - pastYear;  //calculate the difference
-    $('#age').val(age + " years old");
+     else {
+
+    //calculate month difference from current date in time
+    var month_diff = Date.now() - dob.getTime();
+
+    //convert the calculated difference in date format
+    var age_dt = new Date(month_diff);
+
+    //extract year from date
+    var year = age_dt.getUTCFullYear();
+
+    //now calculate the age of the user
+    var age = Math.abs(year - 1970);
+
+    //display the calculated age
+    return document.getElementById("age").value =
+            age + " years old ";
+    }
+
 });
 
 //toggle new and existing patient
