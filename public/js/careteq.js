@@ -134,15 +134,21 @@ $(document).ready(function(){
      function convertionCentimeterstoInches () {
         var centimeter = $('#centimeter').val();
 
-        if(centimeter >= 272){
-            var convertedInches = parseFloat (272 / 2.54).toFixed(2);
-        }
-        if (centimeter <=272){
-            var convertedInches = parseFloat (centimeter / 2.54).toFixed(2);
-        }
-        if(centimeter <=55){
-            var convertedInches = parseFloat (55 / 2.54).toFixed(2);
-        }
+        var inches = parseFloat(centimeter / 2.54);
+        // alert(inches); return false;
+        var ft = parseInt(inches / 12);
+        // alert(ft); return false;
+        var inchTotal =
+2
+        // if(centimeter >= 272){
+        //     var convertedInches = parseFloat (272 / 2.54).toFixed(2);
+        // }
+        // if (centimeter <=272){
+        //     var convertedInches = parseFloat (centimeter / 2.54).toFixed(2);
+        // }
+        // if(centimeter <=55){
+        //     var convertedInches = parseFloat (55 / 2.54).toFixed(2);
+        // }
         $('#inch').val(convertedInches, 'inches');
 
     }
@@ -960,7 +966,12 @@ $(document).ready(function() {
 
       //maximum and minimum input of the height in inches with round off
       $('#inch').on('change', function () {
-        $(this).val(Math.min('107.09', Math.max('21.65', $(this).val()).toFixed(2)));
+        $(this).val(Math.min('11', Math.max('1', $(this).val()).toFixed(2)));
+      })
+
+      //maximum and minimum input of the height in inches with round off
+      $('#feet').on('change', function () {
+        $(this).val(Math.min('8', Math.max('1', $(this).val()).toFixed(2)));
       })
 
       $('#kg').on('change', function (){

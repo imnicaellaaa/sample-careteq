@@ -203,8 +203,16 @@
 
                                 </div>
 
+                                {{-- HEIGHT IN FEET  --}}
+                                <div class="col-md-2 p-2"><label class="labels">Height in Feet</label>
+                                    <input type="number" name="feet" id="feet" class="form-control"
+                                        value="{{ $profileinfo->inches }}" max="8" min="4"
+                                        style="background-color: white;" placeholder="feet" >
+
+                                </div>
+
                                 {{-- HEIGHT IN INCHES --}}
-                                <div class="col-md-3 p-2"><label class="labels">Height in Inches</label>
+                                <div class="col-md-2 p-2"><label class="labels">Height in Inches</label>
                                     <input type="number" name="inches" id="inch" class="form-control"
                                         value="{{ $profileinfo->inches }}" step=".01"
                                         style="background-color: white;" placeholder="inches" >
@@ -212,7 +220,7 @@
                                 </div>
 
                                 {{-- TITLE --}}
-                                <div class="col-md-3 p-2"><label class="labels">Title</label>
+                                <div class="col-md-2 p-2"><label class="labels">Title</label>
                                     <input type="text" name="title" id="title" class="form-control"
                                         class="form-select" value="{{ $profileinfo->title }}" readonly>
                                     {{-- <input type="text" name="title" id="title" value="{{ Auth::user()->title }}"  class="form-select" disabled> --}}
